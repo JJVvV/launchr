@@ -1,0 +1,58 @@
+// work-searck
+
+.work-list{
+  padding:0;
+}
+
+.work-item{
+  padding:9px 18px 8px;
+  overflow:hidden;
+  cursor:pointer;
+  border-top:1px solid $gray-lighter;
+  border-bottom:1px solid $gray-lighter;
+
+  &:hover, &.active{
+    background: $light-base;
+    border-color:$gray-light;
+  }
+
+  &:first-child{
+    border-top:none;
+  }
+}
+
+.work-item-avator{
+  float:left;
+  margin-right:8px;
+
+  img{
+    display:block;
+  }
+}
+
+.work-item-info{
+  overflow:hidden;
+
+  h4{
+    @extend %ellipsis;
+    width:100%;
+    font-size:14px;
+    font-weight:400;
+  }
+
+  p{
+    font-size:$font-size-small;
+    @extend %ellipsis;
+    width:100%;
+    color:$gray-darker;
+    margin-top:2px;
+  }
+}
+
+
+.work-item-time{
+  float:right;
+  font-size: $font-size-small;
+  color: $gray-darker;
+  letter-spacing: 2px;
+}
