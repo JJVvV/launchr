@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>Sample App</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="public/css/main.css"/>
   </head>
   <body>
@@ -13,14 +14,36 @@
           <div class="global-panel-logo">logo</div>
           <div class="global-panel-item icon-speech"></div>
           <div class="global-panel-item icon-notebook"></div>
-          <div class="global-panel-item icon-notebook"></div>
+          <div class="global-panel-item icon-grid"></div>
         </div>
         <div class="sub-panel">
-          <div class="work-search">
+          <header class="sub-panel-header">
+            <span class="btn-add icon-plus"></span>
+            <div class="work-search">
+              <label for="work-search"></label>
+              <i class="work-search-magnifier icon-magnifier"></i>
+              <input type="search" class="work-search-input" id="work-search" />
+            </div>
+          </header>
 
+          <div class="sub-panel-content">
+            <div class="work-list">
+              <div class="work-item">
+                <time class="work-item-time">17:02</time>
+                <div class="work-item-avator">
+                  <img src="./public/img/jinmuyan.jpg" alt="" width="40" height="40" />
+                </div>
+                <div class="work-item-info">
+                  <h4>公告</h4>
+                  <p>我爱你再见</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+
       <footer></footer>
     </div>
     <!--<script src="/static/common.js"></script>-->

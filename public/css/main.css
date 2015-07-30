@@ -326,6 +326,50 @@ h1, h2, h3, h4, h5, h6 {
   border-right: 1px solid #e3e7ea;
   width: 300px; }
 
+.sub-panel-header {
+  padding: 20px 20px 14px 20px;
+  border-bottom: 1px solid #e3e7ea; }
+
+.work-search {
+  border-radius: 15px;
+  border: 1px solid #e3e7ea;
+  height: 34px;
+  width: 218px; }
+
+.work-search-input {
+  border: 0;
+  outline: none; }
+
+.work-search-magnifier {
+  display: inline-block;
+  text-align: center;
+  line-height: 34px !important;
+  width: 20px;
+  padding-left: 10px; }
+
+.sub-panel-header .btn-add {
+  float: right;
+  font-size: 30px;
+  line-height: 34px;
+  cursor: pointer; }
+
+.work-list {
+  padding: 0; }
+
+.work-item {
+  padding: 10px 18px;
+  overflow: hidden; }
+
+.work-item-avator {
+  float: left;
+  margin-right: 5px; }
+
+.work-item-info {
+  overflow: hidden; }
+
+.work-item-time {
+  float: right; }
+
 @font-face {
   font-family: "Simple-Line-Icons";
   src: url("../font/Simple-Line-Icons-Webfont/fonts/Simple-Line-Icons.eot");
