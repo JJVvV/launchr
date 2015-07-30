@@ -8,7 +8,10 @@
 
 // $Variables and $Mixins
 @import "main/variables";
+<<<<<<< HEAD
 @import "main/extend";
+=======
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 @import "main/mixins";
 
 
@@ -17,13 +20,22 @@
 @import "main/reset";
 
 // $Core CSS
+<<<<<<< HEAD
 
 // $Components
 @import "main/icon";
+=======
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 @import "main/c_global_panel";
 @import "main/c_sub_panel";
 @import "main/c_work_search";
 @import "main/c_work_list";
+<<<<<<< HEAD
 @import "main/c_chat_areal";
+=======
+// $Components
+@import "main/icon";
+
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 // $test
 @import "test";

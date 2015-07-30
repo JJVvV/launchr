@@ -6,11 +6,18 @@
 $blue-base: #0099ff !default;
 $red-base: #ff3366 !default;
 $gray-base: #000 !default;
+<<<<<<< HEAD
 $gray-darker: #56646d !default;
 $gray-dark: #bec6d3 !default;
 $gray-light:#e3e7ea !default;
 $gray-lighter: #f5f6f8 !default;
 $light-base: #fff;
+=======
+$gray-darker: rgb(86, 10, 109) !default;
+$gray-dark: rgb(190, 198, 211) !default;
+$gray-light:rgb(227, 231, 234) !default;
+$gray-lighter: rgb(254, 246, 248) !default;
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 
 // global text color on <body>
 $text-color: $gray-base !default;
@@ -22,7 +29,11 @@ $link-hover-color:$blue-base !default;
 $font-family-base:PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans !default;
 $font-family-special:  Microsoft Yahei, open sans, sans;
 $font-size-base: 14px !default;
+<<<<<<< HEAD
 $font-size-small: 12px !default;
+=======
+
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 $font-size-h1:36px !default;
 $font-size-h2:30px !default;
 $font-size-h3:24px !default;
@@ -38,7 +49,11 @@ $border-radius-base:3px !default;
 
 $global-panel-width:100px !default;
 $sub-panel-width:300px !default;
+<<<<<<< HEAD
 $chat-area-width:520px !default;
+=======
+$detail-box-width:500px !default;
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 
 //family font path
 $font-family:$font-family-special !default;

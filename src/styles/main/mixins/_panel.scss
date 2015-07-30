@@ -1,6 +1,10 @@
 
+<<<<<<< HEAD
 @mixin panel($width){
   width:$width;
+=======
+@mixin panel{
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
   height:100%;
   border-right:1px solid $gray-light;
 }

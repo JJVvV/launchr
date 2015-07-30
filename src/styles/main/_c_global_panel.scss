@@ -1,5 +1,10 @@
 .global-panel{
+<<<<<<< HEAD
   @include panel($global-panel-width);
+=======
+  width:$global-panel-width;
+  @include panel();
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
   text-align:center;
   position:fixed;
   left:0;
@@ -7,11 +12,17 @@
   z-index:$z-index-base;
   box-shadow:1px 0 3px rgba(0, 0, 0, 0.1);
 }
+<<<<<<< HEAD
 
 %border-bottom{
   border-bottom:1px solid $gray-light;
 }
 
+=======
+%border-bottom{
+  border-bottom:1px solid $gray-light;
+}
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 .global-panel-item{
   padding-top:19px;
   padding-bottom:19px;

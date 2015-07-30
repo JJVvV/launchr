@@ -8,11 +8,14 @@
 /*
 *  存放变量
 */
+<<<<<<< HEAD
 .work-item-info h4, .work-item-info p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
 
+=======
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 /*
 *  ./mixins 入口文件
 */
@@ -303,6 +306,81 @@ h1, h2, h3, h4, h5, h6 {
 .typo img {
   max-width: 100%; }
 
+<<<<<<< HEAD
+=======
+.global-panel {
+  width: 100px;
+  height: 100%;
+  border-right: 1px solid #e3e7ea;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 90;
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1); }
+
+.global-panel-item, .global-panel-logo {
+  border-bottom: 1px solid #e3e7ea; }
+
+.global-panel-item {
+  padding-top: 19px;
+  padding-bottom: 19px;
+  font-size: 32px; }
+
+.global-panel-logo {
+  height: 125px; }
+
+.sub-panel {
+  margin-left: 100px;
+  height: 100%;
+  border-right: 1px solid #e3e7ea;
+  width: 300px; }
+
+.sub-panel-header {
+  padding: 20px 20px 14px 20px;
+  border-bottom: 1px solid #e3e7ea; }
+
+.work-search {
+  border-radius: 15px;
+  border: 1px solid #e3e7ea;
+  height: 34px;
+  width: 218px; }
+
+.work-search-input {
+  border: 0;
+  outline: none; }
+
+.work-search-magnifier {
+  display: inline-block;
+  text-align: center;
+  line-height: 34px !important;
+  width: 20px;
+  padding-left: 10px; }
+
+.sub-panel-header .btn-add {
+  float: right;
+  font-size: 30px;
+  line-height: 34px;
+  cursor: pointer; }
+
+.work-list {
+  padding: 0; }
+
+.work-item {
+  padding: 10px 18px;
+  overflow: hidden; }
+
+.work-item-avator {
+  float: left;
+  margin-right: 5px; }
+
+.work-item-info {
+  overflow: hidden; }
+
+.work-item-time {
+  float: right; }
+
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 @font-face {
   font-family: "Simple-Line-Icons";
   src: url("../font/Simple-Line-Icons-Webfont/fonts/Simple-Line-Icons.eot");
@@ -807,6 +885,7 @@ h1, h2, h3, h4, h5, h6 {
 .icon-users:before {
   content: "\e001"; }
 
+<<<<<<< HEAD
 .global-panel {
   width: 100px;
   height: 100%;
@@ -953,6 +1032,12 @@ body {
   height: 2000px; }
 
 .sub-panel, .chat-area {
+=======
+body {
+  height: 2000px; }
+
+.sub-panel {
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
   height: 1000px; }
 
 /*# sourceMappingURL=main.css.map */

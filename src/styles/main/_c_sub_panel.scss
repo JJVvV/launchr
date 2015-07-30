@@ -1,9 +1,16 @@
 .sub-panel{
+<<<<<<< HEAD
   background: $gray-lighter;
   margin-left:$global-panel-width;
   @include panel($sub-panel-width);
   float:left;
 
+=======
+  margin-left:$global-panel-width;
+  @include panel();
+
+  width:$sub-panel-width;
+>>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 }
 
 
