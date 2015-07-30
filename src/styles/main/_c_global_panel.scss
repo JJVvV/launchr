@@ -1,0 +1,24 @@
+.global-panel{
+  width:$global-panel-width;
+  @include panel();
+  text-align:center;
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:$z-index-base;
+  box-shadow:1px 0 3px rgba(0, 0, 0, 0.1);
+}
+%border-bottom{
+  border-bottom:1px solid $gray-light;
+}
+.global-panel-item{
+  padding-top:19px;
+  padding-bottom:19px;
+  font-size:32px;
+  @extend %border-bottom;
+}
+.global-panel-logo{
+  height:125px;
+  @extend %border-bottom;
+}
+

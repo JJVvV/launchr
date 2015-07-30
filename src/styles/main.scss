@@ -1,0 +1,27 @@
+/*
+*
+* ./main 入口文件
+*
+*
+*/
+
+
+// $Variables and $Mixins
+@import "main/variables";
+@import "main/mixins";
+
+
+
+// $Reset and $Base
+@import "main/reset";
+
+// $Core CSS
+@import "main/c_global_panel";
+@import "main/c_sub_panel";
+@import "main/c_work_search";
+
+// $Components
+@import "main/icon";
+
+// $test
+@import "test";

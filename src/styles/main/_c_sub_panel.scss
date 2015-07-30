@@ -1,0 +1,7 @@
+.sub-panel{
+  margin-left:$global-panel-width;
+  @include panel();
+
+  width:$sub-panel-width;
+}
+

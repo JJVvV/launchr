@@ -1,0 +1,839 @@
+@charset "UTF-8";
+/*
+*
+* ./main 入口文件
+*
+*
+*/
+/*
+*  存放变量
+*/
+/*
+*  ./mixins 入口文件
+*/
+/*
+*  样式初始化
+*/
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+  color: #333;
+  background: #fff;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-rendering: optimizelegibility; }
+
+/* 如果你的项目仅支持 IE9+ | Chrome | Firefox 等，推荐在 <html> 中添加 .borderbox 这个 class */
+html.borderbox *, html.borderbox *:before, html.borderbox *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, dl, dd, h1, h2, h3, h4, h5, h6, p, form {
+  margin: 0; }
+
+ol, ul, legend, button, input, optgroup, select, textarea, fieldset {
+  margin: 0;
+  padding: 0; }
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+  display: block; }
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio, canvas, video {
+  display: inline-block; }
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body, button, input, select, textarea {
+  font: 300 1em/1.8 Microsoft Yahei, open sans, sans; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+/* 去掉各Table cell 的边距并让其边重合 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* 去除默认边框 */
+fieldset, img {
+  border: 0; }
+
+/* 块/段落引用 */
+blockquote {
+  position: relative;
+  color: #999;
+  font-weight: 400;
+  border-left: 1px solid #1abc9c;
+  padding-left: 1em;
+  margin: 1em 3em 1em 2em; }
+
+@media only screen and (max-width: 640px) {
+  blockquote {
+    margin: 1em 0; } }
+
+/* Firefox 以外，元素没有下划线，需添加 */
+acronym, abbr {
+  border-bottom: 1px dotted;
+  font-variant: normal; }
+
+/* 添加鼠标问号，进一步确保应用的语义是正确的（要知道，交互他们也有洁癖，如果你不去掉，那得多花点口舌） */
+abbr {
+  cursor: help; }
+
+/* 一致的 del 样式 */
+del {
+  text-decoration: line-through; }
+
+address, caption, cite, code, dfn, em, th, var {
+  font-style: normal;
+  font-weight: 400; }
+
+/* 去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当去 */
+ul, ol {
+  list-style: none; }
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+  text-align: left; }
+
+q:before, q:after {
+  content: ''; }
+
+/* 统一上标和下标 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative; }
+
+:root sub, :root sup {
+  vertical-align: baseline;
+  /* for ie9 and other modern browsers */ }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* 让链接在 hover 状态下显示下划线 */
+a {
+  color: #1abc9c; }
+
+a:hover {
+  text-decoration: underline; }
+
+.typo a {
+  border-bottom: 1px solid #1abc9c; }
+
+.typo a:hover {
+  border-bottom-color: #555;
+  color: #555;
+  text-decoration: none; }
+
+/* 默认不显示下划线，保持页面简洁 */
+ins, a {
+  text-decoration: none; }
+
+/* 专名号：虽然 u 已经重回 html5 Draft，但在所有浏览器中都是可以使用的，
+ * 要做到更好，向后兼容的话，添加 class="typo-u" 来显示专名号
+ * 关于 <u> 标签：http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-u-element
+ * 被放弃的是 4，之前一直搞错 http://www.w3.org/TR/html401/appendix/changes.html#idx-deprecated
+ * 一篇关于 <u> 标签的很好文章：http://html5doctor.com/u-element/
+ */
+u, .typo-u {
+  text-decoration: underline; }
+
+/* 标记，类似于手写的荧光笔的作用 */
+mark {
+  background: #fffdd1;
+  border-bottom: 1px solid #ffedce;
+  padding: 2px;
+  margin: 0 5px; }
+
+/* 代码片断 */
+pre, code, pre tt {
+  font-family: Courier, 'Courier New', monospace; }
+
+pre {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 1em 1.5em;
+  display: block;
+  -webkit-overflow-scrolling: touch; }
+
+/* 一致化 horizontal rule */
+hr {
+  border: none;
+  border-bottom: 1px solid #cfcfcf;
+  margin-bottom: 0.8em;
+  height: 10px; }
+
+/* 底部印刷体、版本等标记 */
+small, .typo-small,
+figcaption {
+  font-size: 0.9em;
+  color: #888; }
+
+strong, b {
+  font-weight: bold;
+  color: #000; }
+
+/* 可拖动文件添加拖动手势 */
+[draggable] {
+  cursor: move; }
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  zoom: 1; }
+
+/* 强制文本换行 */
+.textwrap, .textwrap td, .textwrap th {
+  word-wrap: break-word;
+  word-break: break-all; }
+
+.textwrap-table {
+  table-layout: fixed; }
+
+/* 提供 serif 版本的字体设置: iOS 下中文自动 fallback 到 sans-serif */
+.serif {
+  font-family: Palatino, Optima, Georgia, serif; }
+
+/* 保证块/段落之间的空白隔行 */
+.typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr, .typo table,
+.typo-p, .typo-pre, .typo-ul, .typo-ol, .typo-dl, .typo-form, .typo-hr, .typo-table, blockquote {
+  margin-bottom: 1.2em; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Microsoft Yahei, open sans, sans;
+  font-weight: 100;
+  color: #000;
+  line-height: 1.35; }
+
+/* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
+.typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6,
+.typo-h1, .typo-h2, .typo-h3, .typo-h4, .typo-h5, .typo-h6 {
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+  line-height: 1.35; }
+
+.typo h1, .typo-h1 {
+  font-size: 2em; }
+
+.typo h2, .typo-h2 {
+  font-size: 1.8em; }
+
+.typo h3, .typo-h3 {
+  font-size: 1.6em; }
+
+.typo h4, .typo-h4 {
+  font-size: 1.4em; }
+
+.typo h5, .typo h6, .typo-h5, .typo-h6 {
+  font-size: 1.2em; }
+
+/* 在文章中，应该还原 ul 和 ol 的样式 */
+.typo ul, .typo-ul {
+  margin-left: 1.3em;
+  list-style: disc; }
+
+.typo ol, .typo-ol {
+  list-style: decimal;
+  margin-left: 1.9em; }
+
+.typo li ul, .typo li ol, .typo-ul ul, .typo-ul ol, .typo-ol ul, .typo-ol ol {
+  margin-bottom: 0.8em;
+  margin-left: 2em; }
+
+.typo li ul, .typo-ul ul, .typo-ol ul {
+  list-style: circle; }
+
+/* 同 ul/ol，在文章中应用 table 基本格式 */
+.typo table th, .typo table td, .typo-table th, .typo-table td, .typo table caption {
+  border: 1px solid #ddd;
+  padding: 0.5em 1em;
+  color: #666; }
+
+.typo table th, .typo-table th {
+  background: #fbfbfb; }
+
+.typo table thead th, .typo-table thead th {
+  background: #f1f1f1; }
+
+.typo table caption {
+  border-bottom: none; }
+
+/* 去除 webkit 中 input 和 textarea 的默认样式  */
+.typo-input, .typo-textarea {
+  -webkit-appearance: none;
+  border-radius: 0; }
+
+.typo-em, .typo em, legend, caption {
+  color: #000;
+  font-weight: inherit; }
+
+/* 着重号，只能在少量（少于100个字符）且全是全角字符的情况下使用 */
+.typo-em {
+  position: relative; }
+
+.typo-em:after {
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  content: "・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・"; }
+
+/* Responsive images */
+.typo img {
+  max-width: 100%; }
+
+.global-panel {
+  width: 100px;
+  height: 100%;
+  border-right: 1px solid #e3e7ea;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 90;
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1); }
+
+.global-panel-item, .global-panel-logo {
+  border-bottom: 1px solid #e3e7ea; }
+
+.global-panel-item {
+  padding-top: 19px;
+  padding-bottom: 19px;
+  font-size: 32px; }
+
+.global-panel-logo {
+  height: 125px; }
+
+.sub-panel {
+  margin-left: 100px;
+  height: 100%;
+  border-right: 1px solid #e3e7ea;
+  width: 300px; }
+
+@font-face {
+  font-family: "Simple-Line-Icons";
+  src: url("../font/Simple-Line-Icons-Webfont/fonts/Simple-Line-Icons.eot");
+  src: url("../font/Simple-Line-Icons-Webfont/fonts/Simple-Line-Icons.eot?#iefix") format("embedded-opentype"), url("../font/Simple-Line-Icons-Webfont/fonts/Simple-Line-Icons.woff") format("woff"), url("../font/Simple-Line-Icons-Webfont/fonts/Simple-Line-Icons.ttf") format("truetype"), url("../font/Simple-Line-Icons-Webfont/fonts/Simple-Line-Icons.svg#Simple-Line-Icons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class*=" icon-"], [class^=icon-] {
+  font-family: "Simple-Line-Icons";
+  font-style: normal;
+  font-weight: 400;
+  font-feature-settings: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-user-female:before {
+  content: "\e000"; }
+
+.icon-user-follow:before {
+  content: "\e002"; }
+
+.icon-user-following:before {
+  content: "\e003"; }
+
+.icon-user-unfollow:before {
+  content: "\e004"; }
+
+.icon-trophy:before {
+  content: "\e006"; }
+
+.icon-screen-smartphone:before {
+  content: "\e010"; }
+
+.icon-screen-desktop:before {
+  content: "\e011"; }
+
+.icon-plane:before {
+  content: "\e012"; }
+
+.icon-notebook:before {
+  content: "\e013"; }
+
+.icon-moustache:before {
+  content: "\e014"; }
+
+.icon-mouse:before {
+  content: "\e015"; }
+
+.icon-magnet:before {
+  content: "\e016"; }
+
+.icon-energy:before {
+  content: "\e020"; }
+
+.icon-emoticon-smile:before {
+  content: "\e021"; }
+
+.icon-disc:before {
+  content: "\e022"; }
+
+.icon-cursor-move:before {
+  content: "\e023"; }
+
+.icon-crop:before {
+  content: "\e024"; }
+
+.icon-credit-card:before {
+  content: "\e025"; }
+
+.icon-chemistry:before {
+  content: "\e026"; }
+
+.icon-user:before {
+  content: "\e005"; }
+
+.icon-speedometer:before {
+  content: "\e007"; }
+
+.icon-social-youtube:before {
+  content: "\e008"; }
+
+.icon-social-twitter:before {
+  content: "\e009"; }
+
+.icon-social-tumblr:before {
+  content: "\e00a"; }
+
+.icon-social-facebook:before {
+  content: "\e00b"; }
+
+.icon-social-dropbox:before {
+  content: "\e00c"; }
+
+.icon-social-dribbble:before {
+  content: "\e00d"; }
+
+.icon-shield:before {
+  content: "\e00e"; }
+
+.icon-screen-tablet:before {
+  content: "\e00f"; }
+
+.icon-magic-wand:before {
+  content: "\e017"; }
+
+.icon-hourglass:before {
+  content: "\e018"; }
+
+.icon-graduation:before {
+  content: "\e019"; }
+
+.icon-ghost:before {
+  content: "\e01a"; }
+
+.icon-game-controller:before {
+  content: "\e01b"; }
+
+.icon-fire:before {
+  content: "\e01c"; }
+
+.icon-eyeglasses:before {
+  content: "\e01d"; }
+
+.icon-envelope-open:before {
+  content: "\e01e"; }
+
+.icon-envelope-letter:before {
+  content: "\e01f"; }
+
+.icon-bell:before {
+  content: "\e027"; }
+
+.icon-badge:before {
+  content: "\e028"; }
+
+.icon-anchor:before {
+  content: "\e029"; }
+
+.icon-wallet:before {
+  content: "\e02a"; }
+
+.icon-vector:before {
+  content: "\e02b"; }
+
+.icon-speech:before {
+  content: "\e02c"; }
+
+.icon-puzzle:before {
+  content: "\e02d"; }
+
+.icon-printer:before {
+  content: "\e02e"; }
+
+.icon-present:before {
+  content: "\e02f"; }
+
+.icon-playlist:before {
+  content: "\e030"; }
+
+.icon-pin:before {
+  content: "\e031"; }
+
+.icon-picture:before {
+  content: "\e032"; }
+
+.icon-map:before {
+  content: "\e033"; }
+
+.icon-layers:before {
+  content: "\e034"; }
+
+.icon-handbag:before {
+  content: "\e035"; }
+
+.icon-globe-alt:before {
+  content: "\e036"; }
+
+.icon-globe:before {
+  content: "\e037"; }
+
+.icon-frame:before {
+  content: "\e038"; }
+
+.icon-folder-alt:before {
+  content: "\e039"; }
+
+.icon-film:before {
+  content: "\e03a"; }
+
+.icon-feed:before {
+  content: "\e03b"; }
+
+.icon-earphones-alt:before {
+  content: "\e03c"; }
+
+.icon-earphones:before {
+  content: "\e03d"; }
+
+.icon-drop:before {
+  content: "\e03e"; }
+
+.icon-drawer:before {
+  content: "\e03f"; }
+
+.icon-docs:before {
+  content: "\e040"; }
+
+.icon-directions:before {
+  content: "\e041"; }
+
+.icon-direction:before {
+  content: "\e042"; }
+
+.icon-diamond:before {
+  content: "\e043"; }
+
+.icon-cup:before {
+  content: "\e044"; }
+
+.icon-compass:before {
+  content: "\e045"; }
+
+.icon-call-out:before {
+  content: "\e046"; }
+
+.icon-call-in:before {
+  content: "\e047"; }
+
+.icon-call-end:before {
+  content: "\e048"; }
+
+.icon-calculator:before {
+  content: "\e049"; }
+
+.icon-bubbles:before {
+  content: "\e04a"; }
+
+.icon-briefcase:before {
+  content: "\e04b"; }
+
+.icon-book-open:before {
+  content: "\e04c"; }
+
+.icon-basket-loaded:before {
+  content: "\e04d"; }
+
+.icon-basket:before {
+  content: "\e04e"; }
+
+.icon-bag:before {
+  content: "\e04f"; }
+
+.icon-action-undo:before {
+  content: "\e050"; }
+
+.icon-action-redo:before {
+  content: "\e051"; }
+
+.icon-wrench:before {
+  content: "\e052"; }
+
+.icon-umbrella:before {
+  content: "\e053"; }
+
+.icon-trash:before {
+  content: "\e054"; }
+
+.icon-tag:before {
+  content: "\e055"; }
+
+.icon-support:before {
+  content: "\e056"; }
+
+.icon-size-fullscreen:before {
+  content: "\e057"; }
+
+.icon-size-actual:before {
+  content: "\e058"; }
+
+.icon-shuffle:before {
+  content: "\e059"; }
+
+.icon-share-alt:before {
+  content: "\e05a"; }
+
+.icon-share:before {
+  content: "\e05b"; }
+
+.icon-rocket:before {
+  content: "\e05c"; }
+
+.icon-question:before {
+  content: "\e05d"; }
+
+.icon-pie-chart:before {
+  content: "\e05e"; }
+
+.icon-pencil:before {
+  content: "\e05f"; }
+
+.icon-note:before {
+  content: "\e060"; }
+
+.icon-music-tone-alt:before {
+  content: "\e061"; }
+
+.icon-music-tone:before {
+  content: "\e062"; }
+
+.icon-microphone:before {
+  content: "\e063"; }
+
+.icon-loop:before {
+  content: "\e064"; }
+
+.icon-logout:before {
+  content: "\e065"; }
+
+.icon-login:before {
+  content: "\e066"; }
+
+.icon-list:before {
+  content: "\e067"; }
+
+.icon-like:before {
+  content: "\e068"; }
+
+.icon-home:before {
+  content: "\e069"; }
+
+.icon-grid:before {
+  content: "\e06a"; }
+
+.icon-graph:before {
+  content: "\e06b"; }
+
+.icon-equalizer:before {
+  content: "\e06c"; }
+
+.icon-dislike:before {
+  content: "\e06d"; }
+
+.icon-cursor:before {
+  content: "\e06e"; }
+
+.icon-control-start:before {
+  content: "\e06f"; }
+
+.icon-control-rewind:before {
+  content: "\e070"; }
+
+.icon-control-play:before {
+  content: "\e071"; }
+
+.icon-control-pause:before {
+  content: "\e072"; }
+
+.icon-control-forward:before {
+  content: "\e073"; }
+
+.icon-control-end:before {
+  content: "\e074"; }
+
+.icon-calendar:before {
+  content: "\e075"; }
+
+.icon-bulb:before {
+  content: "\e076"; }
+
+.icon-bar-chart:before {
+  content: "\e077"; }
+
+.icon-arrow-up:before {
+  content: "\e078"; }
+
+.icon-arrow-right:before {
+  content: "\e079"; }
+
+.icon-arrow-left:before {
+  content: "\e07a"; }
+
+.icon-arrow-down:before {
+  content: "\e07b"; }
+
+.icon-ban:before {
+  content: "\e07c"; }
+
+.icon-bubble:before {
+  content: "\e07d"; }
+
+.icon-camcorder:before {
+  content: "\e07e"; }
+
+.icon-camera:before {
+  content: "\e07f"; }
+
+.icon-check:before {
+  content: "\e080"; }
+
+.icon-clock:before {
+  content: "\e081"; }
+
+.icon-close:before {
+  content: "\e082"; }
+
+.icon-cloud-download:before {
+  content: "\e083"; }
+
+.icon-cloud-upload:before {
+  content: "\e084"; }
+
+.icon-doc:before {
+  content: "\e085"; }
+
+.icon-envelope:before {
+  content: "\e086"; }
+
+.icon-eye:before {
+  content: "\e087"; }
+
+.icon-flag:before {
+  content: "\e088"; }
+
+.icon-folder:before {
+  content: "\e089"; }
+
+.icon-heart:before {
+  content: "\e08a"; }
+
+.icon-info:before {
+  content: "\e08b"; }
+
+.icon-key:before {
+  content: "\e08c"; }
+
+.icon-link:before {
+  content: "\e08d"; }
+
+.icon-lock:before {
+  content: "\e08e"; }
+
+.icon-lock-open:before {
+  content: "\e08f"; }
+
+.icon-magnifier:before {
+  content: "\e090"; }
+
+.icon-magnifier-add:before {
+  content: "\e091"; }
+
+.icon-magnifier-remove:before {
+  content: "\e092"; }
+
+.icon-paper-clip:before {
+  content: "\e093"; }
+
+.icon-paper-plane:before {
+  content: "\e094"; }
+
+.icon-plus:before {
+  content: "\e095"; }
+
+.icon-pointer:before {
+  content: "\e096"; }
+
+.icon-power:before {
+  content: "\e097"; }
+
+.icon-refresh:before {
+  content: "\e098"; }
+
+.icon-reload:before {
+  content: "\e099"; }
+
+.icon-settings:before {
+  content: "\e09a"; }
+
+.icon-star:before {
+  content: "\e09b"; }
+
+.icon-symbol-female:before {
+  content: "\e09c"; }
+
+.icon-symbol-male:before {
+  content: "\e09d"; }
+
+.icon-target:before {
+  content: "\e09e"; }
+
+.icon-volume-1:before {
+  content: "\e09f"; }
+
+.icon-volume-2:before {
+  content: "\e0a0"; }
+
+.icon-volume-off:before {
+  content: "\e0a1"; }
+
+.icon-users:before {
+  content: "\e001"; }
+
+body {
+  height: 2000px; }
+
+.sub-panel {
+  height: 1000px; }
+
+/*# sourceMappingURL=main.css.map */
