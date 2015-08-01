@@ -1,0 +1,13 @@
+//旋转 rotate
+@keyframes rotate {
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(360deg);
+  }
+}
+.animate-rotate{
+  transform-origin:50%;
+  animation:rotate 1s linear 0s infinite;
+}

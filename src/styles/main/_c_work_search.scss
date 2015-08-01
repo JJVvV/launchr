@@ -5,27 +5,23 @@
   border:1px solid $gray-light;
   height:$work-search-height;
   width:218px;
-<<<<<<< HEAD
   background:$light-base;
-=======
->>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
+  color: $gray-light;
 }
 
 .work-search-input{
   border:0;
   outline:none;
-<<<<<<< HEAD
   height:$work-search-height;
   vertical-align:top;
-=======
->>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 }
 .work-search-magnifier{
   display: inline-block;
   text-align:center;
   line-height: $work-search-height !important;
   width:20px;
-  padding-left:10px;
+  padding-left:11px;
+  font-size:18px;
 }
 
 .sub-panel-header .btn-add{

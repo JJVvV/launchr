@@ -1,0 +1,83 @@
+%bubble-before-after{
+  content:'';
+  position:absolute;
+  top:14px;
+  border:6px solid transparent;
+}
+
+@mixin bubble($background, $hover:false){
+  position:relative;
+  max-width:$bubble-max-width;
+  padding: 8px;
+  display:inline-block;
+  background:$bubble-background;
+  border-radius:$border-radius-base;
+  text-align:left;
+
+  pre{
+    margin:0;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-family:inherit;
+  }
+
+  @if($hover){
+    &:hover{
+      background:$background;
+      color:$light-base;
+
+      &.left:before{
+        border-right-color:$background;
+      }
+      &.right:before{
+        border-left-color:$background;
+      }
+      .icon-reload{
+        color:$gray-base;
+      }
+    }
+  }
+
+  &:before{
+    @extend %bubble-before-after;
+  }
+  &.left:before{
+    right:100%;
+    border-right-color: $bubble-background;
+    border-right-width: 4px;
+  }
+
+  &.right:before{
+    left:100%;
+    border-left-color: $bubble-background;
+    border-right-width: 4px;
+  }
+
+
+  @each $direction in $bubble-direction-list{
+    @if($direction == 'left'){
+      $n-direction : 'right';
+    }@else{
+      $n-direction : 'left';
+    }
+
+    &.#{$direction}:before{
+      #{$n-direction}:100%;
+      border-#{$n-direction}-color: $bubble-background;
+      border-#{$n-direction}-width: 4px;
+    }
+  }
+
+  .icon-reload{
+    position:absolute;
+
+    top:50%;
+    right:100%;
+    margin-top:ceil(-$bubble-icon-loading-width/2);
+    margin-right:10px;
+    width:$bubble-icon-loading-width;
+    line-height:$bubble-icon-loading-width;
+    text-align:center;
+    font-size:$bubble-icon-loading-width;
+  }
+}

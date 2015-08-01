@@ -19,7 +19,8 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     del = require('del'),
     gulp = require('gulp'),
-    server = require('gulp-express');
+    server = require('gulp-express'),
+    plumber = require('gulp-plumber');
 
 //var webpack = require('webpack-stream');
 var webpack = require('webpack');
@@ -40,6 +41,9 @@ console.log(getStylePath(['main']));
 
 gulp.task('styles', function() {
     return gulp.src(getStylePath(['main']))
+        .pipe(plumber({
+            errorHandler:true
+        }))
         .pipe(sourcemaps.init())
         .pipe(sass())
       .pipe(sourcemaps.write('./'))
@@ -158,7 +162,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['clean'], function() {
-    gulp.run('styles', 'scripts', 'images', 'watch'); //,'webpack-dev-server'
+    gulp.run('styles','watch'); //,'webpack-dev-server', 'scripts', 'images'
 
     //gulp.run('watch');
 });

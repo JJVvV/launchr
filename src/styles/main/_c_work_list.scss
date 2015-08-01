@@ -5,7 +5,6 @@
 }
 
 .work-item{
-<<<<<<< HEAD
   padding:9px 18px 8px;
   overflow:hidden;
   cursor:pointer;
@@ -20,28 +19,19 @@
   &:first-child{
     border-top:none;
   }
-=======
-  padding:10px 18px;
-  overflow:hidden;
->>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 }
 
 .work-item-avator{
   float:left;
-<<<<<<< HEAD
   margin-right:8px;
 
   img{
     display:block;
   }
-=======
-  margin-right:5px;
->>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 }
 
 .work-item-info{
   overflow:hidden;
-<<<<<<< HEAD
 
   h4{
     @extend %ellipsis;
@@ -65,10 +55,4 @@
   font-size: $font-size-small;
   color: $gray-darker;
   letter-spacing: 2px;
-=======
-}
-
-.work-item-time{
-  float:right;
->>>>>>> 33dd1180a91a4536507b4e56e60de35570654c18
 }
