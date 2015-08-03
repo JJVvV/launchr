@@ -1,4 +1,10 @@
 //存放布局
+html, body, #wrapper, .container{
+  height:100%;
+}
+.container{
+  min-height: 600px;
+}
 
 #wrapper{
   font-size:$font-size-base;

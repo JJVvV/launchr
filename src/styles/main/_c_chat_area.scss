@@ -3,7 +3,10 @@
 .chat-area{
   background: $light-base;
   overflow:hidden;
-  @include panel($chat-area-width);
+
+  @include panel(null);
+  min-width:$chat-area-width;
+  max-width:$chat-area-max-width;
   position:relative;
 }
 .chat-area-inner{
@@ -120,23 +123,49 @@
 
 .chat-send-toolbar{
   padding:10px 17px;
+  color:$gray-dark;
 
-
-  >span{
+  i{
     display:inline-block;
     line-height:26px;
     width:32px;
     text-align:center;
+    font-size:16px;
+
+  }
+  .toolbar{
+
     cursor:pointer;
     &.active, &:hover{
       color:$blue-base;
     }
-    &:after{
-      font-size:16px;
-    }
+
   }
 }
 
 .chat-send-toolbar-records{
   float:right;
+  margin-right:8px;
+  i{
+    width:29px;
+  }
+  span{
+    vertical-align: 2px;
+  }
+}
+
+.chat-send-content{
+  padding: 0px 24px;
+  height: 70px;
+}
+
+.chat-send-action{
+  padding: 10px 24px 0;
+  text-align:right;
+
+  .chat-send-action-tip{
+    color:$gray-dark;
+    font-size:$font-size-small;
+    margin-right:8px;
+  }
 }

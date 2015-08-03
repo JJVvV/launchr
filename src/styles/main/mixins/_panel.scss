@@ -1,5 +1,8 @@
 
 @mixin panel($width){
+  @if($width){
+
+  }
   width:$width;
   height:100%;
   border-right:1px solid $gray-light;

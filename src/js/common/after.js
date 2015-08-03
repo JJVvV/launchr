@@ -4,7 +4,6 @@
 
 // function.after
 
-
 if(typeof Function.prototype.after === 'undefined'){
   Function.prototype.after = function(fn){
     return (...args) => {

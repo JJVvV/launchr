@@ -41,12 +41,11 @@ console.log(getStylePath(['main']));
 
 gulp.task('styles', function() {
     return gulp.src(getStylePath(['main']))
-        .pipe(plumber({
-            errorHandler:true
-        }))
+
         .pipe(sourcemaps.init())
         .pipe(sass())
       .pipe(sourcemaps.write('./'))
+
        // .pipe(autoprefixer())
 
         //.pipe(concat('all.css'))
@@ -55,6 +54,9 @@ gulp.task('styles', function() {
         //.pipe(minifycss())
 
         .pipe(gulp.dest('./public/css'))
+      .pipe(plumber({
+          errorHandler:true
+      }))
         .pipe(livereload())
          //.pipe(notify({ message: 'Styles task complete' }));
 });
