@@ -1,4 +1,4 @@
 .bubble{
-  @include bubble($blue-base, true);
+  @include bubble($blue-base, false);
 }
 

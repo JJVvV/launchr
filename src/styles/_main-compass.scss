@@ -2,3 +2,9 @@
 @function twbs-font-path($path, $name) {
   @return "";
 }
+
+//获取按钮padding
+@function get-btn-padding($height, $font-size, $line-height, $border:1px){
+  @warn "#{ round(($height - $font-size * $line-height - $border*2)/2)},#{$height}, #{$font-size}, #{$line-height}, #{$border}";
+  @return round(($height - $font-size * $line-height - $border*2)/2);
+}

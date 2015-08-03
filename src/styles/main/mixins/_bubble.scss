@@ -37,7 +37,20 @@
       }
     }
   }
+  &.you{
+    background:$background;
+    color:$light-base;
 
+    &.left:before{
+      border-right-color:$background;
+    }
+    &.right:before{
+      border-left-color:$background;
+    }
+    .icon-reload{
+      color:$gray-base;
+    }
+  }
   &:before{
     @extend %bubble-before-after;
   }

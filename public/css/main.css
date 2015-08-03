@@ -57,7 +57,7 @@ audio, canvas, video {
 
 /* 要注意表单元素并不继承父级 font 的问题 */
 body, button, input, select, textarea {
-  font: 300 1em/1.8 Microsoft Yahei, open sans, sans; }
+  font: 400 1em/1.8 Microsoft Yahei, open sans, sans; }
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
@@ -329,11 +329,7 @@ html, body, #wrapper, .container {
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  user-select: none;
-  padding: 7px 25px;
-  font-size: 14px;
-  line-height: 1.42857;
-  border-radius: 3px; }
+  user-select: none; }
   .btn:focus,
   .btn.focus,
   .btn:active:focus,
@@ -400,7 +396,7 @@ html, body, #wrapper, .container {
   .btn-primary:active,
   .btn-primary.active {
     background: rgba(0, 153, 255, 0.8);
-    color: #0099ff;
+    color: #fff;
     border-color: #0099ff; }
   .btn-primary.disabled,
   .btn-primary.disabled:hover,
@@ -433,7 +429,7 @@ html, body, #wrapper, .container {
   .btn-success:active,
   .btn-success.active {
     background: rgba(36, 192, 95, 0.8);
-    color: #24c05f;
+    color: #fff;
     border-color: #24c05f; }
   .btn-success.disabled,
   .btn-success.disabled:hover,
@@ -466,7 +462,7 @@ html, body, #wrapper, .container {
   .btn-info:active,
   .btn-info.active {
     background: rgba(0, 153, 255, 0.8);
-    color: #0099ff;
+    color: #fff;
     border-color: #0099ff; }
   .btn-info.disabled,
   .btn-info.disabled:hover,
@@ -499,7 +495,7 @@ html, body, #wrapper, .container {
   .btn-warning:active,
   .btn-warning.active {
     background: rgba(255, 51, 102, 0.8);
-    color: #ff3366;
+    color: #fff;
     border-color: #ff3366; }
   .btn-warning.disabled,
   .btn-warning.disabled:hover,
@@ -532,7 +528,7 @@ html, body, #wrapper, .container {
   .btn-danger:active,
   .btn-danger.active {
     background: rgba(255, 51, 102, 0.8);
-    color: #ff3366;
+    color: #fff;
     border-color: #ff3366; }
   .btn-danger.disabled,
   .btn-danger.disabled:hover,
@@ -554,6 +550,36 @@ html, body, #wrapper, .container {
   fieldset[disabled] .btn-danger.active {
     background-color: #ff3366;
     border-color: #ff3366; }
+
+.btn-mi {
+  font-size: 14px;
+  border-radius: 3px;
+  line-height: 23px;
+  padding: 0 15px; }
+
+.btn-default {
+  font-size: 14px;
+  border-radius: 3px;
+  line-height: 38px;
+  padding: 0 20px; }
+
+.btn-sm {
+  font-size: 14px;
+  border-radius: 3px;
+  line-height: 28px;
+  padding: 0 20px; }
+
+.btn-lg {
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 48px;
+  padding: 0 24px; }
+
+.btn-ke {
+  font-size: 24px;
+  border-radius: 5px;
+  line-height: 58px;
+  padding: 0 28px; }
 
 @font-face {
   font-family: "Simple-Line-Icons";
@@ -1065,21 +1091,21 @@ html, body, #wrapper, .container {
   padding: 8px;
   display: inline-block;
   background: #e3e7ea;
-  border-radius: 3px;
+  border-radius: 5px;
   text-align: left; }
   .bubble pre {
     margin: 0;
     word-wrap: break-word;
     word-break: break-all;
     font-family: inherit; }
-  .bubble:hover {
+  .bubble.you {
     background: #0099ff;
     color: #fff; }
-    .bubble:hover.left:before {
+    .bubble.you.left:before {
       border-right-color: #0099ff; }
-    .bubble:hover.right:before {
+    .bubble.you.right:before {
       border-left-color: #0099ff; }
-    .bubble:hover .icon-reload {
+    .bubble.you .icon-reload {
       color: #000; }
   .bubble.left:before {
     right: 100%;
@@ -1265,13 +1291,13 @@ html, body, #wrapper, .container {
   .chat-message-time time {
     font-size: 12px;
     display: inline-block;
-    border-radius: 2px;
+    border-radius: 3px;
     background: #e3e7ea;
     padding: 0 12px;
     color: #fff; }
 
 .chat-message-avator {
-  border-radius: 2px; }
+  border-radius: 3px; }
   .chat-message.me .chat-message-avator {
     float: right; }
   .chat-message.you .chat-message-avator {
