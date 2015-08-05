@@ -21,8 +21,9 @@
   {
     background:rgba($hover-background, 0.8);
     color:$hover-color;
-    border-color: $hover-background;
+    border-color: rgba($hover-background, 0.1);
   }
+
 
   &.disabled,
   &[disabled],

@@ -6,18 +6,23 @@
 
 .work-item{
   padding:9px 18px 8px;
+  margin-top:-1px;
   overflow:hidden;
   cursor:pointer;
   border-top:1px solid $gray-lighter;
   border-bottom:1px solid $gray-lighter;
-
+  position:relative;
   &:hover, &.active{
     background: $light-base;
     border-color:$gray-light;
+    z-index:2;
   }
 
   &:first-child{
     border-top:none;
+  }
+  &:first-child{
+    margin-top:0px;
   }
 }
 
@@ -45,7 +50,7 @@
     @extend %ellipsis;
     width:100%;
     color:$gray-darker;
-    margin-top:2px;
+    margin-top:3px;
   }
 }
 

@@ -1,0 +1,24 @@
+//聊天表情 emotion
+
+.emotion{
+  position:absolute;
+  left:12px;
+  bottom:404px;
+  @include border(#333);
+  width:200px;height:100px;
+  z-index:$z-index-large;
+}
+
+.emotion-header{
+
+}
+.emotion-header-inner{
+
+}
+.emotion-header-item{
+
+}
+
+.emotion-bd{
+
+}

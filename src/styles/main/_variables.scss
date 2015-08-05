@@ -127,3 +127,11 @@ $bubble-max-width: 380px;
 //chat-send
 $chat-send-height:175px;
 
+//form
+$input-height-base:$btn-default-height !default;
+$input-color: $gray-darker !default;
+$input-bg:$light-base !default;
+$input-border-color:$gray-dark !default;
+$input-border-radius: $border-radius-base !default;
+$input-placeholder-color: $gray-light;
+$input-bg-disabled:$gray-lighter;

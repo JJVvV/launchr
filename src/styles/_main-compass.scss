@@ -8,3 +8,13 @@
   @warn "#{ round(($height - $font-size * $line-height - $border*2)/2)},#{$height}, #{$font-size}, #{$line-height}, #{$border}";
   @return round(($height - $font-size * $line-height - $border*2)/2);
 }
+
+//获取高度 input button
+@function get-height($height, $padding-top, $border){
+  @return $height - ($padding-top + $border)*2
+}
+
+//获取line-height
+@function get-line-height($height, $border:1px){
+  @return $height - $border*2;
+}

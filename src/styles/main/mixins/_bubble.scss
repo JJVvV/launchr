@@ -35,59 +35,58 @@
       .icon-reload{
         color:$gray-base;
       }
+
     }
   }
-  &.you{
+
+  &.left{
     background:$background;
     color:$light-base;
-
-    &.left:before{
-      border-right-color:$background;
-    }
-    &.right:before{
-      border-left-color:$background;
-    }
-    .icon-reload{
-      color:$gray-base;
-    }
   }
+  &.right:before{
+    border-left-color:$background;
+  }
+  .icon-reload{
+    color:$gray-base;
+    right:100%;
+    margin-right:10px;
+  }
+  .icon-star{
+    color:$background;
+    left:100%;
+    margin-left:10px;
+  }
+
+
+
   &:before{
     @extend %bubble-before-after;
   }
-  &.left:before{
-    right:100%;
-    border-right-color: $bubble-background;
-    border-right-width: 4px;
-  }
-
-  &.right:before{
-    left:100%;
-    border-left-color: $bubble-background;
-    border-right-width: 4px;
-  }
 
 
+  @warn $background;
   @each $direction in $bubble-direction-list{
     @if($direction == 'left'){
       $n-direction : 'right';
+      $n-background:$background;
     }@else{
       $n-direction : 'left';
+      $n-background:$gray-light;
     }
-
+    @warn $n-background;
     &.#{$direction}:before{
       #{$n-direction}:100%;
-      border-#{$n-direction}-color: $bubble-background;
+      border-#{$n-direction}-color: $n-background;
       border-#{$n-direction}-width: 4px;
     }
   }
 
-  .icon-reload{
+  .icon-reload, .icon-star{
     position:absolute;
 
     top:50%;
-    right:100%;
     margin-top:ceil(-$bubble-icon-loading-width/2);
-    margin-right:10px;
+
     width:$bubble-icon-loading-width;
     line-height:$bubble-icon-loading-width;
     text-align:center;

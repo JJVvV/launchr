@@ -1,0 +1,86 @@
+.form-c {
+  display: inline-block;
+  font-size: $font-size-base;
+  line-height: get-line-height($input-height-base, 1px);
+  color: $input-color;
+  background-color: $input-bg;
+  background-image: none;
+  border: 1px solid $input-border-color;
+  border-radius: $input-border-radius;
+  outline: 0;
+  padding:0 12px;
+
+  @include form-c-focus-hover;
+
+  // Placeholder
+  @include placeholder;
+
+
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: $input-bg-disabled;
+    opacity: 1;
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+  }
+}
+
+
+.form-feedback{
+  @include feedback($input-height-base);
+  //@extend %feedback-wrapper;
+  display:inline-block;
+  position:relative;
+  .form-c{
+    display:block;
+  }
+
+  .feedback{
+    //@extend %feedback;
+    text-align:center;
+    position:absolute;
+    top:0;
+
+    width:30px;
+  }
+  &.left{
+    .form-c{
+      padding-left:30px;
+    }
+    .feedback{
+      left:0;
+      padding-left:3px;
+    }
+  }
+  &.right{
+    .form-c{
+      padding-right:30px;
+    }
+    .feedback{
+      right:0;
+      padding-right:3px;
+    }
+  }
+  &.error{
+    .feedback{
+      color:$red-base;
+    }
+  }
+  &.success{
+    .feedback{
+      color:$green-base;
+    }
+  }
+}
+
+//.form-search
+//{
+//  @include search;
+//}
+//.form-search .form-c{
+//  @include border-radius(20px);
+//}
