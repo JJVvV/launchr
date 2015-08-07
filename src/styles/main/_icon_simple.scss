@@ -5,13 +5,15 @@
 
   @font-face {
     font-family: $icon-name;
-    src:url("#{$icon-path}.eot");
-    src:url("#{$icon-path}.eot?#iefix") format('embedded-opentype'),
-    url("#{$icon-path}.woff") format('woff'),
-    url("#{$icon-path}.ttf") format('truetype'),
-    url("#{$icon-path}.svg#Simple-Line-Icons") format('svg');
+    src:url("#{$simple-icon-path}.eot");
+    src:url("#{$simple-icon-path}.eot?#iefix") format('embedded-opentype'),
+    url("#{$simple-icon-path}.woff") format('woff'),
+    url("#{$simple-icon-path}.ttf") format('truetype'),
+    url("#{$simple-icon-path}.svg#Simple-Line-Icons") format('svg');
     font-weight: normal;
     font-style: normal;
+
+
   }
 }
 

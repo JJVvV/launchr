@@ -14,13 +14,48 @@
 
 .global-panel-item{
   padding-top:19px;
-  padding-bottom:19px;
-  font-size:32px;
+  padding-bottom:13px;
+  font-size:38px;
   cursor:pointer;
   @extend %border-bottom;
+  position:relative;
+
+
+  &.icon-chat:hover,
+  &.icon-chat.active{
+    color:$blue-base;
+    &:before{
+      content:"\e88a";
+    }
+  }
+  &.icon-contacts:hover,
+  &.icon-contacts.active{
+    color:$blue-base;
+    &:before{
+      content:"\e88c";
+    }
+  }
+  &.icon-app:hover,
+  &.icon-app.active{
+    color:$blue-base;
+    &:before{
+      content:"\e886";
+    }
+  }
+
+  .circle{
+    @include circle(16px, $light-base, $red-base);
+    font-family: $font-family;
+    font-size:$font-size-small;
+    position:absolute;
+    left: 53px;
+    top: 14px;
+
+  }
 }
 .global-panel-logo{
-  height:125px;
+  height:100px;
   @extend %border-bottom;
 }
+
 

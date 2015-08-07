@@ -45,9 +45,10 @@ $chat-area-width:520px !default;
 $chat-area-max-width:520px !default;
 //family font path
 $font-family:$font-family-special !default;
-$icon-name: "Simple-Line-Icons";
-$icon-path:"../font/Simple-Line-Icons-Webfont/fonts/Simple-Line-Icons";
-
+//$icon-name: "Simple-Line-Icons";
+$icon-name: "fontello";
+$simple-icon-path:"../font/Simple-Line-Icons-Webfont/fonts/Simple-Line-Icons";
+$fontello-icon-path: "../font/fontello-3b99b5eb/font/fontello";
 //button
 $btn-default-height:40px !default;
 $btn-default-font:$font-size-base !default;

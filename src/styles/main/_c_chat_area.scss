@@ -63,19 +63,29 @@
 }
 
 .chat-message-time{
-  margin:10px auto;
-  max-width:400px;
+  margin:18px auto 14px;
+  width:160px;
+  height:1px;
   text-align:center;
-
+  border-bottom:1px solid $gray-dark;
 
   time{
+    color:$gray-dark;
     font-size:$font-size-small;
-    display:inline-block;
-    border-radius:$border-radius-small;
-    background:$gray-light;
-    padding:0 12px;
-    color:$light-base;
+    background-color: $light-base;
+    position: relative;
+    top: -12px;
+    padding: 0 5px;
   }
+
+  //time{
+  //  font-size:$font-size-small;
+  //  display:inline-block;
+  //  border-radius:$border-radius-small;
+  //  background:$gray-light;
+  //  padding:0 12px;
+  //  color:$light-base;
+  //}
 }
 
 .chat-message-avator{

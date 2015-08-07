@@ -40,5 +40,7 @@
     @include border-radius($border-radius-large);
     width:212px;
   }
-
+  .feedback{
+    color:$gray-light;
+  }
 }
