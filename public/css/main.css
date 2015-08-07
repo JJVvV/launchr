@@ -1765,8 +1765,6 @@ html, body, #wrapper, .container {
   margin-right: 8px; }
   .chat-send-toolbar-records i {
     width: 29px; }
-  .chat-send-toolbar-records span {
-    vertical-align: 2px; }
 
 .chat-send-content {
   padding: 0px 24px;
