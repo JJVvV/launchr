@@ -27,7 +27,7 @@
 .sub-panel-header .btn-add{
   float:right;
   font-size:30px;
-  line-height:$work-search-height;
+  line-height:$work-search-height - 2px;
   cursor:pointer;
   color:$gray-dark;
 }
@@ -35,10 +35,11 @@
 //
 
 .work-search{
+  width:80%;
   @include feedback(34px);
   .form-c{
     @include border-radius($border-radius-large);
-    width:212px;
+    width:100%;
   }
   .feedback{
     color:$gray-light;

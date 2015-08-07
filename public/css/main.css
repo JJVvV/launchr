@@ -316,11 +316,15 @@ h1, h2, h3, h4, h5, h6 {
 i {
   font-style: normal; }
 
+html {
+  overflow-x: hidden; }
+
 html, body, #wrapper, .container {
   height: 100%; }
 
 .container {
-  min-height: 600px; }
+  min-height: 620px;
+  min-width: 880px; }
 
 #wrapper {
   font-size: 14px; }
@@ -1525,7 +1529,7 @@ html, body, #wrapper, .container {
     font-size: 18px; }
 
 .global-panel {
-  width: 100px;
+  width: 80px;
   height: 100%;
   border-right: 1px solid #e3e7ea;
   text-align: center;
@@ -1534,6 +1538,9 @@ html, body, #wrapper, .container {
   top: 0;
   z-index: 90;
   box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1); }
+  @media (min-width: 1440px) {
+    .global-panel {
+      width: 100px; } }
 
 .global-panel-item, .global-panel-logo {
   border-bottom: 1px solid #e3e7ea; }
@@ -1579,11 +1586,15 @@ html, body, #wrapper, .container {
 
 .sub-panel {
   background: #f5f6f8;
-  margin-left: 100px;
-  width: 300px;
+  margin-left: 80px;
+  width: 220px;
   height: 100%;
   border-right: 1px solid #e3e7ea;
   float: left; }
+  @media (min-width: 1440px) {
+    .sub-panel {
+      margin-left: 100px;
+      width: 300px; } }
 
 .sub-panel-header {
   padding: 21px 20px 15px 20px;
@@ -1594,23 +1605,22 @@ html, body, #wrapper, .container {
 .sub-panel-header .btn-add {
   float: right;
   font-size: 30px;
-  line-height: 34px;
+  line-height: 32px;
   cursor: pointer;
   color: #bec6d3; }
 
-.work-search .feedback {
-  height: 34px;
-  line-height: 34px; }
-
-.work-search .form-c {
-  line-height: 32px; }
-
-.work-search .form-c {
-  border-radius: 20px;
-  width: 212px; }
-
-.work-search .feedback {
-  color: #e3e7ea; }
+.work-search {
+  width: 80%; }
+  .work-search .feedback {
+    height: 34px;
+    line-height: 34px; }
+  .work-search .form-c {
+    line-height: 32px; }
+  .work-search .form-c {
+    border-radius: 20px;
+    width: 100%; }
+  .work-search .feedback {
+    color: #e3e7ea; }
 
 .work-list {
   padding: 0; }
@@ -1659,16 +1669,22 @@ html, body, #wrapper, .container {
 .chat-area {
   background: #fff;
   overflow: hidden;
+  position: relative;
   height: 100%;
   border-right: 1px solid #e3e7ea;
   min-width: 520px;
-  max-width: 520px;
-  position: relative; }
+  width: calc((100% - 80px - 220px)/2); }
+  @media (min-width: 1440px) {
+    .chat-area {
+      width: calc((100% - 100px - 300px)/2); } }
 
 .chat-title {
   text-align: center;
   padding: 23px 0 22px;
   border-bottom: 1px solid #e3e7ea; }
+
+.chat-content {
+  padding: 0 20px; }
 
 .chat-room {
   position: absolute;
@@ -1699,9 +1715,6 @@ html, body, #wrapper, .container {
   position: relative;
   float: left;
   margin-right: 10px; }
-
-.chat-content {
-  padding: 0 20px; }
 
 .chat-message-time {
   margin: 18px auto 14px;

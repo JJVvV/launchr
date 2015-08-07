@@ -1,11 +1,15 @@
 .global-panel{
-  @include panel($global-panel-width);
+  @include panel($global-panel-width-base);
+  @media (min-width:$media-middle-width){
+    width:$global-panel-width;
+  }
   text-align:center;
   position:fixed;
   left:0;
   top:0;
   z-index:$z-index-base;
   box-shadow:1px 0 3px rgba(0, 0, 0, 0.1);
+
 }
 
 %border-bottom{

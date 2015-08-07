@@ -39,8 +39,17 @@ $border-radius-base:5px !default;
 $border-radius-small: 3px !default;
 $border-radius-large:20px !default;
 
+//global width
+$media-middle-width:1440px !default;
+$media-large-width:1600px !default;
+
+$global-panel-width-base:80px !default;
 $global-panel-width:100px !default;
+$sub-panel-width-base:220px !default;
 $sub-panel-width:300px !default;
+
+$global-min-height:620px; // defined on .container
+
 $chat-area-width:520px !default;
 $chat-area-max-width:520px !default;
 //family font path

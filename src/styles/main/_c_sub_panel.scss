@@ -1,9 +1,12 @@
 .sub-panel{
   background: $gray-lighter;
-  margin-left:$global-panel-width;
-  @include panel($sub-panel-width);
+  margin-left:$global-panel-width-base;
+  @include panel($sub-panel-width-base);
   float:left;
-
+  @media (min-width:$media-middle-width){
+    margin-left:$global-panel-width;
+    width:$sub-panel-width;
+  }
 }
 
 

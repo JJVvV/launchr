@@ -1,9 +1,13 @@
 //存放布局
+html{
+  overflow-x:hidden;
+}
 html, body, #wrapper, .container{
   height:100%;
 }
 .container{
-  min-height: 600px;
+  min-height: $global-min-height;
+  min-width:880px;
 }
 
 #wrapper{
