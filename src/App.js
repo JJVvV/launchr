@@ -13,6 +13,6 @@ var router = new Router({
 });
 RouterContainer.set(router);
 
-React.render(<div>haha</div>, document.getElementById('app'));
+React.render(<Root history={history} />, document.getElementById('wrapper'));
 
 

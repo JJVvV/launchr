@@ -8,11 +8,14 @@ import { Provider } from 'redux/react';
 import { createRedux } from 'redux';
 import * as blogStore from '../stores';
 import RouterContainer from '../services/routerContainer.js';
+
 import Application from '../components/Application.js'
+
 import Detail from '../components/pages/detail.js'
 import Post from '../components/pages/post.js'
 import Index from '../components/pages/index.js'
 import Login from '../components/pages/login.js'
+
 import ReduxContainer from '../services/reduxContainer.js';
 import after from '../common/after.js';
 
@@ -29,15 +32,15 @@ export default class Root {
     );
   }
 }
-
-function renderRoutes (history) {
+  //<Route name="detail" path="detail/:id" component={Detail} onEnter={setLoading}></Route>
+  //<Route name="post" path="admin/post/:id" component={Post} onEnter={onNotLogined.after(setLoading)}></Route>
+  //<Route name="post" path="admin/login" component={Login} onEnter={onLogined}></Route>
+  function renderRoutes (history) {
   return (
     <Router history={history}>
       <Route component={Application} onEnter={setJwt}>
         <Route path="index" component={Index} onEnter={setLoading} />
-        <Route name="detail" path="detail/:id" component={Detail} onEnter={setLoading}></Route>
-        <Route name="post" path="admin/post/:id" component={Post} onEnter={onNotLogined.after(setLoading)}></Route>
-        <Route name="post" path="admin/login" component={Login} onEnter={onLogined}></Route>
+
         <Redirect from="/" to="index" />
       </Route>
     </Router>
@@ -64,7 +67,7 @@ function onLogined(nextState, transition){
 }
 
 function setLoading(nextState, transition){
-  redux.getState().article.loading = true;
+  //redux.getState().article.loading = true;
 }
 
 function setJwt(){
