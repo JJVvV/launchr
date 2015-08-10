@@ -36,46 +36,44 @@ export default class Root {
   //<Route name="post" path="admin/post/:id" component={Post} onEnter={onNotLogined.after(setLoading)}></Route>
   //<Route name="post" path="admin/login" component={Login} onEnter={onLogined}></Route>
   function renderRoutes (history) {
-  return (
-    <Router history={history}>
-      <Route component={Application} onEnter={setJwt}>
-        <Route path="index" component={Index} onEnter={setLoading} />
+    return (
+      <Router history={history}>
+        <Route component={Application} onEnter={setJwt}>
+          <Route path="index" component={Index} onEnter={setLoading} />
 
-        <Redirect from="/" to="index" />
-      </Route>
-    </Router>
-  )
-}
-
-function onNotLogined(nextState, transition){
-
-  const state = redux.getState();
-  if(!state.article.user.isLogin){
-    transition.to('/admin/login');
-    return false;
+          <Redirect from="/" to="index" />
+        </Route>
+      </Router>
+    )
   }
-  return true;
-}
-
-function onLogined(nextState, transition){
-
-  const state = redux.getState();
-  if(state.article.user.isLogin){
-    transition.to('/index');
-  }
-  return true;
-}
-
-function setLoading(nextState, transition){
-  //redux.getState().article.loading = true;
-}
-
-function setJwt(){
-
-}
-
-var jwt = localStorage.getItem('jwt');
-if(jwt){
-  //redux.getState().article.user.jwt = jwt;
-  redux.dispatch({type:'USER', user:{jwt:jwt}});
-}
+//
+//function onNotLogined(nextState, transition){
+//
+//  const state = redux.getState();
+//  if(!state.article.user.isLogin){
+//    transition.to('/admin/login');
+//    return false;
+//  }
+//  return true;
+//}
+//
+//function onLogined(nextState, transition){
+//
+//  const state = redux.getState();
+//  if(state.article.user.isLogin){
+//    transition.to('/index');
+//  }
+//  return true;
+//}
+//
+//function setLoading(nextState, transition){
+//  //redux.getState().article.loading = true;
+//}
+//
+//
+//
+//var jwt = localStorage.getItem('jwt');
+//if(jwt){
+//  //redux.getState().article.user.jwt = jwt;
+//  redux.dispatch({type:'USER', user:{jwt:jwt}});
+//}
