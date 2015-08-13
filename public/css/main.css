@@ -1679,6 +1679,7 @@ html, body, #wrapper, .container, .page-container {
       width: calc((100% - 100px - 300px)/2); } }
 
 .chat-title {
+  cursor: pointer;
   text-align: center;
   padding: 23px 0 22px;
   border-bottom: 1px solid #e3e7ea; }
@@ -1692,7 +1693,8 @@ html, body, #wrapper, .container, .page-container {
   left: 0;
   width: 100%;
   z-index: 90;
-  border-bottom: 1px solid #e3e7ea; }
+  border-bottom: 1px solid #e3e7ea;
+  background: #fff; }
 
 .chat-room-inner {
   padding: 24px; }

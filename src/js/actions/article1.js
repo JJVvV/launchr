@@ -28,7 +28,6 @@ export function loadArticle(id){
             article: res.article
           })
         }
-
       })
   }
 }
@@ -67,7 +66,6 @@ export function loadArticles(){
 
     let articles = ReduxContainer.state().articles;
     if(articles.length){
-      debugger;
       dispatch({
         type: constant.LOAD_ARTICLES,
         articles: articles

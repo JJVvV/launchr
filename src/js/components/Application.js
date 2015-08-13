@@ -6,14 +6,14 @@ import React, { PropTypes } from 'react/addons.js';
 import classnames from 'classnames';
 import { connect } from 'redux/react'
 import { bindActionCreators } from 'redux'
-import * as articlesAction from '../actions/article1.js';
+import * as launchrAction from '../actions/launchr.js';
 
 import GlobalPanel from './GlobalPanel.js'
-
+import actionContainer from '../services/actionContainer.js';
 //const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 @connect((state, prop) => ({
-  blog: state.article,
+  chatData: state.chat,
   transitionKey: prop.location.pathname
 }))
 
@@ -25,8 +25,8 @@ export default class Application extends React.Component{
 
   render(){
     const { dispatch } = this.props;
-    const actions = bindActionCreators(articlesAction, dispatch);
-
+    const actions = bindActionCreators(launchrAction, dispatch);
+      actionContainer.set(actions);
     //const loading = this.props.blog.loading;
     //const loadingChild = loading ? <Loading /> : null;
     const props = this.props;

@@ -24,6 +24,8 @@ import ReduxContainer from '../services/reduxContainer.js';
 import after from '../common/after.js';
 
 const redux = createRedux(blogStore);
+var aa = redux;
+
 ReduxContainer.set(redux);
 export default class Root {
   render(){

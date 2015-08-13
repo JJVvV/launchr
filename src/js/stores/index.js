@@ -4,3 +4,4 @@
 
 //combine all of three stores;
 export {default as article} from './article1.js';
+export {default as chat} from './chat.js';
