@@ -16,6 +16,7 @@ import GlobalPanel from './GlobalPanel.js'
   blog: state.article,
   transitionKey: prop.location.pathname
 }))
+
 export default class Application extends React.Component{
 
   constructor(props, context){
@@ -30,9 +31,10 @@ export default class Application extends React.Component{
     //const loadingChild = loading ? <Loading /> : null;
     const props = this.props;
     return (
-      <div id="layout">
-          <div className="container">
-            <GlobalPanel />
+      <div className="container">
+          <GlobalPanel />
+          <div className="page-container">
+
             {React.cloneElement(
                 this.props.children,
                 {

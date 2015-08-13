@@ -83,7 +83,7 @@ export function loadArticles(){
       }))
 
       .catch(err => {
-        console.log('load failed');
+        console.eror('load failed');
 
       });
   }

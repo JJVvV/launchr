@@ -82,7 +82,7 @@ blockquote {
   position: relative;
   color: #999;
   font-weight: 400;
-  border-left: 1px solid #1abc9c;
+  border-left: 1px solid #0099ff;
   padding-left: 1em;
   margin: 1em 3em 1em 2em; }
 
@@ -137,9 +137,6 @@ sub {
 /* 让链接在 hover 状态下显示下划线 */
 a {
   color: #1abc9c; }
-
-a:hover {
-  text-decoration: underline; }
 
 .typo a {
   border-bottom: 1px solid #1abc9c; }
@@ -319,7 +316,7 @@ i {
 html {
   overflow-x: hidden; }
 
-html, body, #wrapper, .container {
+html, body, #wrapper, .container, .page-container {
   height: 100%; }
 
 .container {
@@ -1546,10 +1543,13 @@ html, body, #wrapper, .container {
   border-bottom: 1px solid #e3e7ea; }
 
 .global-panel-item {
+  display: block;
   padding-top: 19px;
   padding-bottom: 13px;
   font-size: 38px;
   cursor: pointer;
+  text-decoration: none;
+  color: #56646d;
   position: relative; }
   .global-panel-item.icon-chat:hover,
   .global-panel-item.icon-chat.active {

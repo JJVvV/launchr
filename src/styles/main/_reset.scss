@@ -65,7 +65,7 @@ blockquote {
   position: relative;
   color: #999;
   font-weight: 400;
-  border-left: 1px solid #1abc9c;
+  border-left: 1px solid $blue-base;
   padding-left: 1em;
   margin: 1em 3em 1em 2em;
 }
@@ -135,9 +135,9 @@ a {
   color: #1abc9c;
 }
 
-a:hover {
-  text-decoration: underline;
-}
+//a:hover {
+//  text-decoration: underline;
+//}
 
 .typo a {
   border-bottom: 1px solid #1abc9c;

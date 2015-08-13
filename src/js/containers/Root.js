@@ -13,8 +13,12 @@ import Application from '../components/Application.js'
 
 import Detail from '../components/pages/detail.js'
 import Post from '../components/pages/post.js'
-import Index from '../components/pages/index.js'
 import Login from '../components/pages/login.js'
+import ChatPage from '../components/pages/chat.js'
+import AddressPage from '../components/pages/address.js'
+import ApplicationPage from '../components/pages/application.js'
+
+
 
 import ReduxContainer from '../services/reduxContainer.js';
 import after from '../common/after.js';
@@ -38,42 +42,43 @@ export default class Root {
   function renderRoutes (history) {
     return (
       <Router history={history}>
-        <Route component={Application} onEnter={setJwt}>
-          <Route path="index" component={Index} onEnter={setLoading} />
-
-          <Redirect from="/" to="index" />
+        <Route component={Application}>
+          <Route path="chat" component={ChatPage}  />
+          <Route path="address" component={AddressPage}  />
+          <Route path="application" component={ApplicationPage}  />
+          <Redirect from="/" to="chat" />
         </Route>
       </Router>
     )
   }
-//
-//function onNotLogined(nextState, transition){
-//
-//  const state = redux.getState();
-//  if(!state.article.user.isLogin){
-//    transition.to('/admin/login');
-//    return false;
-//  }
-//  return true;
-//}
-//
-//function onLogined(nextState, transition){
-//
-//  const state = redux.getState();
-//  if(state.article.user.isLogin){
-//    transition.to('/index');
-//  }
-//  return true;
-//}
-//
-//function setLoading(nextState, transition){
-//  //redux.getState().article.loading = true;
-//}
-//
-//
-//
-//var jwt = localStorage.getItem('jwt');
-//if(jwt){
-//  //redux.getState().article.user.jwt = jwt;
-//  redux.dispatch({type:'USER', user:{jwt:jwt}});
-//}
+
+function onNotLogined(nextState, transition){
+
+  const state = redux.getState();
+  if(!state.article.user.isLogin){
+    transition.to('/admin/login');
+    return false;
+  }
+  return true;
+}
+
+function onLogined(nextState, transition){
+
+  const state = redux.getState();
+  if(state.article.user.isLogin){
+    transition.to('/index');
+  }
+  return true;
+}
+
+function setLoading(nextState, transition){
+  //redux.getState().article.loading = true;
+}
+
+
+
+var jwt = localStorage.getItem('jwt');
+if(jwt){
+  //redux.getState().article.user.jwt = jwt;
+  redux.dispatch({type:'USER', user:{jwt:jwt}});
+}
