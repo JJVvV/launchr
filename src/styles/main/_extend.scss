@@ -18,3 +18,18 @@
 .circle-tip{
   @extend %circle-tip
 }
+
+// used on .chat-area and .calendar-area
+%area{
+  background: $light-base;
+  overflow:hidden;
+  position:relative;
+  @include panel(null);
+  min-width:$chat-area-width;
+}
+
+// avator used on .work-item-avator and .calendar-avator
+%avator{
+  float:left;
+  margin-right:8px;
+}

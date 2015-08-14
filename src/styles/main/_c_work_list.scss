@@ -27,8 +27,7 @@
 }
 
 .work-item-avator{
-  float:left;
-  margin-right:8px;
+  @extend %avator;
 
   img{
     display:block;
@@ -37,7 +36,9 @@
 
 .work-item-info{
   overflow:hidden;
-
+  h3{
+    margin:8px 0 0 5px;
+  }
   h4{
     @extend %ellipsis;
     width:100%;

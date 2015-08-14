@@ -1,0 +1,14 @@
+//change some fullcalendar styles for launchr
+
+.fc{
+  th{
+	border-color:$light-base;
+	padding: 7px 0;
+  }
+}
+.fc-unthemed .fc-widget-header, .fc-unthemed .fc-widget-content{
+  border-right-color:$light-base;
+}
+.fc-widget-content .fc-widget-content{
+  border-right-color:#ddd;
+}

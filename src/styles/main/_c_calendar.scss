@@ -1,0 +1,61 @@
+// .lau-calendar
+
+.calendar{
+
+}
+.calendar-area .calendar-body{
+  margin-left:-1px;
+}
+.calendar-title{
+  padding:15px 18px 8px;
+
+  .btn-group{
+    vertical-align:top;
+    margin-right:16px;
+  }
+}
+.calendar-user{
+  float:left;
+}
+.calendar-action{
+  float:right;
+}
+
+.calendar-user-name{
+  margin: 7px 14px 0 7px;
+  font-size:16px;
+  display:inline-block;
+}
+
+.calendar-user-avator{
+  @extend %avator;
+}
+
+.calendar-action-search{
+  font-size:24px;
+  vertical-align:middle;
+  cursor:pointer;
+}
+
+.calendar-action-add{
+  margin-right:25px;
+
+  i{
+    font-size:18px;
+  }
+}
+
+.calendar-change-time{
+  text-align:center;
+  time{
+    font-size:22px;
+    color:$blue-base;
+    margin:0 20px;
+  }
+  .next,
+  .prev{
+    font-size:30px;
+    vertical-align: -2px;
+    cursor:pointer;
+  }
+}
