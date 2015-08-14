@@ -5,14 +5,15 @@
 import React, {PropTypes} from 'react';
 import fullcalendar from 'fullcalendar';
 import $ from 'jquery';
-
+import fullcalendarContainer from "../services/fullcalendarContainer.js";
 export default class ChatArea{
 
 
 
   componentDidMount(){
       let calendar = React.findDOMNode(this.refs.calendar);
-      $(calendar).fullCalendar({
+      let $calendar = fullcalendarContainer.set($(calendar));
+      $calendar.fullCalendar({
           header: false
       });
   }

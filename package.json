@@ -66,6 +66,7 @@
     "morgan": "^1.6.0",
     "multer": "^1.0.1",
     "object-assign": "^3.0.0",
+    "pubsub-js": "^1.5.2",
     "react": "^0.13.0",
     "react-router": "^1.0.0-beta3",
     "redux": "^0.12.0",

@@ -14,7 +14,7 @@ export default class CalendarArea extends React.Component{
 
 
   render() {
-      debugger;
+
       return (
           <div className="calendar-area">
             <div className="calendar">

@@ -51,10 +51,11 @@ export default class Root {
           <Route path="address" component={AddressPage}  />
           <Route path="application" component={ApplicationPage}>
             <Route path="approval" component={ApprovalArea} />
-
             <Route path="calendar" component={CalendarArea} />
           </Route>
           <Redirect from="/" to="/chat" />
+          <Redirect from="/calendar" to="/application/calendar" />
+          <Redirect from="/approval" to="/application/approval" />
         </Route>
       </Router>
     )
