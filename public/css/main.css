@@ -8,15 +8,6 @@
 /*
 *  存放变量
 */
-.work-item-info h4, .work-item-info p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; }
-
-.global-panel-item .circle {
-  border-radius: 50%;
-  text-align: center; }
-
 /*
 *  ./mixins 入口文件
 */
@@ -25,6 +16,22 @@
   position: absolute;
   top: 14px;
   border: 6px solid transparent; }
+
+.work-item-info h4, .work-item-info p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.circle-tip {
+  border-radius: 50%;
+  text-align: center; }
+
+.circle-tip {
+  display: inline-block;
+  width: 16px;
+  line-height: 16px;
+  color: #fff;
+  background-color: #ff3366; }
 
 /*
 *  样式初始化
@@ -1569,12 +1576,7 @@ html, body, #wrapper, .container, .page-container {
     .global-panel-item.icon-app:hover:before,
     .global-panel-item.icon-app.active:before {
       content: "\e886"; }
-  .global-panel-item .circle {
-    display: inline-block;
-    width: 16px;
-    line-height: 16px;
-    color: #fff;
-    background-color: #ff3366;
+  .global-panel-item .circle-tip {
     font-family: Microsoft Yahei, open sans, sans;
     font-size: 12px;
     position: absolute;
@@ -1689,7 +1691,7 @@ html, body, #wrapper, .container, .page-container {
 
 .chat-room {
   position: absolute;
-  top: 70px;
+  top: 71px;
   left: 0;
   width: 100%;
   z-index: 90;
@@ -1711,12 +1713,35 @@ html, body, #wrapper, .container, .page-container {
 .chat-room-members {
   margin-top: 18px; }
 
-.chat-room-member {
-  width: 47px;
-  height: 47px;
+.chat-room-member .circle {
+  color: #ff3366;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  visibility: hidden; }
+
+.chat-room-member:hover .circle {
+  visibility: visible; }
+
+.chat-room-members-add {
+  width: 45px;
+  height: 45px;
+  border: 1px solid #e3e7ea;
+  font-size: 32px;
+  text-align: center;
+  line-height: 45px;
+  cursor: pointer;
+  color: #e3e7ea; }
+
+.chat-room-members-add, .chat-room-member {
   position: relative;
   float: left;
-  margin-right: 10px; }
+  margin-right: 10px;
+  width: 47px;
+  height: 47px;
+  border-radius: 3px; }
 
 .chat-message-time {
   margin: 18px auto 14px;
@@ -1782,6 +1807,7 @@ html, body, #wrapper, .container, .page-container {
     width: 29px; }
 
 .chat-send-content {
+  margin: 0;
   padding: 0px 24px;
   height: 70px; }
 
@@ -1797,10 +1823,22 @@ html, body, #wrapper, .container, .page-container {
   position: absolute;
   left: 12px;
   bottom: 404px;
-  border: 1px solid #333;
-  width: 200px;
-  height: 100px;
+  display: none;
   z-index: 900; }
+
+.emotion-bd-item {
+  width: 435px; }
+  .emotion-bd-item.normal {
+    background: #fff url(/public/img/qqfacePanel27a55f.png) no-repeat; }
+  .emotion-bd-item > a {
+    float: left;
+    width: 28px;
+    height: 28px;
+    font-size: 0;
+    text-indent: -999em;
+    border-bottom: 1px solid #F0F0F0;
+    border-right: 1px solid #F0F0F0;
+    cursor: pointer; }
 
 @keyframes rotate {
   from {

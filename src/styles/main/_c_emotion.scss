@@ -4,8 +4,7 @@
   position:absolute;
   left:12px;
   bottom:404px;
-  @include border(#333);
-  width:200px;height:100px;
+  display:none;
   z-index:$z-index-large;
 }
 
@@ -19,6 +18,20 @@
 
 }
 
-.emotion-bd{
-
+.emotion-bd-item{
+  width:435px;
+  &.normal{
+    background:$light-base url(/public/img/qqfacePanel27a55f.png) no-repeat;
+  }
+  >a{
+    float: left;
+    width: 28px;
+    height: 28px;
+    font-size: 0;
+    text-indent: -999em;
+    border-bottom: 1px solid #F0F0F0;
+    border-right: 1px solid #F0F0F0;
+    cursor: pointer;
+  }
 }
+

@@ -8,6 +8,7 @@ import ChatMessage from './ChatMessage.js';
 import ChatTitleWrapper from './ChatTitleWrapper.js';
 import actionContainer from '../services/actionContainer.js';
 import ContentEditable from './ContentEditable.js';
+import Emotion from './Emotion.js';
 
 export default class ChatArea extends React.Component{
 
@@ -49,24 +50,7 @@ export default class ChatArea extends React.Component{
                           <span className="btn btn-default" onClick={::this.sendMessage}>发送</span>
 
                       </div>
-                      <div className="emotion" style={{display:'none'}}>
-                          <div className="emotion-header">
-                              <div className="emotion-header-inner">
-                                  <span className="emotion-header-item"></span>
-                                  <span className="emotion-header-item"></span>
-                                  <span className="emotion-header-item"></span>
-                              </div>
-                          </div>
-                          <div className="emotion-bd">
-                              <div className="emotion-bd-item">
-
-                              </div>
-                              <div className="emotion-bd-item"></div>
-                              <div className="emotion-bd-item">
-
-                              </div>
-                          </div>
-                      </div>
+                     <Emotion />
                   </div>}
               </div>
           </div>

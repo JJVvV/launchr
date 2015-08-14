@@ -32,7 +32,7 @@ export default class GlobalPanel extends React.Component{
     return (
         <div className="global-panel">
           <div className="global-panel-logo">logo</div>
-          <Link to="chat" className="global-panel-item icon-chat"><i className="circle">2</i></Link>
+          <Link to="chat" className="global-panel-item icon-chat"><i className="circle-tip">2</i></Link>
           <Link to="address" className="global-panel-item icon-contacts"></Link>
           <Link to="application" className="global-panel-item icon-app"></Link>
         </div>

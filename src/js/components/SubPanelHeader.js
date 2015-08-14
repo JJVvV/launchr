@@ -9,7 +9,14 @@ import React, { PropTypes } from 'react'
 
 
 
-export default class SubPanelHeader {
+export default class SubPanelHeader extends React.Component {
+
+  constructor(){
+    super();
+    this.state = {
+      value: ''
+    }
+  }
 
   render(){
     return(
@@ -17,7 +24,7 @@ export default class SubPanelHeader {
           <span className="btn-add icon-glyph-102"></span>
 
           <div className="form-feedback work-search left">
-            <input type="search" className="form-c" placeholder="搜索" />
+            <input type="search" className="form-c" placeholder="搜索" valueLink={this.linkState('value')} />
             <span className="feedback  icon-glyph-115"></span>
           </div>
         </header>
@@ -27,3 +34,5 @@ export default class SubPanelHeader {
 
 
 }
+
+Object.assign(SubPanelHeader.prototype, React.addons.LinkedStateMixin);

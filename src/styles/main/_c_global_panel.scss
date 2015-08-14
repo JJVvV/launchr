@@ -52,8 +52,7 @@
     }
   }
 
-  .circle{
-    @include circle(16px, $light-base, $red-base);
+  .circle-tip{
     font-family: $font-family;
     font-size:$font-size-small;
     position:absolute;
@@ -62,9 +61,13 @@
 
   }
 }
+.circle-tip{
+  @extend %circle-tip;
+}
 .global-panel-logo{
   height:100px;
   @extend %border-bottom;
 }
+
 
 

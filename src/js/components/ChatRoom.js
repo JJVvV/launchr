@@ -24,13 +24,15 @@ export default class ChatRoom extends React.Component{
               <input type="search" id="chat-room-search" />
             </div>
             <div className="chat-room-members clearfix">
-              <div className="chat-room-members-add"></div>
-              <div className="chat-room-members-minus"></div>
+              <div className="chat-room-members-add icon-glyph-1"></div>
+
               <div className="chat-room-member">
                 <img src="./public/img/jinmuyan.jpg" alt="" width="47" height="47" />
+                <i className="icon-glyph-192 circle"></i>
               </div>
               <div className="chat-room-member">
                 <img src="./public/img/jinmuyan.jpg" alt="" width="47" height="47" />
+                <i className="icon-glyph-192 circle"></i>
               </div>
             </div>
           </div>

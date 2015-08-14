@@ -18,9 +18,9 @@ export default class ContentEditable {
   render(){
     const {right, info} = this.props;
     return(
-        <div {...this.props} contentEditable={true} onFocus={::this.focus} onBlur={::this.blur}>
+        <pre {...this.props} contentEditable={true} onFocus={::this.focus} onBlur={::this.blur}>
           {this.props.children}
-        </div>
+        </pre>
     );
 
   }
