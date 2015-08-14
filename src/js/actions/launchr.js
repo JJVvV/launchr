@@ -31,8 +31,8 @@ export function loadWorkList(){
     Promise.resolve( reqwest(`${MAIN_URL}/api/articles`))
       //.then(res => JSON.parse)
         .then(res => {
-          let workList = [{avator:"/public/img/jinmuyan.jpg", id:0, title:"公告", info:"我爱你再见", timer: "17:02"},
-            {avator:"/public/img/jinmuyan.jpg", id:1, title:"公告", info:"我爱你再见", timer: "17:03"}];
+          let workList = [{avator:"/public/img/jinmuyan.jpg", id:0, title:"审批", info:"我爱你再见", timer: "17:02"},
+            {avator:"/public/img/jinmuyan.jpg", id:1, title:"日程", info:"我爱你再见", timer: "17:03"}];
 
           return dispatch({
             type: constant.LOAD_WORKLIST,

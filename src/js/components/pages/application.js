@@ -13,11 +13,11 @@ import WorkList from '../WorkList.js';
 import actionContainer from '../../services/actionContainer.js';
 
 
-export default class Chat {
+export default class ApplicationPage {
 
 
   componentDidMount(){
-    actionContainer.get().loadWorkList();
+    //actionContainer.get().loadWorkList();
   }
 
   render(){
@@ -25,16 +25,17 @@ export default class Chat {
     //  {avator:"/public/img/jinmuyan.jpg", id:1, title:"公告", info:"我爱你再见", timer: "17:03"}];
     //
 
+    //<div className="sub-panel">
+    //  <div className="sub-panel-content">
+    //    <WorkList items={workList} clickItem={::this.clickItem} />
+    //  </div>
+    //</div>
+    //const {workList, chatMessages, chatRoomName} = this.props.chatData;
+    debugger;
 
-    const {workList, chatMessages, chatRoomName} = this.props.chatData;
     return (
         <section className="page-container">
-          <div className="sub-panel">
-            <div className="sub-panel-content">
-              <WorkList items={workList} clickItem={::this.clickItem} />
-            </div>
-          </div>
-          <CalendarArea />
+          {this.props.children}
         </section>
     );
   }

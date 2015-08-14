@@ -18,6 +18,8 @@ import ChatPage from '../components/pages/chat.js'
 import AddressPage from '../components/pages/address.js'
 import ApplicationPage from '../components/pages/application.js'
 
+import CalendarArea from '../components/CalendarArea.js';
+import ApprovalArea from '../components/ApprovalArea.js';
 
 
 import ReduxContainer from '../services/reduxContainer.js';
@@ -47,8 +49,12 @@ export default class Root {
         <Route component={Application}>
           <Route path="chat" component={ChatPage}  />
           <Route path="address" component={AddressPage}  />
-          <Route path="application" component={ApplicationPage}  />
-          <Redirect from="/" to="chat" />
+          <Route path="application" component={ApplicationPage}>
+            <Route path="approval" component={ApprovalArea} />
+
+            <Route path="calendar" component={CalendarArea} />
+          </Route>
+          <Redirect from="/" to="/chat" />
         </Route>
       </Router>
     )

@@ -24,19 +24,19 @@ export default class Application extends React.Component{
   }
 
   render(){
-    const { dispatch } = this.props;
+    const { dispatch, ...props, children} = this.props;
     const actions = bindActionCreators(launchrAction, dispatch);
       actionContainer.set(actions);
     //const loading = this.props.blog.loading;
     //const loadingChild = loading ? <Loading /> : null;
-    const props = this.props;
+    //const props = this.props;
     return (
       <div className="container">
           <GlobalPanel />
           <div className="page-container">
 
             {React.cloneElement(
-                this.props.children,
+                children,
                 {
                   action: actions,
                   ...props

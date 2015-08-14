@@ -17,7 +17,7 @@ export default class Chat {
 
 
   componentDidMount(){
-    actionContainer.get().loadWorkList();
+    //actionContainer.get().loadWorkList();
   }
 
   render(){
