@@ -5,17 +5,13 @@
   //@extend %area;
   //max-width:$chat-area-max-width;
 
-  width:calc((100% - 80px - 220px)/2);
-  @media (min-width:$media-middle-width){
-    width:calc((100% - 100px - 300px)/2);
-  }
+  @extend %half-detail-area;
 }
 
 .chat-title{
   cursor:pointer;
   text-align:center;
-  padding:23px 0 22px;
-  border-bottom:1px solid $gray-light;
+  @extend %detail-area-title;
 }
 
 

@@ -58,7 +58,7 @@ export default class ChatArea extends React.Component{
   }
 
   sendMessage(){
-      let message = {avator:"/public/img/jinmuyan.jpg", id:2, name:"听说", info:'', timer: "17:02", me: true};
+      let message = {avator:"/public/img/zhangqiuyan.jpg", id:2, name:"听说", info:'', timer: "17:02", me: true};
       message.info = this.state.content;
       actionContainer.get().sendMessage(message);
 

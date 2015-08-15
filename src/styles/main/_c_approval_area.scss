@@ -1,0 +1,86 @@
+// approval area
+
+.approval-area{
+  @extend %half-detail-area;
+}
+.approval-title{
+  @extend %detail-area-title;
+}
+
+.approval-title-item{
+  display:inline-block;
+  position:relative;
+  padding:0 42px;
+  line-height:1;
+  cursor:pointer;
+  span{
+    font-size:18px;
+
+  }
+  .circle-tip{
+    position:absolute;top:-5px;right:28px;
+  }
+  &.active{
+    color:$blue-base;
+  }
+
+  & + .approval-title-item{
+    border-left:1px solid $gray-light;
+  }
+}
+
+.approval-search{
+  float:right;
+  margin-right:25px;
+  @extend %icon-search;
+}
+
+// .approval-body
+.approval-body{
+  padding:0 20px;
+}
+
+.approval-handle-title{
+  text-align:center;
+}
+.approval-handle-title-item{
+  float:left;
+  width:50%;
+  padding: 13px 0;
+  border-bottom: 2px solid $gray-light;
+  cursor:pointer;
+
+  &.active,
+  &:hover{
+    border-bottom-color: $blue-base;
+  }
+}
+.approval-list{
+  padding-top:15px;
+
+  &.work-list > .work-item{
+    padding-left:23px;
+    padding-right:0px;
+    padding-bottom:15px;
+    position:relative;
+    border-bottom:1px dashed $gray-light;
+    &:not(:first-child):hover{
+      border-top-color:transparent;
+    }
+    &:before{
+      content: '';
+      position:absolute;
+      left:0px;top:8px;
+      background:$red-base;
+      border-radius:50%;
+      width:10px;height:10px;
+    }
+  }
+  .work-item-time{
+    letter-spacing:0px;
+  }
+}
+
+.approval-item{
+
+}

@@ -21,8 +21,8 @@ export default class Chat {
   }
 
   render(){
-    //const items = [{avator:"/public/img/jinmuyan.jpg", id:0, title:"公告", info:"我爱你再见", timer: "17:02"},
-    //  {avator:"/public/img/jinmuyan.jpg", id:1, title:"公告", info:"我爱你再见", timer: "17:03"}];
+    //const items = [{avator:"/public/img/zhangqiuyan.jpg", id:0, title:"公告", info:"我爱你再见", timer: "17:02"},
+    //  {avator:"/public/img/zhangqiuyan.jpg", id:1, title:"公告", info:"我爱你再见", timer: "17:03"}];
     //
 
 

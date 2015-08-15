@@ -32,9 +32,7 @@
 }
 
 .calendar-action-search{
-  font-size:24px;
-  vertical-align:middle;
-  cursor:pointer;
+  @extend %icon-search;
 }
 
 .calendar-action-add{

@@ -18,12 +18,12 @@ export default class ApplicationPage {
 
 
   componentDidMount(){
-    //actionContainer.get().loadWorkList();
+    actionContainer.get().loadWorkList();
   }
 
   render(){
-    const items = [{avator:"/public/img/jinmuyan.jpg", id:0, title:"审批", link: '/application/approval'},
-      {avator:"/public/img/jinmuyan.jpg", id:1, title:"日程", link: '/application/calendar'}];
+    const items = [{avator:"/public/img/zhangqiuyan.jpg", id:0, title:"审批", link: '/application/approval', info: '我爱你再见'},
+      {avator:"/public/img/zhangqiuyan.jpg", id:1, title:"日程", link: '/application/calendar', info: '我爱你再见'}];
 
 
 

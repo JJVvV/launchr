@@ -31,8 +31,8 @@ export function loadWorkList(){
     Promise.resolve( reqwest(`${MAIN_URL}/api/articles`))
       //.then(res => JSON.parse)
         .then(res => {
-          let workList = [{avator:"/public/img/jinmuyan.jpg", id:0, title:"审批", info:"我爱你再见", timer: "17:02"},
-            {avator:"/public/img/jinmuyan.jpg", id:1, title:"日程", info:"我爱你再见", timer: "17:03"}];
+          let workList = [{avator:"/public/img/zhangqiuyan.jpg", id:0, title:"审批", info:"我爱你再见", timer: "17:02"},
+            {avator:"/public/img/zhangqiuyan.jpg", id:1, title:"日程", info:"我爱你再见", timer: "17:03"}];
 
           return dispatch({
             type: constant.LOAD_WORKLIST,
@@ -71,8 +71,8 @@ export function loadChatMessages(id){
       //    chatMessages: res.chatMessages
       //  }))
         .then(res => {
-          const messages = [{avator:"/public/img/jinmuyan.jpg", id:0, name:"听说", info:"我爱你再见", timer: "17:02", me: true},
-            {avator:"/public/img/jinmuyan.jpg", id:1, name:"听说", info:"我爱你再见", timer: "17:02", me: false}];
+          const messages = [{avator:"/public/img/zhangqiuyan.jpg", id:0, name:"听说", info:"我爱你再见", timer: "17:02", me: true},
+            {avator:"/public/img/zhangqiuyan.jpg", id:1, name:"听说", info:"我爱你再见", timer: "17:02", me: false}];
 
           return dispatch({
             type: constant.LOAD_CHATMESSAGES,

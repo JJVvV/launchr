@@ -27,11 +27,11 @@ export default class ChatRoom extends React.Component{
               <div className="chat-room-members-add icon-glyph-1"></div>
 
               <div className="chat-room-member">
-                <img src="./public/img/jinmuyan.jpg" alt="" width="47" height="47" />
+                <img src="./public/img/zhangqiuyan.jpg" alt="" width="47" height="47" />
                 <i className="icon-glyph-192 circle"></i>
               </div>
               <div className="chat-room-member">
-                <img src="./public/img/jinmuyan.jpg" alt="" width="47" height="47" />
+                <img src="./public/img/zhangqiuyan.jpg" alt="" width="47" height="47" />
                 <i className="icon-glyph-192 circle"></i>
               </div>
             </div>

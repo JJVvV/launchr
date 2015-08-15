@@ -10,7 +10,6 @@ export default class ApplicationList extends React.Component{
 
   render(){
     const {items} = this.props;
-    debugger;
     return (
         <div className="work-list">
           {this.renderItems(items)}
