@@ -2,7 +2,7 @@
 
 
 .chat-area{
-  @extend %area;
+  //@extend %area;
   //max-width:$chat-area-max-width;
 
   width:calc((100% - 80px - 220px)/2);

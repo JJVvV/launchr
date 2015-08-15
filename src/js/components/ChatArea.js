@@ -23,7 +23,7 @@ export default class ChatArea extends React.Component{
       const hasPerson = name && name.length;
 
       return (
-          <div className="chat-area">
+          <div className="chat-area global-detail-area">
               <div className="chat-area-inner">
                   {hasPerson && <ChatTitleWrapper name={name}/>}
 

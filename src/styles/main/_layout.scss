@@ -13,3 +13,8 @@ html, body, #wrapper, .container, .page-container{
 #wrapper{
   font-size:$font-size-base;
 }
+
+
+.global-detail-area{
+  @extend %area;
+}

@@ -33,7 +33,7 @@
   color: #fff;
   background-color: #ff3366; }
 
-.chat-area, .calendar-area {
+.global-detail-area {
   background: #fff;
   overflow: hidden;
   position: relative;
@@ -1640,6 +1640,7 @@ html, body, #wrapper, .container, .page-container {
   padding: 0; }
 
 .work-item {
+  display: block;
   padding: 9px 18px 8px;
   margin-top: -1px;
   overflow: hidden;
@@ -1844,6 +1845,9 @@ html, body, #wrapper, .container, .page-container {
     border-bottom: 1px solid #F0F0F0;
     border-right: 1px solid #F0F0F0;
     cursor: pointer; }
+
+.calendar-area {
+  border-right: none; }
 
 .calendar-area .calendar-body {
   margin-left: -1px; }

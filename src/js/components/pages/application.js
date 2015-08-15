@@ -8,7 +8,9 @@ import ArticleList from '../ArticleList.js';
 
 
 
-import WorkList from '../WorkList.js';
+
+import ApplicationList from '../ApplicationList.js';
+
 import actionContainer from '../../services/actionContainer.js';
 
 
@@ -16,23 +18,23 @@ export default class ApplicationPage {
 
 
   componentDidMount(){
-    actionContainer.get().loadWorkList();
+    //actionContainer.get().loadWorkList();
   }
 
   render(){
-    //const items = [{avator:"/public/img/jinmuyan.jpg", id:0, title:"公告", info:"我爱你再见", timer: "17:02"},
-    //  {avator:"/public/img/jinmuyan.jpg", id:1, title:"公告", info:"我爱你再见", timer: "17:03"}];
-    //
+    const items = [{avator:"/public/img/jinmuyan.jpg", id:0, title:"审批", link: '/application/approval'},
+      {avator:"/public/img/jinmuyan.jpg", id:1, title:"日程", link: '/application/calendar'}];
 
 
-    const {workList, chatMessages, chatRoomName} = this.props.chatData;
+
+    //const {chatMessages, chatRoomName} = this.props.chatData;
 
 
     return (
         <section className="page-container">
           <div className="sub-panel">
             <div className="sub-panel-content">
-              <WorkList items={workList} clickItem={::this.clickItem} />
+              <ApplicationList items={items} />
             </div>
           </div>
           {this.props.children}
@@ -41,7 +43,7 @@ export default class ApplicationPage {
   }
 
   clickItem(id){
-    actionContainer.get().loadChatMessages(id);
+    //actionContainer.get().loadChatMessages(id);
     console.log('work-item\'s id:', id);
   }
 }

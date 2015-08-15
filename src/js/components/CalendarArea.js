@@ -15,7 +15,7 @@ export default class CalendarArea extends React.Component{
 
   render() {
       return (
-          <div className="calendar-area">
+          <div className="calendar-area global-detail-area">
             <div className="calendar">
                 <CalendarTitle />
                 <CalendarBody />
