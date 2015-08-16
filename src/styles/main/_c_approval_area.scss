@@ -37,7 +37,7 @@
 
 // .approval-body
 .approval-body{
-  padding:0 20px;
+  padding-left:20px;
 }
 
 .approval-handle-title{
@@ -63,7 +63,7 @@
 
 .approval-item{
   @extend %work-item;
-  padding:13px 0 11px 23px;
+  padding:13px 20px 11px 23px;
   position:relative;
   border-bottom:1px dashed $gray-light;
 
@@ -82,7 +82,47 @@
 .approval-item-info{
   @extend %work-item-info;
 }
-.approval-item-time{
-  @extend %work-item-time;
+.approval-item-func{
+  @extend %work-item-func;
+}
+.approval-item-comment{
+  position:relative;
+
+  &.comment-tip{
+    &:after{
+      content: '';
+      background:$red-base;
+      position:absolute;
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      right:-3px;
+      top:-2px;
+    }
+  }
 }
 
+.approval-footer{
+  width:100%;
+  position:absolute;
+  bottom:0;
+}
+.approval-footer-item{
+  width:33.333%;
+  text-align:center;
+  float:left;
+  font-size:14px;
+  padding:8px 0;
+  border-top:1px solid $gray-light;
+  &:not(:first-child){
+    margin-left:-1px;
+  }
+  &:not(:last-child){
+    border-right:1px solid $gray-light;
+  }
+  i{
+    font-size:20px;
+    margin-right:10px;
+    vertical-align:middle;
+  }
+}

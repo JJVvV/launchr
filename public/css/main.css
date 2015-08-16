@@ -78,10 +78,15 @@
     color: #56646d;
     margin-top: 3px; }
 
-.work-item-time, .approval-item-time {
+.work-item-func, .approval-item-func {
   float: right;
   font-size: 12px;
-  color: #56646d; }
+  color: #bec6d3; }
+  .work-item-func span, .approval-item-func span {
+    margin-left: 18px;
+    font-size: 14px; }
+  .work-item-func .tip, .approval-item-func .tip {
+    text-align: right; }
 
 /*
 *  样式初始化
@@ -193,6 +198,10 @@ sub {
 
 /* 让链接在 hover 状态下显示下划线 */
 a {
+  color: #56646d; }
+
+a:hover,
+a.active {
   color: #0099ff; }
 
 .typo a {
@@ -1604,9 +1613,7 @@ html, body, #wrapper, .container, .page-container {
   padding-top: 19px;
   padding-bottom: 13px;
   font-size: 38px;
-  cursor: pointer;
   text-decoration: none;
-  color: #56646d;
   position: relative; }
   .global-panel-item.icon-chat:hover,
   .global-panel-item.icon-chat.active {
@@ -1695,7 +1702,7 @@ html, body, #wrapper, .container, .page-container {
 .work-item-avator img {
   display: block; }
 
-.work-item-time {
+.work-item-func {
   letter-spacing: 2px; }
 
 .chat-title {
@@ -1933,7 +1940,7 @@ html, body, #wrapper, .container, .page-container {
   margin-right: 25px; }
 
 .approval-body {
-  padding: 0 20px; }
+  padding-left: 20px; }
 
 .approval-handle-title {
   text-align: center; }
@@ -1952,7 +1959,7 @@ html, body, #wrapper, .container, .page-container {
   padding-top: 10px; }
 
 .approval-item {
-  padding: 13px 0 11px 23px;
+  padding: 13px 20px 11px 23px;
   position: relative;
   border-bottom: 1px dashed #e3e7ea; }
   .approval-item:before {
@@ -1964,6 +1971,39 @@ html, body, #wrapper, .container, .page-container {
     border-radius: 50%;
     width: 10px;
     height: 10px; }
+
+.approval-item-comment {
+  position: relative; }
+  .approval-item-comment.comment-tip:after {
+    content: '';
+    background: #ff3366;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    right: -3px;
+    top: -2px; }
+
+.approval-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0; }
+
+.approval-footer-item {
+  width: 33.333%;
+  text-align: center;
+  float: left;
+  font-size: 14px;
+  padding: 8px 0;
+  border-top: 1px solid #e3e7ea; }
+  .approval-footer-item:not(:first-child) {
+    margin-left: -1px; }
+  .approval-footer-item:not(:last-child) {
+    border-right: 1px solid #e3e7ea; }
+  .approval-footer-item i {
+    font-size: 20px;
+    margin-right: 10px;
+    vertical-align: middle; }
 
 @keyframes rotate {
   from {
@@ -2898,5 +2938,8 @@ be a descendant of the grid when it is being dragged.
 
 .fc-widget-content .fc-widget-content {
   border-right-color: #ddd; }
+
+.is-important {
+  color: #ff3366; }
 
 /*# sourceMappingURL=main.css.map */

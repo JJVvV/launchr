@@ -17,7 +17,9 @@ export default class WorkItem extends React.Component{
 
     return (
         <div className={classnames({'work-item': true, 'active': active})} onClick={this.props.clickItem.bind(null, id)}>
-          <time className="work-item-time">{timer}</time>
+          <div className="work-item-func">
+            <div className="tip">{timer}</div>
+          </div>
           <div className="work-item-avator">
             <img src={avator} alt="" width="40" height="40" />
           </div>

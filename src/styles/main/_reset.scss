@@ -132,9 +132,12 @@ sub {
 
 /* 让链接在 hover 状态下显示下划线 */
 a {
-  color: $blue-base;
+  color: $gray-darker;
 }
-
+a:hover,
+a.active{
+  color:$blue-base;
+}
 //a:hover {
 //  text-decoration: underline;
 //}

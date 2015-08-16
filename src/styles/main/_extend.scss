@@ -80,8 +80,16 @@
   }
 }
 
-%work-item-time{
+%work-item-func{
   float:right;
   font-size: $font-size-small;
-  color: $gray-darker;
+  color: $gray-dark;
+
+  span{
+    margin-left: 18px;
+    font-size: 14px;
+  }
+  .tip{
+    text-align:right;
+  }
 }
