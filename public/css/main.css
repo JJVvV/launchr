@@ -17,7 +17,7 @@
   top: 14px;
   border: 6px solid transparent; }
 
-.work-item-info h4, .work-item-info p {
+.work-item-info h4, .approval-item-info h4, .work-item-info p, .approval-item-info p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
@@ -41,7 +41,7 @@
   border-right: 1px solid #e3e7ea;
   min-width: 520px; }
 
-.work-item-avator, .calendar-user-avator {
+.work-item-avator, .calendar-user-avator, .approval-item-avator {
   float: left;
   margin-right: 8px; }
 
@@ -59,6 +59,29 @@
   @media (min-width: 1440px) {
     .chat-area, .approval-area {
       width: calc((100% - 100px - 300px)/2); } }
+
+.work-item, .approval-item {
+  overflow: hidden;
+  cursor: pointer; }
+
+.work-item-info, .approval-item-info {
+  overflow: hidden; }
+  .work-item-info h3, .approval-item-info h3 {
+    margin: 8px 0 0 5px; }
+  .work-item-info h4, .approval-item-info h4 {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400; }
+  .work-item-info p, .approval-item-info p {
+    font-size: 12px;
+    width: 100%;
+    color: #56646d;
+    margin-top: 3px; }
+
+.work-item-time, .approval-item-time {
+  float: right;
+  font-size: 12px;
+  color: #56646d; }
 
 /*
 *  样式初始化
@@ -1655,11 +1678,9 @@ html, body, #wrapper, .container, .page-container {
   padding: 0; }
 
 .work-item {
-  display: block;
   padding: 9px 20px 8px;
+  display: block;
   margin-top: -1px;
-  overflow: hidden;
-  cursor: pointer;
   border-top: 1px solid #f5f6f8;
   border-bottom: 1px solid #f5f6f8;
   position: relative; }
@@ -1668,31 +1689,13 @@ html, body, #wrapper, .container, .page-container {
     border-color: #e3e7ea;
     z-index: 2; }
   .work-item:first-child {
-    border-top: none; }
-  .work-item:first-child {
+    border-top: none;
     margin-top: 0px; }
 
 .work-item-avator img {
   display: block; }
 
-.work-item-info {
-  overflow: hidden; }
-  .work-item-info h3 {
-    margin: 8px 0 0 5px; }
-  .work-item-info h4 {
-    width: 100%;
-    font-size: 14px;
-    font-weight: 400; }
-  .work-item-info p {
-    font-size: 12px;
-    width: 100%;
-    color: #56646d;
-    margin-top: 3px; }
-
 .work-item-time {
-  float: right;
-  font-size: 12px;
-  color: #56646d;
   letter-spacing: 2px; }
 
 .chat-title {
@@ -1946,26 +1949,21 @@ html, body, #wrapper, .container, .page-container {
     border-bottom-color: #0099ff; }
 
 .approval-list {
-  padding-top: 15px; }
-  .approval-list.work-list > .work-item {
-    padding-left: 23px;
-    padding-right: 0px;
-    padding-bottom: 15px;
-    position: relative;
-    border-bottom: 1px dashed #e3e7ea; }
-    .approval-list.work-list > .work-item:not(:first-child):hover {
-      border-top-color: transparent; }
-    .approval-list.work-list > .work-item:before {
-      content: '';
-      position: absolute;
-      left: 0px;
-      top: 8px;
-      background: #ff3366;
-      border-radius: 50%;
-      width: 10px;
-      height: 10px; }
-  .approval-list .work-item-time {
-    letter-spacing: 0px; }
+  padding-top: 10px; }
+
+.approval-item {
+  padding: 13px 0 11px 23px;
+  position: relative;
+  border-bottom: 1px dashed #e3e7ea; }
+  .approval-item:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 14px;
+    background: #ff3366;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px; }
 
 @keyframes rotate {
   from {

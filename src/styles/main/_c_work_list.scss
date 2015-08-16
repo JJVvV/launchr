@@ -5,11 +5,10 @@
 }
 
 .work-item{
-  display:block;
+  @extend %work-item;
   padding:9px 20px 8px;
+  display:block;
   margin-top:-1px;
-  overflow:hidden;
-  cursor:pointer;
   border-top:1px solid $gray-lighter;
   border-bottom:1px solid $gray-lighter;
   position:relative;
@@ -21,8 +20,6 @@
 
   &:first-child{
     border-top:none;
-  }
-  &:first-child{
     margin-top:0px;
   }
 }
@@ -36,30 +33,11 @@
 }
 
 .work-item-info{
-  overflow:hidden;
-  h3{
-    margin:8px 0 0 5px;
-  }
-  h4{
-    @extend %ellipsis;
-    width:100%;
-    font-size:14px;
-    font-weight:400;
-  }
-
-  p{
-    font-size:$font-size-small;
-    @extend %ellipsis;
-    width:100%;
-    color:$gray-darker;
-    margin-top:3px;
-  }
+  @extend %work-item-info;
 }
 
 
 .work-item-time{
-  float:right;
-  font-size: $font-size-small;
-  color: $gray-darker;
+  @extend %work-item-time;
   letter-spacing: 2px;
 }

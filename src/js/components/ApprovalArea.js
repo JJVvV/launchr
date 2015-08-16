@@ -37,39 +37,39 @@ export default class CalendarArea extends React.Component{
                             已处理
                         </div>
                     </div>
-                    <div className="approval-list work-list">
-                        <div className="work-item">
-                            <div className="work-item-time">
+                    <div className="approval-list approval-list">
+                        <div className="approval-item">
+                            <div className="approval-item-time">
                                 <time>今天19:00截止</time>
                             </div>
-                            <div className="work-item-avator">
+                            <div className="approval-item-avator">
                                 <img src="/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" />
                             </div>
-                            <div className="work-item-info">
+                            <div className="approval-item-info">
                                 <h4>Join</h4>
                                 <p>我爱你再见</p>
                             </div>
                         </div>
-                        <div className="work-item">
-                            <div className="work-item-time">
+                        <div className="approval-item">
+                            <div className="approval-item-time">
                                 <time>今天19:00截止</time>
                             </div>
-                            <div className="work-item-avator">
+                            <div className="approval-item-avator">
                                 <img src="/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" />
                             </div>
-                            <div className="work-item-info">
+                            <div className="approval-item-info">
                                 <h4>Join</h4>
                                 <p>我爱你再见</p>
                             </div>
                         </div>
-                        <div className="work-item">
-                            <div className="work-item-time">
+                        <div className="approval-item">
+                            <div className="approval-item-time">
                                 <time>今天19:00截止</time>
                             </div>
-                            <div className="work-item-avator">
+                            <div className="approval-item-avator">
                                 <img src="/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" />
                             </div>
-                            <div className="work-item-info">
+                            <div className="approval-item-info">
                                 <h4>Join</h4>
                                 <p>我爱你再见</p>
                             </div>

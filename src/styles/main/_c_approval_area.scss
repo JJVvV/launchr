@@ -56,31 +56,33 @@
   }
 }
 .approval-list{
-  padding-top:15px;
+  padding-top:10px;
 
-  &.work-list > .work-item{
-    padding-left:23px;
-    padding-right:0px;
-    padding-bottom:15px;
-    position:relative;
-    border-bottom:1px dashed $gray-light;
-    &:not(:first-child):hover{
-      border-top-color:transparent;
-    }
-    &:before{
-      content: '';
-      position:absolute;
-      left:0px;top:8px;
-      background:$red-base;
-      border-radius:50%;
-      width:10px;height:10px;
-    }
-  }
-  .work-item-time{
-    letter-spacing:0px;
-  }
+
 }
 
 .approval-item{
+  @extend %work-item;
+  padding:13px 0 11px 23px;
+  position:relative;
+  border-bottom:1px dashed $gray-light;
 
+  &:before{
+    content: '';
+    position:absolute;
+    left:0px;top:14px;
+    background:$red-base;
+    border-radius:50%;
+    width:10px;height:10px;
+  }
 }
+.approval-item-avator{
+  @extend %avator;
+}
+.approval-item-info{
+  @extend %work-item-info;
+}
+.approval-item-time{
+  @extend %work-item-time;
+}
+
