@@ -8,12 +8,12 @@ import reqwest from 'reqwest';
 import RouterContainer from '../services/routerContainer.js';
 import ReduxContainer from '../services/reduxContainer.js';
 const MAIN_URL = '';
-
+var messageID=0;
 
 
 // load worklist
 
-export function loadWorkList(){
+export function loadThreadList(){
 
   return dispatch => {
     //cache
@@ -31,12 +31,12 @@ export function loadWorkList(){
     Promise.resolve( reqwest(`${MAIN_URL}/api/articles`))
       //.then(res => JSON.parse)
         .then(res => {
-          let workList = [{avator:"/public/img/zhangqiuyan.jpg", id:0, title:"审批", info:"我爱你再见", timer: "17:02"},
+          let threadList = [{avator:"/public/img/zhangqiuyan.jpg", id:0, title:"审批", info:"我爱你再见", timer: "17:02"},
             {avator:"/public/img/zhangqiuyan.jpg", id:1, title:"日程", info:"我爱你再见", timer: "17:03"}];
 
           return dispatch({
-            type: constant.LOAD_WORKLIST,
-            workList: workList || res.workList
+            type: constant.LOAD_THREADLIST,
+            threadList: threadList || res.threadList
           })
         })
 
@@ -70,17 +70,20 @@ export function loadChatMessages(id){
       //    type: constant.LOAD_CHATMESSAGES,
       //    chatMessages: res.chatMessages
       //  }))
-        .then(res => {
-          const messages = [{avator:"/public/img/zhangqiuyan.jpg", id:0, name:"听说", info:"我爱你再见", timer: "17:02", me: true},
-            {avator:"/public/img/zhangqiuyan.jpg", id:1, name:"听说", info:"我爱你再见", timer: "17:02", me: false}];
 
+        .then(res => {
+
+          const messages = [{avator:"/public/img/zhangqiuyan.jpg", id:messageID++, name:"听说", info:"我爱你再见", timer: "17:02", me: true},
+            {avator:"/public/img/zhangqiuyan.jpg", id:messageID++, name:"听说", info:"我爱你再见", timer: "17:02", me: false}];
+            debugger;
           return dispatch({
-            type: constant.LOAD_CHATMESSAGES,
-            chatMessages: messages || res.chatMessages,
+            type: constant.ADD_CHATMESSAGES,
+            messages: messages || res.messages,
             chatRoomName: 'darling',
             timer: Date.now()
           })
         })
+
 
         .catch(err => {
           console.error('load chat Messages failed');

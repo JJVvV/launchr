@@ -18,7 +18,7 @@ export default class ApplicationPage {
 
 
   componentDidMount(){
-    actionContainer.get().loadWorkList();
+    actionContainer.get().loadThreadList();
   }
 
   render(){
@@ -44,6 +44,6 @@ export default class ApplicationPage {
 
   clickItem(id){
     //actionContainer.get().loadChatMessages(id);
-    console.log('work-item\'s id:', id);
+    console.log('thread-item\'s id:', id);
   }
 }

@@ -11,7 +11,7 @@ export default class ApplicationList extends React.Component{
   render(){
     const {items} = this.props;
     return (
-        <div className="work-list">
+        <div className="thread-list">
           {this.renderItems(items)}
         </div>
     );
@@ -20,11 +20,11 @@ export default class ApplicationList extends React.Component{
 
   renderItems(items){
     return items.map(item =>(
-        <Link to={item.link} key={item.id} className="work-item">
-            <div className="work-item-avator">
+        <Link to={item.link} key={item.id} className="thread-item">
+            <div className="thread-item-avator">
                 <img src={item.avator} alt="" width="40" height="40" />
             </div>
-            <div className="work-item-info">
+            <div className="thread-item-info">
                 <h3>{item.title}</h3>
             </div>
         </Link>

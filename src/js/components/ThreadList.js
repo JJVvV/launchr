@@ -3,16 +3,16 @@
  */
 
 import React, {PropTypes} from 'react';
-import WorkItem from './WorkItem.js';
+import ThreadItem from './ThreadItem.js';
 
 
-export default class WorkList extends React.Component{
+export default class ThreadList extends React.Component{
 
   render(){
     const {items} = this.props;
     
     return (
-        <div className="work-list">
+        <div className="thread-list">
           {this.renderItems(items)}
         </div>
     );
@@ -21,7 +21,7 @@ export default class WorkList extends React.Component{
 
   renderItems(items){
     return items.map(item =>(
-        <WorkItem clickItem={this.props.clickItem} item={item} key={item.id} />
+        <ThreadItem clickItem={this.props.clickItem} item={item} key={item.id} />
     ));
   }
 }

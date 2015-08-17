@@ -12,7 +12,6 @@
   position:relative;
   padding:0 42px;
   line-height:1;
-  cursor:pointer;
   span{
     font-size:18px;
 
@@ -62,7 +61,7 @@
 }
 
 .approval-item{
-  @extend %work-item;
+  @extend %thread-item;
   padding:13px 20px 11px 23px;
   position:relative;
   border-bottom:1px dashed $gray-light;
@@ -80,10 +79,10 @@
   @extend %avator;
 }
 .approval-item-info{
-  @extend %work-item-info;
+  @extend %thread-item-info;
 }
 .approval-item-func{
-  @extend %work-item-func;
+  @extend %thread-item-func;
 }
 .approval-item-comment{
   position:relative;

@@ -2,35 +2,63 @@ import assign from 'object-assign'
 import * as constant from '../constants/launchr.js';
 
 const initialState = {
-  workList: [], //聊天列表 on .sub-panel
+  threadList: [], //聊天列表 on .sub-panel
   me:{ //关于我的信息
-
+    //this is not available
   },
   chatRoomName: '', // 聊天室名字或者某人的名字
   chatRoom: [], //聊天室人物
-  chatMessages: [], // 具体聊天信息
+  chatMessages: [ //所有聊天汇总
+
+  ], // 当前状态下所有聊天记录
+  currentThreadID: '', //当前聊天室ID
   timer: '' //记录聊天时间
 };
 
+let _threads = {};
 
 const actionsMap = {
-  //加载 .worklist
-  [constant.LOAD_WORKLIST]: (state, action) => ({workList: action.workList}),
-  // 删除某个 .work-item
-  [constant.REMOVE_WORKITEM]: (state, action) => ({workList: state.workList.filter(item =>
+  //加载 .threadList
+  [constant.LOAD_THREADLIST]: (state, action) => ({threadList: action.threadList}),
+  // 删除某个 .thread-item
+  [constant.REMOVE_WORKITEM]: (state, action) => ({threadList: state.threadList.filter(item =>
       item.id !== action.id
   )}),
-  //点击某个 .work-item 时加载相应的聊天内容
-  [constant.LOAD_CHATMESSAGES]: (state, action) => ({chatMessages: action.chatMessages, chatRoomName: action.chatRoomName, timer: action.timer}),
-  // 发送消息
-  [constant.SEND_CHATMESSAGE]: (state, action) => {
-    var aa = {chatMessages: [...state.chatMessages, action.message]};
-    return aa;
+  //点击某个 .thread-item 时加载相应的聊天内容
+  [constant.ADD_CHATMESSAGES]: (state, action) => {
+    let chatMessages = state.chatMessages.concat(action.messages);
+    return {
+      chatMessages: chatMessages, chatRoomName: action.chatRoomName, timer: action.timer
+    }
   },
-  [constant.LOGOUT]: (state, action) => {
-    return {user:action.user};
 
-  }
+  //// 添加消息
+  //[constant.ADD_CHATMESSAGE]: (state, action) => {
+  //  let chatMessages =[...state.chatMessages, action.message];
+  //  //消息改变的同时改变threadList
+  //
+  //  let threadList = chatMessages.map(function(message){
+  //    let threadID = message.threadID;
+  //    let thread = _threads[threadID];
+  //    if(thread && thread.timestamp > message.timestamp){
+  //      return;
+  //    }
+  //    _threads[threadID] = {
+  //
+  //    }
+  //
+  //  });
+  //  return {chatMessages, threadList}
+  //},
+
+  // 发送消息
+  [constant.SEND_CHATMESSAGE]: (state, action) => (
+    {chatMessages: [...state.chatMessages, action.message]}
+  ),
+
+  [constant.LOGOUT]: (state, action) => (
+    {user:action.user}
+  )
 }
 
 export default function article(state = initialState, action){

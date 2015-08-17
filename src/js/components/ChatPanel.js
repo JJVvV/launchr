@@ -4,7 +4,7 @@
 
 import React, {PropTypes} from 'react';
 import ChatMessage from './ChatMessage.js';
-import WorkList from '../WorkList.js';
+import ThreadList from '../ThreadList.js';
 import SubPanelHeader from '../SubPanelHeader.js';
 
 export default class ChatPanel extends React.Component{
@@ -16,7 +16,7 @@ export default class ChatPanel extends React.Component{
         <div className="sub-panel">
             <SubPanelHeader />
             <div className="sub-panel-content">
-                <WorkList items={items} />
+                <ThreadList items={items} />
             </div>
 
         </div>

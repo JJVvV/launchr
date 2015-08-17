@@ -9,7 +9,7 @@ import ArticleList from '../ArticleList.js';
 
 import ChatArea from '../ChatArea.js';
 import SubPanelHeader from '../SubPanelHeader.js';
-import WorkList from '../WorkList.js';
+import ThreadList from '../ThreadList.js';
 import actionContainer from '../../services/actionContainer.js';
 
 
@@ -17,7 +17,7 @@ export default class Chat {
 
 
   componentDidMount(){
-    //actionContainer.get().loadWorkList();
+    actionContainer.get().loadThreadList();
   }
 
   render(){
@@ -26,13 +26,13 @@ export default class Chat {
     //
 
 
-    const {workList, chatMessages, chatRoomName} = this.props.chatData;
+    const {threadList, chatMessages, chatRoomName} = this.props.chatData;
     return (
       <section className="page-container">
         <div className="sub-panel">
           <SubPanelHeader />
           <div className="sub-panel-content">
-            <WorkList items={workList} clickItem={::this.clickItem} />
+            <ThreadList items={threadList} clickItem={::this.clickItem} />
           </div>
         </div>
         <ChatArea chat={{messages: chatMessages, name:chatRoomName}} />
@@ -42,6 +42,6 @@ export default class Chat {
 
   clickItem(id){
     actionContainer.get().loadChatMessages(id);
-    console.log('work-item\'s id:', id);
+    console.log('thread-item\'s id:', id);
   }
 }

@@ -1,11 +1,11 @@
 // work-searck
 
-.work-list{
+.thread-list{
   padding:0;
 }
 
-.work-item{
-  @extend %work-item;
+.thread-item{
+  @extend %thread-item;
   padding:9px 20px 8px;
   display:block;
   margin-top:-1px;
@@ -24,7 +24,7 @@
   }
 }
 
-.work-item-avator{
+.thread-item-avator{
   @extend %avator;
 
   img{
@@ -32,12 +32,12 @@
   }
 }
 
-.work-item-info{
-  @extend %work-item-info;
+.thread-item-info{
+  @extend %thread-item-info;
 }
 
 
-.work-item-func{
-  @extend %work-item-func;
+.thread-item-func{
+  @extend %thread-item-func;
   letter-spacing: 2px;
 }

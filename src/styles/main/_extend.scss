@@ -28,7 +28,7 @@
   min-width:$chat-area-width;
 }
 
-// avator used on .work-item-avator and .calendar-avator
+// avator used on .thread-item-avator and .calendar-avator
 %avator{
   float:left;
   margin-right:8px;
@@ -52,13 +52,13 @@
   }
 }
 
-// used on .work-item and approval-item
-%work-item{
+// used on .thread-item and approval-item
+%thread-item{
   overflow:hidden;
   cursor:pointer;
 }
 
-%work-item-info{
+%thread-item-info{
   overflow:hidden;
 
   h3{
@@ -80,7 +80,7 @@
   }
 }
 
-%work-item-func{
+%thread-item-func{
   float:right;
   font-size: $font-size-small;
   color: $gray-dark;

@@ -20,12 +20,12 @@ export default class CalendarArea extends React.Component{
             <div className="approval">
                 <nav className="approval-title">
                     <span className="approval-search icon-glyph-115 calendar-action-search"></span>
-                    <div className="approval-title-item active">
+                    <a href="javascript:;" className="approval-title-item active">
                         审批<i className="circle-tip">2</i>
-                    </div>
-                    <div className="approval-title-item">
+                    </a>
+                    <a href="javascript:;" className="approval-title-item">
                         抄送<i className="circle-tip">3</i>
-                    </div>
+                    </a>
 
                 </nav>
                 <div className="approval-body">

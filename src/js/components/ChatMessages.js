@@ -10,7 +10,7 @@ export default class ChatMessages extends React.Component{
 
   render(){
     const {messages} = this.props;
-    
+    debugger;
     return (
         <div className="chat-messages">
           {this.renderItems(messages)}
