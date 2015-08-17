@@ -26,7 +26,10 @@ export default class Chat {
     //
 
 
-    const {threadList, chatMessages, chatRoomName} = this.props.chatData;
+    const {threadList, chatMessages, chatRoomName, currentThreadID, chatRoom} = this.props.chatData;
+
+    let messages = chatMessages.filter(message => (message.threadID === currentThreadID));
+
     return (
       <section className="page-container">
         <div className="sub-panel">
@@ -35,13 +38,15 @@ export default class Chat {
             <ThreadList items={threadList} clickItem={::this.clickItem} />
           </div>
         </div>
-        <ChatArea chat={{messages: chatMessages, name:chatRoomName}} />
+        <ChatArea chat={{messages, name:chatRoomName, chatRoom:chatRoom}} />
       </section>
     );
   }
 
-  clickItem(id){
-    actionContainer.get().loadChatMessages(id);
-    console.log('thread-item\'s id:', id);
+  clickItem(threadID){
+    actionContainer.get().changeThreadID(threadID);
+    actionContainer.get().loadChatMessages(threadID);
+    actionContainer.get().loadThreadList();
+    console.log('thread-item\'s threadID:', threadID);
   }
 }

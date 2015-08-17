@@ -13,8 +13,14 @@
 
 //circle tip
 %circle-tip{
-  @include circle(16px, $light-base, $red-base);
+  padding:0 $circle-tip-width-base/4;
+  color: $light-base;
+  background:$red-base;
+  border-radius:$circle-tip-width-base/2;
+  line-height:$circle-tip-width-base;
+  //@include circle($circle-tip-width-base, $light-base, $red-base);
 }
+
 .circle-tip{
   @extend %circle-tip
 }
@@ -32,6 +38,7 @@
 %avator{
   float:left;
   margin-right:8px;
+  position:relative;
 }
 
 // used on .calendar-action-search and .approval-search

@@ -7,8 +7,9 @@ import * as constant from '../constants/launchr.js';
 import reqwest from 'reqwest';
 import RouterContainer from '../services/routerContainer.js';
 import ReduxContainer from '../services/reduxContainer.js';
+import testJSON from '../test/json_test.js';
+
 const MAIN_URL = '';
-var messageID=0;
 
 
 // load worklist
@@ -17,7 +18,6 @@ export function loadThreadList(){
 
   return dispatch => {
     //cache
-
     //let articles = ReduxContainer.state().articles;
     //if(articles.length){
     //  debugger;
@@ -27,13 +27,16 @@ export function loadThreadList(){
     //  });
     //  return;
     //}
-
+    if(ReduxContainer.get().getState().chat.threadList.length){
+        return dispatch({
+            type: constant.LOAD_THREADLIST,
+            threadList: ReduxContainer.get().getState().chat.threadList
+        })
+    }
     Promise.resolve( reqwest(`${MAIN_URL}/api/articles`))
       //.then(res => JSON.parse)
         .then(res => {
-          let threadList = [{avator:"/public/img/zhangqiuyan.jpg", id:0, title:"审批", info:"我爱你再见", timer: "17:02"},
-            {avator:"/public/img/zhangqiuyan.jpg", id:1, title:"日程", info:"我爱你再见", timer: "17:03"}];
-
+            let threadList = testJSON.threadList;
           return dispatch({
             type: constant.LOAD_THREADLIST,
             threadList: threadList || res.threadList
@@ -73,9 +76,8 @@ export function loadChatMessages(id){
 
         .then(res => {
 
-          const messages = [{avator:"/public/img/zhangqiuyan.jpg", id:messageID++, name:"听说", info:"我爱你再见", timer: "17:02", me: true},
-            {avator:"/public/img/zhangqiuyan.jpg", id:messageID++, name:"听说", info:"我爱你再见", timer: "17:02", me: false}];
-            debugger;
+          let messages = testJSON.messages;
+
           return dispatch({
             type: constant.ADD_CHATMESSAGES,
             messages: messages || res.messages,
@@ -86,7 +88,8 @@ export function loadChatMessages(id){
 
 
         .catch(err => {
-          console.error('load chat Messages failed');
+            console.log(err);
+            console.error('load chat Messages failed');
 
         });
   }
@@ -131,7 +134,17 @@ export function sendMessage(message){
   }
 }
 
+// change ThreadID
+export function changeThreadID(threadID){
 
+    return dispatch => {
+
+        return dispatch({
+            type: constant.CHANGE_THREADID,
+            threadID
+        })
+    }
+}
 
 
 

@@ -126,6 +126,9 @@ $z-index-base:90;
 $z-index-small:9;
 $z-index-large:900;
 
+// .circle-tip
+$circle-tip-width-base: 16px !default;
+$circle-tip-width-large: $circle-tip-width-base + 6px !default;
 //search
 $work-search-height:34px;
 

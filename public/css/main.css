@@ -23,15 +23,11 @@
   white-space: nowrap; }
 
 .circle-tip {
-  border-radius: 50%;
-  text-align: center; }
-
-.circle-tip {
-  display: inline-block;
-  width: 16px;
-  line-height: 16px;
+  padding: 0 4px;
   color: #fff;
-  background-color: #ff3366; }
+  background: #ff3366;
+  border-radius: 8px;
+  line-height: 16px; }
 
 .global-detail-area {
   background: #fff;
@@ -43,7 +39,8 @@
 
 .thread-item-avator, .calendar-user-avator, .approval-item-avator {
   float: left;
-  margin-right: 8px; }
+  margin-right: 8px;
+  position: relative; }
 
 .calendar-action-search, .approval-search {
   font-size: 24px;
@@ -1700,7 +1697,13 @@ html, body, #wrapper, .container, .page-container {
     margin-top: 0px; }
 
 .thread-item-avator img {
-  display: block; }
+  display: block;
+  border-radius: 3px; }
+
+.thread-item-avator .circle-tip {
+  position: absolute;
+  right: -3px;
+  top: -3px; }
 
 .thread-item-func {
   letter-spacing: 2px; }
@@ -1804,6 +1807,7 @@ html, body, #wrapper, .container, .page-container {
 .chat-send {
   height: 175px;
   border-top: 1px solid #e3e7ea;
+  background: #fff;
   position: absolute;
   width: 100%;
   bottom: 0;

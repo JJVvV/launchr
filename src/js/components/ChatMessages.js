@@ -10,11 +10,11 @@ export default class ChatMessages extends React.Component{
 
   render(){
     const {messages} = this.props;
-    debugger;
+
     return (
-        <div className="chat-messages">
+        <ul className="chat-messages">
           {this.renderItems(messages)}
-        </div>
+        </ul>
     );
   }
 
@@ -22,7 +22,7 @@ export default class ChatMessages extends React.Component{
   renderItems(messages){
 
     return messages.map(message =>(
-        <ChatMessage message={message} key={message.id + message.timer} />
+        <ChatMessage message={message} key={Math.floor(Math.random()*10000)+ Date.now()} />
     ));
   }
 }

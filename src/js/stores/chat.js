@@ -16,10 +16,17 @@ const initialState = {
 };
 
 let _threads = {};
+let currentThreadID;
+
 
 const actionsMap = {
   //加载 .threadList
-  [constant.LOAD_THREADLIST]: (state, action) => ({threadList: action.threadList}),
+  [constant.LOAD_THREADLIST]: (state, action) => {
+    let threadList = action.threadList.map((thread) => {
+      return {...thread, active: thread.threadID === currentThreadID}
+    });
+    return {threadList}
+  },
   // 删除某个 .thread-item
   [constant.REMOVE_WORKITEM]: (state, action) => ({threadList: state.threadList.filter(item =>
       item.id !== action.id
@@ -58,7 +65,15 @@ const actionsMap = {
 
   [constant.LOGOUT]: (state, action) => (
     {user:action.user}
-  )
+  ),
+
+  // 修改currentThreadID
+  [constant.CHANGE_THREADID]: (state, action) => {
+    currentThreadID = action.threadID;
+
+    return {currentThreadID}
+  }
+
 }
 
 export default function article(state = initialState, action){

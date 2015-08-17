@@ -12,9 +12,9 @@ export default class ThreadList extends React.Component{
     const {items} = this.props;
     
     return (
-        <div className="thread-list">
+        <ul className="thread-list">
           {this.renderItems(items)}
-        </div>
+        </ul>
     );
   }
 

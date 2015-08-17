@@ -4,6 +4,7 @@
 .chat-send{
   height: $chat-send-height;
   border-top:1px solid $gray-light;
+  background:$light-base;
   position:absolute;
   width:100%;
   bottom:0;

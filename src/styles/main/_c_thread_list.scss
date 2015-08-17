@@ -29,6 +29,13 @@
 
   img{
     display:block;
+    border-radius:$border-radius-small;
+  }
+
+  .circle-tip{
+    position:absolute;
+    right:-3px;
+    top:-3px;
   }
 }
 

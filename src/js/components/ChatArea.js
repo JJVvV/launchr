@@ -15,7 +15,8 @@ export default class ChatArea extends React.Component{
   constructor(){
       super();
       this.state= {
-          content: ''
+          content: '',
+          message:[]
       }
   }
   render() {
@@ -25,11 +26,11 @@ export default class ChatArea extends React.Component{
       return (
           <div className="chat-area global-detail-area">
               <div className="chat-area-inner">
-                  {hasPerson && <ChatTitleWrapper name={name}/>}
+                  {hasPerson && <ChatTitleWrapper name={name} />}
 
 
                   <div className="chat-content">
-                      <ChatMessages messages={messages}/>
+                      <ChatMessages messages={messages} />
                   </div>
                   {hasPerson && <div className="chat-send">
                       <div className="chat-send-toolbar">
