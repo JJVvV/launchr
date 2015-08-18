@@ -18,19 +18,24 @@ export default class ContentEditable {
   render(){
     const {right, info} = this.props;
     return(
-        <pre {...this.props} contentEditable={true} onFocus={::this.focus} onBlur={::this.blur}>
+        <pre {...this.props} contentEditable={true} onFocus={::this._focus} onBlur={::this._blur} onKeyUp={::this._keyDown} ref="contentEditable">
           {this.props.children}
         </pre>
     );
 
   }
 
-  focus(e){
+  _focus(e){
 
   }
 
-  blur(e){
+  _blur(e){
     e.target.innerHTML.length !== 0 && typeof this.props.onChange === 'function' && this.props.onChange(e.target.innerHTML);
 
+  }
+
+  _keyDown(e){
+    e.preventDefault();
+    typeof this.props.onKeyDown === 'function' && this.props.onKeyDown(e);
   }
 }

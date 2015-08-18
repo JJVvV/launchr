@@ -4,8 +4,8 @@
 
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
-import ArticleItem from './ArticleItem.js';
-import shallowEqualScalar from 'redux/lib/utils/shallowEqualScalar'
+
+//import shallowEqualScalar from 'redux/lib/utils/shallowEqualScalar'
 
 export default class GlobalPanel extends React.Component{
   //componentWillMount(){

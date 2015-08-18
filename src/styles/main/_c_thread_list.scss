@@ -25,12 +25,8 @@
 }
 
 .thread-item-avator{
-  @extend %avator;
+  //@extend %avator;
 
-  img{
-    display:block;
-    border-radius:$border-radius-small;
-  }
 
   .circle-tip{
     position:absolute;

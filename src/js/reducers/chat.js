@@ -5,6 +5,9 @@ const initialState = {
   threadList: [], //聊天列表 on .sub-panel
   me:{ //关于我的信息
     //this is not available
+    avator:"/public/img/zhangqiuyan.jpg",
+    id:2,
+    name:"听说"
   },
   chatRoomName: '', // 聊天室名字或者某人的名字
   chatRoom: [], //聊天室人物
@@ -33,6 +36,7 @@ const actionsMap = {
   )}),
   //点击某个 .thread-item 时加载相应的聊天内容
   [constant.ADD_CHATMESSAGES]: (state, action) => {
+
     let chatMessages = state.chatMessages.concat(action.messages);
     return {
       chatMessages: chatMessages, chatRoomName: action.chatRoomName, timer: action.timer
@@ -59,9 +63,11 @@ const actionsMap = {
   //},
 
   // 发送消息
-  [constant.SEND_CHATMESSAGE]: (state, action) => (
-    {chatMessages: [...state.chatMessages, action.message]}
-  ),
+  [constant.SEND_CHATMESSAGE]: (state, action) => {
+    let message = Object.assign({}, state.me, action.message, {threadID: state.currentThreadID});
+
+    return {chatMessages: [...state.chatMessages, message]}
+  },
 
   [constant.LOGOUT]: (state, action) => (
     {user:action.user}

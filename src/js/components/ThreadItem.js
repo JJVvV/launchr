@@ -19,7 +19,7 @@ export default class ThreadItem extends React.Component{
           <div className="thread-item-func">
             <div className="tip">{timer}</div>
           </div>
-          <div className="thread-item-avator">
+          <div className="thread-item-avator avator">
             <img src={avator} alt="" width="40" height="40" />
             <i className="circle-tip">3</i>
           </div>

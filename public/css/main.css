@@ -37,10 +37,13 @@
   border-right: 1px solid #e3e7ea;
   min-width: 520px; }
 
-.thread-item-avator, .calendar-user-avator, .approval-item-avator {
+.avator {
   float: left;
   margin-right: 8px;
   position: relative; }
+  .avator img {
+    border-radius: 3px;
+    vertical-align: middle; }
 
 .calendar-action-search, .approval-search {
   font-size: 24px;
@@ -231,7 +234,7 @@ mark {
 
 /* 代码片断 */
 pre, code, pre tt {
-  font-family: Courier, 'Courier New', monospace; }
+  font-family: Microsoft Yahei, open sans, sans; }
 
 /* 一致化 horizontal rule */
 hr {
@@ -1696,10 +1699,6 @@ html, body, #wrapper, .container, .page-container {
     border-top: none;
     margin-top: 0px; }
 
-.thread-item-avator img {
-  display: block;
-  border-radius: 3px; }
-
 .thread-item-avator .circle-tip {
   position: absolute;
   right: -3px;
@@ -1768,6 +1767,9 @@ html, body, #wrapper, .container, .page-container {
   width: 47px;
   height: 47px;
   border-radius: 3px; }
+
+.chat-message {
+  margin: 18px auto 14px; }
 
 .chat-message-time {
   margin: 18px auto 14px;
@@ -1874,7 +1876,7 @@ html, body, #wrapper, .container, .page-container {
   margin-left: -1px; }
 
 .calendar-title {
-  padding: 15px 18px 8px; }
+  padding: 15px 18px; }
   .calendar-title .btn-group {
     vertical-align: top;
     margin-right: 16px; }
@@ -1884,6 +1886,9 @@ html, body, #wrapper, .container, .page-container {
 
 .calendar-action {
   float: right; }
+
+.calendar-user-change {
+  color: #0099ff; }
 
 .calendar-user-name {
   margin: 7px 14px 0 7px;

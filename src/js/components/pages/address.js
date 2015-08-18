@@ -4,10 +4,8 @@
 
 import React from 'react';
 import {Link} from 'react-router';
-import { connect } from 'redux/react'
+import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import ArticleDetail from '../ArticleDetail.js';
-import * as articleAction from '../../actions/article1.js'
 
 //@connect(state => ({
 //  blog: state.article
@@ -18,7 +16,9 @@ export default class AddressPage extends React.Component{
     //const actions = bindActionCreators(articleAction, dispatch);
     return (
       <section>
-        hello address!
+        <div style={{marginLeft: '200px'}}>
+          hello address!
+        </div>
       </section>
     );
   }

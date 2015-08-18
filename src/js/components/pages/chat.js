@@ -4,9 +4,6 @@
 
 import React from 'react';
 
-import ArticleList from '../ArticleList.js';
-
-
 import ChatArea from '../ChatArea.js';
 import SubPanelHeader from '../SubPanelHeader.js';
 import ThreadList from '../ThreadList.js';
@@ -14,10 +11,12 @@ import actionContainer from '../../services/actionContainer.js';
 
 
 export default class Chat {
-
+  componentWillMount(){
+    actionContainer.get().loadThreadList();
+  }
 
   componentDidMount(){
-    actionContainer.get().loadThreadList();
+
   }
 
   render(){

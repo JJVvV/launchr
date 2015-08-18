@@ -21,7 +21,7 @@ export default class ApplicationList extends React.Component{
   renderItems(items){
     return items.map(item =>(
         <Link to={item.link} key={item.id} className="thread-item">
-            <div className="thread-item-avator">
+            <div className="thread-item-avator avator">
                 <img src={item.avator} alt="" width="40" height="40" />
             </div>
             <div className="thread-item-info">

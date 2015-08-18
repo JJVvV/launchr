@@ -4,20 +4,17 @@
 
 import React, { PropTypes } from 'react';
 import { Redirect, Router, Route , Navigation} from 'react-router';
-import { Provider } from 'redux/react';
-import { createRedux } from 'redux';
-import * as blogStore from '../stores';
+import { Provider } from 'react-redux';
 import RouterContainer from '../services/routerContainer.js';
 
 import Application from '../components/Application.js'
 
-import Detail from '../components/pages/detail.js'
-import Post from '../components/pages/post.js'
+
 import Login from '../components/pages/login.js'
 import ChatPage from '../components/pages/chat.js'
 import AddressPage from '../components/pages/address.js'
 import ApplicationPage from '../components/pages/application.js'
-
+import reducers from '../reducers';
 import CalendarArea from '../components/CalendarArea.js';
 import ApprovalArea from '../components/ApprovalArea.js';
 
@@ -25,16 +22,19 @@ import ApprovalArea from '../components/ApprovalArea.js';
 import ReduxContainer from '../services/reduxContainer.js';
 import after from '../common/after.js';
 
-const redux = createRedux(blogStore);
-var aa = redux;
+import configStore from '../store/configureStore.js';
 
-ReduxContainer.set(redux);
+const store = configStore();
+
+//ReduxContainer.set(redux);
+
+
 export default class Root {
   render(){
     const {history} = this.props;
 
     return(
-      <Provider redux={redux}>
+      <Provider store={store}>
         {renderRoutes.bind(null, history)}
       </Provider>
     );
@@ -71,6 +71,7 @@ function onNotLogined(nextState, transition){
   }
   return true;
 }
+
 
 function onLogined(nextState, transition){
 

@@ -7,7 +7,7 @@
   margin-left:-1px;
 }
 .calendar-title{
-  padding:15px 18px 8px;
+  padding:15px 18px;
 
   .btn-group{
     vertical-align:top;
@@ -20,7 +20,9 @@
 .calendar-action{
   float:right;
 }
-
+.calendar-user-change{
+  color:$blue-base;
+}
 .calendar-user-name{
   margin: 7px 14px 0 7px;
   font-size:16px;
@@ -28,7 +30,7 @@
 }
 
 .calendar-user-avator{
-  @extend %avator;
+  //@extend %avator;
 }
 
 .calendar-action-search{

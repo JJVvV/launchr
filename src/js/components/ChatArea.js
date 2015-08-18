@@ -9,6 +9,7 @@ import ChatTitleWrapper from './ChatTitleWrapper.js';
 import actionContainer from '../services/actionContainer.js';
 import ContentEditable from './ContentEditable.js';
 import Emotion from './Emotion.js';
+import {ENTER} from '../constants/launchr.js';
 
 export default class ChatArea extends React.Component{
 
@@ -42,13 +43,13 @@ export default class ChatArea extends React.Component{
                           <i className=" toolbar icon-glyph-207"></i>
                           <i className=" toolbar icon-app"></i>
                       </div>
-                      <ContentEditable className="chat-send-content" onChange={::this.change}>{this.state.content}</ContentEditable>
+                      <ContentEditable className="chat-send-content" onKeyDown={::this._onKeyDown}>{this.state.content}</ContentEditable>
 
                       <div className="chat-send-action clearfix">
                         <span className="chat-send-action-tip">
                         按Enter键发送消息
                         </span>
-                          <span className="btn btn-default" onClick={::this.sendMessage}>发送</span>
+                          <span className="btn btn-default" onClick={::this._sendMessage}>发送</span>
 
                       </div>
                      <Emotion />
@@ -57,20 +58,32 @@ export default class ChatArea extends React.Component{
           </div>
       );
   }
+    _sendMessage(){
+        this.sendMessage(this.state.content);
+    }
 
-  sendMessage(){
-      let message = {avator:"/public/img/zhangqiuyan.jpg", id:2, name:"听说", info:'', timer: "17:02", me: true};
-      message.info = this.state.content;
-      actionContainer.get().sendMessage(message);
+  sendMessage(content){
 
-      this.setState({
-          content:' '
-      });
+      if(typeof content === 'string' && content.trim().length > 0){
+          actionContainer.get().sendMessage(content).then((a) => {
+              this.setState({
+                  content:''
+              });
+          });
+      }
+      //let message = {avator:"/public/img/zhangqiuyan.jpg", id:2, name:"听说", info:'', timer: "17:02", me: true};
+      //message.info = this.state.content;
+
+
   }
 
-  change(value){
-      this.state.content = value;
-  }
+
+    _onKeyDown(e){
+        this.state.content = e.target.textContent;
+        if(e.which == ENTER){
+            this.sendMessage(this.state.content);
+        }
+    }
 
 }
 

@@ -15,7 +15,7 @@ export default class ApplicationItem extends React.Component{
 
      return (
          <div className="thread-item">
-           <div className="thread-item-avator">
+           <div className="thread-item-avator avator">
              <img src={avator} alt="" width="40" height="40" />
            </div>
            <div className="thread-item-info">

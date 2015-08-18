@@ -29,7 +29,7 @@ export default class ChatTitle extends React.Component{
     return (
         <div className="calendar-title clearfix" onClick={toggle}>
           <div className="calendar-user">
-            <div className="calendar-user-avator"><img src="/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" /></div>
+            <div className="calendar-user-avator avator"><img src="/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" /></div>
             <span className="calendar-user-name">Jerry Luo</span>
             <a className="calendar-user-change" href="javascrit:;" onClick={::this.toggleUser}>更换</a>
           </div>

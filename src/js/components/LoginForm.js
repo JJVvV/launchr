@@ -5,7 +5,7 @@
 import React, {PropTypes} from 'react/addons.js';
 import {Link} from 'react-router';
 
-import shallowEqualScalar from 'redux/lib/utils/shallowEqualScalar'
+//import shallowEqualScalar from 'redux/lib/utils/shallowEqualScalar'
 
 export default class LoginForm extends React.Component{
 

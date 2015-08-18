@@ -42,7 +42,7 @@ export default class CalendarArea extends React.Component{
                             <div className="approval-item-func">
                                 <div className="tip is-important">今天19:00截止</div>
                             </div>
-                            <div className="approval-item-avator">
+                            <div className="approval-item-avator avator">
                                 <img src="/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" />
                             </div>
                             <div className="approval-item-info">
@@ -54,7 +54,7 @@ export default class CalendarArea extends React.Component{
                             <div className="approval-item-func">
                                 <div className="tip">今天19:00截止</div>
                             </div>
-                            <div className="approval-item-avator">
+                            <div className="approval-item-avator avator">
                                 <img src="/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" />
                             </div>
                             <div className="approval-item-info">
@@ -71,7 +71,7 @@ export default class CalendarArea extends React.Component{
                                     <span className="approval-item-comment icon-glyph-29 comment-tip"></span>
                                 </div>
                             </div>
-                            <div className="approval-item-avator">
+                            <div className="approval-item-avator avator">
                                 <img src="/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" />
                             </div>
                             <div className="approval-item-info">

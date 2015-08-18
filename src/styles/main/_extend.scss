@@ -39,8 +39,14 @@
   float:left;
   margin-right:8px;
   position:relative;
+  img{
+    border-radius:$border-radius-small;
+    vertical-align:middle;
+  }
 }
-
+.avator{
+  @extend %avator;
+}
 // used on .calendar-action-search and .approval-search
 %icon-search{
   font-size:24px;

@@ -4,7 +4,8 @@
 
 import React, { PropTypes } from 'react/addons.js';
 import classnames from 'classnames';
-import { connect } from 'redux/react'
+import { connect } from 'react-redux';
+
 import { bindActionCreators } from 'redux'
 import * as launchrAction from '../actions/launchr.js';
 

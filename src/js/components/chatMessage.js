@@ -13,12 +13,13 @@ export default class ChatMessage extends React.Component{
 
 
   render(){
-    const {timer, avator, name, info, me} = this.props.message;
+    const {timer, avator, name, info, me, showTime} = this.props.message;
     return (
         <li className={classnames({'chat-message': true, me: me, you:!me})}>
+          {showTime &&
           <p className="chat-message-time">
             <time>{timer}</time>
-          </p>
+          </p>}
           <img src={avator} alt="" className="chat-message-avator" width="40" height="40" />
           <div className="chat-message-content">
             {me ||

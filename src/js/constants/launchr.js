@@ -17,3 +17,8 @@ export const LOAD_ARTICLE = 'LOAD_ARTICLE';
 export const SAVE_ARTICLE = 'SAVE_ARTICLE';
 export const USER = 'USER';
 export const LOGOUT = 'LOGOUT';
+
+export const CHAT_URL =  'http://totoro:10000/chat';
+export const CHAT_URL_UNREADSESSION = `${CHAT_URL}/unreadsession`;
+
+export const ENTER = 13;

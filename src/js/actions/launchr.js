@@ -2,51 +2,54 @@
  * Created by Administrator on 2015/7/10.
  */
 
-import {Promise} from 'es6-promise';
-import * as constant from '../constants/launchr.js';
-import reqwest from 'reqwest';
+
+
+
+import fetch from 'isomorphic-fetch';
 import RouterContainer from '../services/routerContainer.js';
 import ReduxContainer from '../services/reduxContainer.js';
 import testJSON from '../test/json_test.js';
-
+import request from 'reqwest';
 const MAIN_URL = '';
+import {CHAT_URL,
+    LOAD_THREADLIST,
+    ADD_CHATMESSAGES,
+    SEND_CHATMESSAGE,
+    CHANGE_THREADID} from '../constants/launchr.js';
 
-
-// load worklist
 
 export function loadThreadList(){
 
   return dispatch => {
-    //cache
-    //let articles = ReduxContainer.state().articles;
-    //if(articles.length){
-    //  debugger;
-    //  dispatch({
-    //    type: constant.LOAD_ARTICLES,
-    //    articles: articles
-    //  });
-    //  return;
-    //}
-    if(ReduxContainer.get().getState().chat.threadList.length){
-        return dispatch({
-            type: constant.LOAD_THREADLIST,
-            threadList: ReduxContainer.get().getState().chat.threadList
-        })
-    }
-    Promise.resolve( reqwest(`${MAIN_URL}/api/articles`))
-      //.then(res => JSON.parse)
-        .then(res => {
-            let threadList = testJSON.threadList;
-          return dispatch({
-            type: constant.LOAD_THREADLIST,
-            threadList: threadList || res.threadList
+
+      request({
+          url: '/chat/unreadsession',
+
+          method: 'get',
+          contentType: 'application/json',
+          crossOrigin: true,
+          data:{
+              "appName": "launchr",
+              "appToken": "verify-code",
+              "userName": "bellliu",
+              "start": 0,
+              "end":10
+          }
+      })
+              .then(res => {
+
+              let threadList = testJSON.threadList;
+              return dispatch({
+                  type: LOAD_THREADLIST,
+                  threadList: threadList || res.threadList
+              })
           })
-        })
 
-        .catch(err => {
-          console.error('load worklist failed');
+          .catch(err => {
+              console.error('load worklist failed');
 
-        });
+          });
+
   }
 }
 
@@ -55,83 +58,59 @@ export function loadThreadList(){
 export function loadChatMessages(id){
 
   return dispatch => {
-    //cache
 
-    //let articles = ReduxContainer.state().articles;
-    //if(articles.length){
-    //  debugger;
-    //  dispatch({
-    //    type: constant.LOAD_ARTICLES,
-    //    articles: articles
-    //  });
-    //  return;
-    //}
+      return fetch(`${MAIN_URL}/api/articles`)
+              .then(res => {
 
-    Promise.resolve( reqwest(`${MAIN_URL}/api/articles`))
-      //.then(res => JSON.parse)
-      //  .then(res => dispatch({
-      //    type: constant.LOAD_CHATMESSAGES,
-      //    chatMessages: res.chatMessages
-      //  }))
+                  let messages = testJSON.messages;
 
-        .then(res => {
-
-          let messages = testJSON.messages;
-
-          return dispatch({
-            type: constant.ADD_CHATMESSAGES,
-            messages: messages || res.messages,
-            chatRoomName: 'darling',
-            timer: Date.now()
-          })
-        })
+                  dispatch({
+                      type: ADD_CHATMESSAGES,
+                      messages: messages || res.messages,
+                      chatRoomName: 'darling',
+                      timer: Date.now()
+                  })
+              })
 
 
-        .catch(err => {
-            console.log(err);
-            console.error('load chat Messages failed');
+              .catch(err => {
+                  console.log(err);
+                  console.error('load chat Messages failed');
 
-        });
-  }
+              });
+
+      }
 }
 
 
 //addMessage
 
-export function sendMessage(message){
+export function sendMessage(text){
 
-  return dispatch => {
-    //cache
+  return (dispatch, getState) => {
 
-    //let articles = ReduxContainer.state().articles;
-    //if(articles.length){
-    //  debugger;
-    //  dispatch({
-    //    type: constant.LOAD_ARTICLES,
-    //    articles: articles
-    //  });
-    //  return;
-    //}
+      return fetch(`${MAIN_URL}/api/articles`)
 
-    Promise.resolve( reqwest(`${MAIN_URL}/api/articles`))
-      //.then(res => JSON.parse)
-      //  .then(res => dispatch({
-      //    type: constant.LOAD_CHATMESSAGES,
-      //    chatMessages: res.chatMessages
-      //  }))
-        .then(res => {
+            .then(res => {
 
-          return dispatch({
-            type: constant.SEND_CHATMESSAGE,
-            message: message
-          })
-        })
+                  let message = {
+                      info:text,
+                      timer: new Date().toLocaleTimeString(),
+                      me: true
+                  }
+              return dispatch({
+                type: SEND_CHATMESSAGE,
+                  message,
 
-        .catch(err => {
-          console.error('add Message failed');
+              })
+            })
 
-        });
-  }
+            .catch(err => {
+                  console.log(err);
+              console.error('add Message failed');
+
+            });
+     }
 }
 
 // change ThreadID
@@ -140,7 +119,7 @@ export function changeThreadID(threadID){
     return dispatch => {
 
         return dispatch({
-            type: constant.CHANGE_THREADID,
+            type: CHANGE_THREADID,
             threadID
         })
     }
