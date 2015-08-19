@@ -6,6 +6,7 @@ html, body, #wrapper, .container, .page-container{
   height:100%;
 }
 .container{
+  position:relative;
   min-height: $global-min-height;
   min-width:880px;
 }

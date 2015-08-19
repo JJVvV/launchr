@@ -1,0 +1,13 @@
+.slider{
+  position: absolute;
+  top:0;
+  right:0;
+  height:100%;
+  overflow:hidden;
+  width:700px;
+  border-left:1px solid $gray-light;
+  box-shadow: -5px 0 16px rgba(0, 0, 0, 0.1);
+  background:$light-base;
+  z-index:$z-index-large;
+}
+

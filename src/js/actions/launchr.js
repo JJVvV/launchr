@@ -15,60 +15,61 @@ import {CHAT_URL,
     LOAD_THREADLIST,
     ADD_CHATMESSAGES,
     SEND_CHATMESSAGE,
-    CHANGE_THREADID} from '../constants/launchr.js';
+    CHANGE_THREADID,
+    CHANGE_THREAD} from '../constants/launchr.js';
 
 
 export function loadThreadList(){
 
   return dispatch => {
 
-      request({
-          url: '/chat/unreadsession',
+      return request({
+              url: '/chat/unreadsession',
 
-          method: 'get',
-          contentType: 'application/json',
-          crossOrigin: true,
-          data:{
-              "appName": "launchr",
-              "appToken": "verify-code",
-              "userName": "bellliu",
-              "start": 0,
-              "end":10
-          }
-      })
-              .then(res => {
-
-              let threadList = testJSON.threadList;
-              return dispatch({
-                  type: LOAD_THREADLIST,
-                  threadList: threadList || res.threadList
-              })
+              method: 'get',
+              contentType: 'application/json',
+              crossOrigin: true,
+              data:{
+                  "appName": "launchr",
+                  "appToken": "verify-code",
+                  "userName": "bellliu",
+                  "start": 0,
+                  "end":10
+              }
           })
+                  .then(res => {
 
-          .catch(err => {
-              console.error('load worklist failed');
+                  let threadList = testJSON.threadList;
+                  return dispatch({
+                      type: LOAD_THREADLIST,
+                      threadList: threadList || res.threadList
+                  })
+              })
 
-          });
+              .catch(err => {
+                  console.error('load worklist failed');
+
+              });
 
   }
 }
 
 //load chatMessages
 
-export function loadChatMessages(id){
+export function loadChatMessages(threadID, name){
 
   return dispatch => {
 
-      return fetch(`${MAIN_URL}/api/articles`)
+      return fetch(`${MAIN_URL}/api/chatMessages`)
               .then(res => {
 
                   let messages = testJSON.messages;
 
                   dispatch({
+                      threadID,
                       type: ADD_CHATMESSAGES,
                       messages: messages || res.messages,
-                      chatRoomName: 'darling',
-                      timer: Date.now()
+                      chatRoomName: name
                   })
               })
 
@@ -125,8 +126,23 @@ export function changeThreadID(threadID){
     }
 }
 
+// change Thread 切换聊天室
+export function changeThread(threadID, name){
+
+    return dispatch => {
+
+        return dispatch(getNowThread(threadID, name))
+    }
+}
 
 
+function getNowThread(threadID, chatRoomName){
+    return {
+        type: CHANGE_THREAD,
+        threadID,
+        chatRoomName
+    }
+}
 
 
 

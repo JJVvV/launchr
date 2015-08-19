@@ -21,25 +21,48 @@ const initialState = {
 let _threads = {};
 let currentThreadID;
 
+function activeThreadListByID(threadList, threadID){
+  return threadList.map((thread) => {
+    return {...thread, active: thread.threadID === threadID}
+  });
+}
+
+function getMessagesByThreadID(threadID){
+
+}
+
 
 const actionsMap = {
   //加载 .threadList
   [constant.LOAD_THREADLIST]: (state, action) => {
-    let threadList = action.threadList.map((thread) => {
-      return {...thread, active: thread.threadID === currentThreadID}
-    });
-    return {threadList}
+    return {threadList: action.threadList}
   },
+
+  [constant.CHANGE_THREAD]: (state, action) => {
+    let threadList = activeThreadListByID(state.threadList, action.threadID);
+    return {threadList, currentThreadID: action.threadID, chatRoomName: action.chatRoomName}
+  },
+
   // 删除某个 .thread-item
   [constant.REMOVE_WORKITEM]: (state, action) => ({threadList: state.threadList.filter(item =>
       item.id !== action.id
   )}),
+
   //点击某个 .thread-item 时加载相应的聊天内容
   [constant.ADD_CHATMESSAGES]: (state, action) => {
 
-    let chatMessages = state.chatMessages.concat(action.messages);
+    let chatMessages = state.chatMessages.length > 0 ? state.chatMessages : state.chatMessages.concat(action.messages);
+    let threadList = state.threadList.map((thread) => {
+      if(thread.threadID === action.threadID){
+        return {...thread, count:0}
+      }
+      return thread;
+    });
     return {
-      chatMessages: chatMessages, chatRoomName: action.chatRoomName, timer: action.timer
+      chatMessages,
+      chatRoomName: action.chatRoomName,
+      timer: action.timer,
+      threadList
     }
   },
 
@@ -82,7 +105,7 @@ const actionsMap = {
 
 }
 
-export default function article(state = initialState, action){
+export default function launchr(state = initialState, action){
   const reduceFn  = actionsMap[action.type];
   if(!reduceFn) return state;
 

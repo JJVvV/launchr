@@ -8,6 +8,7 @@ import ChatArea from '../ChatArea.js';
 import SubPanelHeader from '../SubPanelHeader.js';
 import ThreadList from '../ThreadList.js';
 import actionContainer from '../../services/actionContainer.js';
+import {getMessagesByThreadID} from '../../services/messageService.js';
 
 
 export default class Chat {
@@ -26,8 +27,7 @@ export default class Chat {
 
 
     const {threadList, chatMessages, chatRoomName, currentThreadID, chatRoom} = this.props.chatData;
-
-    let messages = chatMessages.filter(message => (message.threadID === currentThreadID));
+    let messages = getMessagesByThreadID(chatMessages, currentThreadID);
 
     return (
       <section className="page-container">
@@ -42,10 +42,16 @@ export default class Chat {
     );
   }
 
-  clickItem(threadID){
-    actionContainer.get().changeThreadID(threadID);
-    actionContainer.get().loadChatMessages(threadID);
-    actionContainer.get().loadThreadList();
-    console.log('thread-item\'s threadID:', threadID);
+  clickItem(item){
+    let action = actionContainer.get();
+    const {threadID, title, count} = item;
+
+    action.changeThread(threadID, title);
+
+    if(item.count && count > 0){
+      action.loadChatMessages(threadID, title);
+    }
+
+    console.log('thread-item\'s threadID:', item.threadID);
   }
 }

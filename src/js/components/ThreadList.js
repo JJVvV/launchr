@@ -21,9 +21,19 @@ export default class ThreadList extends React.Component{
 
   renderItems(items){
     return items.map(item =>(
-        <ThreadItem clickItem={this.props.clickItem} item={item} key={item.id} />
+        <ThreadItem clickItem={this.props.clickItem.bind(this, item)} item={item} key={item.id} />
     ));
   }
+
+    clickItem(threadID, name){
+        let action = actionContainer.get();
+        //action.changeThreadID(threadID);
+        //action.loadChatMessages(threadID, name);
+        //action.loadThreadList().then(()=>{
+        //
+        //});
+        console.log('thread-item\'s threadID:', threadID);
+    }
 }
 
 

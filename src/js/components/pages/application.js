@@ -18,7 +18,8 @@ export default class ApplicationPage {
 
 
   componentDidMount(){
-    actionContainer.get().loadThreadList();
+
+    //actionContainer.get().loadThreadList();
   }
 
   render(){

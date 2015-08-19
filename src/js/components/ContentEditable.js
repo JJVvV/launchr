@@ -13,8 +13,15 @@ let html = '';
 
 export default class ContentEditable {
 
-
-
+  componentDidMount(){
+    this.focus();
+  }
+  componentDidUpdate(){
+    this.focus();
+  }
+  focus(){
+    React.findDOMNode(this.refs.contentEditable).focus();
+  }
   render(){
     const {right, info} = this.props;
     return(

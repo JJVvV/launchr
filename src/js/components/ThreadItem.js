@@ -13,15 +13,16 @@ export default class ThreadItem extends React.Component{
 
 
   render(){
-    const {timer, avator, title, active, id, info, threadID} = this.props.item;
+    const {timer, avator, title, active, info, threadID, count} = this.props.item;
     return (
-        <li className={classnames({'thread-item': true, 'active': active})} onClick={this.props.clickItem.bind(null, threadID)}>
+        <li className={classnames({'thread-item': true, 'active': active})} onClick={this.props.clickItem.bind(null, threadID, title)}>
           <div className="thread-item-func">
             <div className="tip">{timer}</div>
           </div>
           <div className="thread-item-avator avator">
             <img src={avator} alt="" width="40" height="40" />
-            <i className="circle-tip">3</i>
+            {this.generateCount(count)}
+
           </div>
           <div className="thread-item-info">
             <h4>{title}</h4>
@@ -31,6 +32,9 @@ export default class ThreadItem extends React.Component{
     );
   }
 
+  generateCount(count){
+    return count && count > 0 ? (<i className="circle-tip">{count}</i>): '';
+  }
 }
 
 

@@ -10,12 +10,13 @@ import classnames  from 'classnames';
 import ChatRoom from './ChatRoom.js';
 import fullcalendarContainer from '../services/fullcalendarContainer.js';
 import reduxContainer from '../services/reduxContainer.js';
+import PubSub from 'pubsub-js';
 
 export default class ChatTitle extends React.Component{
 
   constructor(){
     super();
-    this.state = this.getTimer(new Date());
+    this.state = this.getState(new Date());
   }
   componentDidMount(){
 
@@ -35,10 +36,10 @@ export default class ChatTitle extends React.Component{
           </div>
           <div className="calendar-action">
             <div className="btn-group ">
-              <button className="btn btn-default" onClick={this.toggleView.bind(this, 'month')}>月</button>
-              <button className="btn btn-default" onClick={this.toggleView.bind(this, 'basicWeek')}>周</button>
+              <button className={classnames({'btn': true, 'btn-default': true, 'active': this.state.showMonth})} onClick={this.toggleView.bind(this, 'month')}>月</button>
+              <button className={classnames({'btn': true, 'btn-default': true, 'active': !this.state.showMonth})} onClick={this.toggleView.bind(this, 'basicWeek')}>周</button>
             </div>
-            <button className="btn btn-default calendar-action-add"><i className="icon-glyph-166"></i>新增</button>
+            <button className="btn btn-default calendar-action-add" onClick={::this.showSlider}><i className="icon-glyph-166"></i>新增</button>
             <span className="icon-glyph-115 calendar-action-search"></span>
           </div>
           <div className="calendar-change-time">
@@ -60,12 +61,21 @@ export default class ChatTitle extends React.Component{
     let viewTimer = $calendar.fullCalendar( 'getDate' );
     this.setState(this.getTimer(viewTimer._d));
   }
-
+  showMonth(show){
+    return {
+      showMonth: show
+    }
+  }
   getTimer(timer){
     return {
       year: timer.getFullYear(),
       month: timer.getMonth() + 1
     }
+  }
+  getState(){
+    var timer = this.getTimer(new Date());
+    let showMonth = this.showMonth(true);
+    return {...timer, ...showMonth};
   }
   toggleTitle(){
 
@@ -76,7 +86,13 @@ export default class ChatTitle extends React.Component{
   }
 
   toggleView(viewName){
+    let showMonth = !this.state.showMonth;
+    this.setState(this.showMonth(showMonth));
     fullcalendarContainer.get().fullCalendar( 'changeView', viewName);
+  }
+
+  showSlider(){
+    PubSub.publish('haha');
   }
 }
 

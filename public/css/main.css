@@ -386,6 +386,7 @@ html, body, #wrapper, .container, .page-container {
   height: 100%; }
 
 .container {
+  position: relative;
   min-height: 620px;
   min-width: 880px; }
 
@@ -2012,6 +2013,18 @@ html, body, #wrapper, .container, .page-container {
     font-size: 20px;
     margin-right: 10px;
     vertical-align: middle; }
+
+.slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
+  width: 700px;
+  border-left: 1px solid #e3e7ea;
+  box-shadow: -5px 0 16px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 900; }
 
 @keyframes rotate {
   from {
