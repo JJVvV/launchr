@@ -19,12 +19,13 @@ export default class ApplicationPage {
 
   componentDidMount(){
 
+
     //actionContainer.get().loadThreadList();
   }
 
   render(){
-    const items = [{avator:"/public/img/zhangqiuyan.jpg", id:0, title:"审批", link: '/application/approval', info: '我爱你再见'},
-      {avator:"/public/img/zhangqiuyan.jpg", id:1, title:"日程", link: '/application/calendar', info: '我爱你再见'}];
+    const items = [{avator:"/redux-launchr/public/img/zhangqiuyan.jpg", id:0, title:"审批", link: '/application/approval', info: '我爱你再见'},
+      {avator:"/redux-launchr/public/img/zhangqiuyan.jpg", id:1, title:"日程", link: '/application/calendar', info: '我爱你再见'}];
 
 
 

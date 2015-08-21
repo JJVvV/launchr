@@ -26,6 +26,7 @@
   margin-top:18px;
 }
 $chat-room-member-width:47px;
+$chat-room-member-smallwidth:40px;
 
 .chat-room-member{
   .circle{
@@ -57,3 +58,14 @@ $chat-room-member-width:47px;
   width:$chat-room-member-width;height:$chat-room-member-width;
   @include border-radius($border-radius-small);
 }
+
+//小号的聊天头像
+.chat-room-member-small{
+  position: relative;
+  float:left;
+  margin-right:10px;
+  width:$chat-room-member-smallwidth;height:$chat-room-member-smallwidth;
+  @include border-radius($border-radius-small);
+  i.icon-glyph-136{font-size: 40px;color: $gray-light;}  //审批里面的箭头（i标签）
+}
+

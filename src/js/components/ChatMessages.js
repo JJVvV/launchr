@@ -22,7 +22,7 @@ export default class ChatMessages extends React.Component{
   renderItems(messages){
 
     return messages.map(message =>(
-        <ChatMessage message={message} key={Math.floor(Math.random()*10000)+ Date.now()} />
+        <ChatMessage message={message} key={message.id} />
     ));
   }
 }

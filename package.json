@@ -67,6 +67,7 @@
     "morgan": "^1.6.0",
     "multer": "^1.0.1",
     "object-assign": "^3.0.0",
+    "pikaday": "^1.3.3",
     "pubsub-js": "^1.5.2",
     "react": "^0.13.0",
     "react-redux": "^0.9.0",

@@ -11,12 +11,16 @@ import ChatRoom from './ChatRoom.js';
 import fullcalendarContainer from '../services/fullcalendarContainer.js';
 import reduxContainer from '../services/reduxContainer.js';
 import PubSub from 'pubsub-js';
+import CalendarDropdown from './CalendarDropdown.js';
+
+import {SLIEDER_ACTIVE, S} from '../constants/launchr.js';
+import {sliderShow} from '../services/slider.js';
 
 export default class ChatTitle extends React.Component{
 
   constructor(){
     super();
-    this.state = this.getState(new Date());
+    this.state = this.getState();
   }
   componentDidMount(){
 
@@ -30,17 +34,20 @@ export default class ChatTitle extends React.Component{
     return (
         <div className="calendar-title clearfix" onClick={toggle}>
           <div className="calendar-user">
-            <div className="calendar-user-avator avator"><img src="/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" /></div>
+            <div className="calendar-user-avator avator"><img src="/redux-launchr/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" /></div>
             <span className="calendar-user-name">Jerry Luo</span>
-            <a className="calendar-user-change" href="javascrit:;" onClick={::this.toggleUser}>更换</a>
+            <a className="calendar-user-change" href="javascrit:;" onClick={::this.toggleUser} style={{marginRight: '20px'}}>更换</a>
+            <a className="calendar-user-change" href="javascrit:;" onClick={::this._meetingDetail} style={{marginRight: '20px'}}>会议详情</a>
+            <a className="calendar-user-change" href="javascrit:;" onClick={::this._eventDetail}>事件详情</a>
           </div>
           <div className="calendar-action">
             <div className="btn-group ">
               <button className={classnames({'btn': true, 'btn-default': true, 'active': this.state.showMonth})} onClick={this.toggleView.bind(this, 'month')}>月</button>
               <button className={classnames({'btn': true, 'btn-default': true, 'active': !this.state.showMonth})} onClick={this.toggleView.bind(this, 'basicWeek')}>周</button>
             </div>
-            <button className="btn btn-default calendar-action-add" onClick={::this.showSlider}><i className="icon-glyph-166"></i>新增</button>
-            <span className="icon-glyph-115 calendar-action-search"></span>
+           <CalendarDropdown />
+
+            <span className="icon-glyph-115 calendar-action-search"  onClick={::this.showSlider}></span>
           </div>
           <div className="calendar-change-time">
             <div className="inner">
@@ -54,7 +61,12 @@ export default class ChatTitle extends React.Component{
 
     );
   }
+  toggleDropdown(){
 
+    this.setState({
+      showDropdown:!this.state.showDropdown
+    });
+  }
   toggleMonth(handler){
     let $calendar = fullcalendarContainer.get();
     $calendar.fullCalendar(handler);
@@ -75,7 +87,7 @@ export default class ChatTitle extends React.Component{
   getState(){
     var timer = this.getTimer(new Date());
     let showMonth = this.showMonth(true);
-    return {...timer, ...showMonth};
+    return {...timer, ...showMonth, showDropdown: false};
   }
   toggleTitle(){
 
@@ -90,10 +102,19 @@ export default class ChatTitle extends React.Component{
     this.setState(this.showMonth(showMonth));
     fullcalendarContainer.get().fullCalendar( 'changeView', viewName);
   }
-
-  showSlider(){
-    PubSub.publish('haha');
+  showEventDetail(eventType, data){
   }
+  showSlider(){
+    PubSub.publish(SLIEDER_ACTIVE);
+  }
+
+  _meetingDetail(){
+    sliderShow({type:S.MEETING_DETAIL, meeting:{id:'haha'}});
+  }
+  _eventDetail(){
+    sliderShow({type:S.EVENT_DETAIL, event:{id:'haha'}});
+  }
+
 }
 
 

@@ -5,7 +5,7 @@ const initialState = {
   threadList: [], //聊天列表 on .sub-panel
   me:{ //关于我的信息
     //this is not available
-    avator:"/public/img/zhangqiuyan.jpg",
+    avator:"/redux-launchr/public/img/zhangqiuyan.jpg",
     id:2,
     name:"听说"
   },
@@ -15,7 +15,8 @@ const initialState = {
 
   ], // 当前状态下所有聊天记录
   currentThreadID: '', //当前聊天室ID
-  timer: '' //记录聊天时间
+  timer: '', //记录聊天时间
+  currentMsgId:0//当天消息的ID
 };
 
 let _threads = {};
@@ -35,7 +36,7 @@ function getMessagesByThreadID(threadID){
 const actionsMap = {
   //加载 .threadList
   [constant.LOAD_THREADLIST]: (state, action) => {
-    return {threadList: action.threadList}
+    return {threadList: action.threadList,currentMsgId:action.currentMsgId}
   },
 
   [constant.CHANGE_THREAD]: (state, action) => {
@@ -50,14 +51,14 @@ const actionsMap = {
 
   //点击某个 .thread-item 时加载相应的聊天内容
   [constant.ADD_CHATMESSAGES]: (state, action) => {
-
-    let chatMessages = state.chatMessages.length > 0 ? state.chatMessages : state.chatMessages.concat(action.messages);
+    let chatMessages = action.messages.length > 0 ? state.chatMessages.concat(action.messages):state.chatMessages ;
     let threadList = state.threadList.map((thread) => {
       if(thread.threadID === action.threadID){
         return {...thread, count:0}
       }
       return thread;
     });
+
     return {
       chatMessages,
       chatRoomName: action.chatRoomName,
@@ -108,6 +109,5 @@ const actionsMap = {
 export default function launchr(state = initialState, action){
   const reduceFn  = actionsMap[action.type];
   if(!reduceFn) return state;
-
   return Object.assign({}, state, reduceFn(state, action));
 }

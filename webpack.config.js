@@ -7,7 +7,7 @@ module.exports = {
 
   entry: {
     'App': [ 'webpack-dev-server/client?http://localhost:3000', 'webpack/hot/only-dev-server', './src/App'],
-
+    //'App': [ './src/App'],
     //'AdminApp': [ 'webpack-dev-server/client?http://localhost:3000', 'webpack/hot/only-dev-server', './src/AdminApp']
   },
   output: {
@@ -42,5 +42,5 @@ module.exports = {
       }
     ]
   },
-    debug:true
+    debug:false
 };

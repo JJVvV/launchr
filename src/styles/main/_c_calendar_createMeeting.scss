@@ -1,0 +1,743 @@
+.chat-room-members-add {
+  width: 40px;
+  height: 40px;
+}
+
+.input-whole-width {
+  width: 100%;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.new-meeting-box {
+  //最外层的盒子
+  position: relative;
+  width: 520px;
+  //min-height: 800px;
+  height: 100%;
+  background-color: $light-base;
+  box-shadow: 0 0 40px $gray-dark;
+}
+
+%box-header {
+  padding: 20px;
+  line-height: 1;
+  font-size: large;
+  border-bottom: 1px solid $input-border-color;
+}
+
+.meeting-box-header {
+  //最外层的盒子头部
+  @extend %box-header;
+  i {
+    float: right;
+    color: $gray-light;
+  }
+}
+
+.meeting-box-body {
+  //最外层的盒子身体
+  font-size: 14px;
+  padding: 23px 18px;
+  input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  p.meeting-detail-topic {
+    margin: 20px 0;
+  }
+  //input有padding，宽度怎么算？
+  select {
+    width: 48%;
+    padding: 8px 10px;
+    margin: 17px 0;
+  }
+  textarea {
+    width: 480-24px;
+  }
+}
+
+.attend-person-group {
+  border-bottom: 1px solid $gray-light;
+  //  padding: 0 17px;
+}
+
+.meeting-line {
+  padding: 17px 0px;
+}
+
+.attend-meeting-detail {
+  //会议时间以及地点详情
+  display: inline-block;
+  vertical-align: middle;
+  width: 69%;
+  i {
+    color: $gray-light;
+    font-size: 22px;
+  }
+  .time {
+    color: $gray-light;
+    font-size: small;
+  }
+  .meeting-detail-line {
+    margin-bottom: 10px;
+  }
+}
+
+.attend-title {
+  //出席人员title，因为要将title与右侧图片垂直居中
+  display: inline-block;
+  width: 30%;
+  vertical-align: super;
+}
+
+.meeting-title {
+  //会议时间地点title
+  display: inline-block;
+  width: 30%;
+}
+
+.attend-detail {
+  text-align: center;
+  color: #0099ff;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+  margin-left: 33px;
+  cursor: pointer;
+}
+
+.attend-person-line {
+  padding-top: 17px;
+  //  & div:last-child{border-bottom: 0;}
+  &:last-child .attend-meeting-avator {
+    border-bottom: none;
+  }
+  .attend-meeting-avator {
+    display: inline-block;
+    vertical-align: middle;
+    width: 69%;
+    border-bottom: 1px dashed $gray-light;
+    padding-bottom: 17px;
+
+    //    &:last-child{
+    //      border-bottom:none;
+    //    }
+  }
+
+}
+
+.meeting-box-footer {
+  //最外层盒子的脚部
+  border-top: 1px solid $input-border-color;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+
+  %footer-btn {
+    display: inline-block;
+    right: 0;
+    float: right;
+    padding: 10px 35px;
+  }
+
+  .btn-comfirm {
+    @extend %footer-btn;
+    background-color: $blue-base;
+    color: $light-base;
+    cursor: pointer;
+    &:hover {
+      background: rgba($blue-base, 0.8);
+      //      color:$hover-color;
+      border-color: rgba($blue-base, 0.1);
+    }
+  }
+
+  .btn-cancle {
+    @extend %footer-btn;
+    cursor: pointer;
+  }
+}
+
+//-----------------新建事件样式------------------
+//带图标的input
+.event-input-group {
+  margin-top: 17px;
+  display: flex;
+}
+
+.event-input {
+  display: inline;
+  vertical-align: middle;
+  float: left;
+  border-right: 0px;
+  border-radius: 5px 0px 0px 5px;
+  width: 100%;
+}
+
+.input-group-event-addon {
+  padding: 5px 10px;
+  border: 1px solid $input-border-color;
+  border-radius: 0px 5px 5px 0px;
+  i {
+    color: $input-border-color;
+  }
+}
+
+.new-event-place {
+  width: 76%;
+  display: inline-block;
+}
+
+.new-event-switch {
+  display: inline-block;
+  width: 24%;
+  float: left;
+  margin-top: 17px;
+  span {
+    vertical-align: -webkit-baseline-middle;
+    display: inline-block;
+    margin-left: 25px;
+  }
+  i {
+    vertical-align: -webkit-baseline-middle;
+    font-size: 36px;
+    color: $red-base;
+  }
+}
+
+//选择时间标题
+.new-event-choose-time {
+  clear: both;
+  margin: 87px auto 25px;
+  width: 100%;
+  height: 1px;
+  text-align: left;
+  border-bottom: 1px solid #bec6d3;
+  span {
+    color: #bec6d3;
+    font-size: 12px;
+    background-color: #fff;
+    position: relative;
+    top: -12px;
+    padding-right: 20px;
+  }
+  span.pull-right {
+    color: $gray-base;
+    padding-left: 10px;
+    padding-right: 0px;
+    top: -9px;
+  }
+  i {
+    color: #bec6d3;
+    background-color: #fff;
+    position: relative;
+    top: -5px;
+    padding-left: 20px;
+    color: $gray-base;
+  }
+}
+
+.new-event-time-title {
+  display: inline-block;
+  width: 8%;
+  vertical-align: top;
+  margin-top: 5px;
+}
+
+.new-event-time-group {
+  display: inline-block;
+  width: 91%;
+  padding-bottom: 10px;
+}
+
+.new-event-time-line {
+  margin-bottom: 17px;
+  position: relative;
+  //  i{font-size: 36px;color: $gray-light;}
+  .new-event-time-line-header {
+    display: inline-block;
+    width: 20%;
+  }
+  i.new-event-time-line-header {
+    font-size: 36px;
+    color: $gray-light;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .emergency{color: $red-base!important;}
+  span.new-event-time-line-header {
+    color: $gray-light;
+  }
+}
+
+.input-group-wrapper {
+  display: inline-block;
+  width: 72%;
+  .input-group {
+    margin: 0;
+  }
+  %new-event-btn {
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+    cursor: pointer;
+    top: 10px;
+  }
+  .btn-add {
+    color: $blue-base;
+    @extend %new-event-btn;
+  }
+  .btn-del {
+    color: $red-base;
+    @extend %new-event-btn;
+  }
+}
+
+//-----------------会议详情样式-------------------
+.meeting-detail-header {
+  @extend %box-header;
+  i {
+    cursor: pointer;
+    color: $gray-light;
+    margin: 0 10px;
+  }
+  i.icon-glyph-71 {
+    color: $blue-base;
+  }
+}
+
+.meeting-detail-title {
+  font-size: 24px;
+  line-height: 1;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #bec6d3;
+  span {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .circle {
+    @extend %circle-tip;
+    padding: 0;
+    display: inline-block;
+    background-color: $red-base;
+    width: 10px;
+    height: 10px;
+    margin: 7px;
+  }
+}
+
+.meeting-detail-group {
+  @extend .attend-meeting-detail;
+  margin-top: 20px;
+  width: 100%;
+  //  i{color: $red-base;}
+  .meeting-detail-line {
+    @extend .meeting-detail-line;
+    width: 60%;
+    display: inline-block;
+  }
+  .repeat-line {
+    display: inline-block;
+    width: 17%;
+    float: right;
+  }
+}
+
+.meeting-place-detail-line {
+  border-bottom: 1px solid $gray-light;
+  padding-bottom: 10px;
+  i {
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
+.chat-room-member i {
+  color: $green-base;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.chat-room-member.inactive {
+  opacity: 0.3;
+}
+
+.attend-meeting-btn-group {
+  width: 265px;
+  margin: 20px auto;
+  a {
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.meeting-detail-footer-btn {
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  border-top: 1px solid $gray-light;
+  width: 100%;
+  a {
+    //    color: $gray-light;
+    width: 32%;
+    display: inline-block;
+    padding: 10px 0;
+    border-right: 1px solid $gray-light;
+    cursor: pointer;
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+//---------------内部会议详情----------------
+.meeting-chat-group {
+  .meeting-chat-line {
+    margin-top: 10px;
+  }
+  .meeting-chat-menber {
+    width: 15%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .meeting-chat-detail {
+    display: inline-block;;
+    width: 70%;
+    i {
+      color: $gray-light;
+    }
+  }
+  .meeting-chat-time {
+    width: 13%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: right;
+    color: $gray-light;
+  }
+}
+
+.comment-input {
+  display: inline;
+  vertical-align: middle;
+  float: left;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  width: 100%;
+  border-right: 0;
+  width: 350px !important;
+}
+
+.input-submit-btm {
+  padding: 10px 30px;
+  line-height: 1;
+  border: 1px solid #bec6d3;
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
+  background-color: $gray-lighter;
+  span {
+    white-space: nowrap;
+  }
+}
+
+.meeting-group-wrapper {
+  position: absolute;
+  bottom: 40px;
+}
+
+.input-group {
+  display: flex;
+  vertical-align: middle;
+  margin: 30px 0;
+}
+
+.input-group-addon {
+  padding: 5px 10px;
+  border: 1px solid $input-border-color;
+  border-radius: 5px 0px 0px 5px;
+  i {
+    line-height: 1;
+    color: $input-border-color;
+    font-size: 22px;
+    vertical-align: middle;
+  }
+}
+
+//--------------------任务详情--------------------------
+.task-detail-new-subtask {
+  margin: 25px auto;
+}
+
+.task-line {
+  padding-top: 17px;
+  line-height: 1;
+  &:last-child {
+    padding-bottom: 17px;
+  }
+}
+
+.task-detail-title {
+  display: inline-block;
+  width: 29%;
+  vertical-align: middle;
+  .default {
+    color: $gray-light;
+  }
+  .ordinary {
+    color: $blue-base;
+  }
+  .emergency {
+    color: $red-base;
+  }
+}
+
+.task-detail-main {
+  display: inline-block;
+  vertical-align: middle;
+  width: 49%;
+}
+
+.task-detail-tips {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20%;
+  text-align: right;
+  .default {
+    color: $gray-light;
+  }
+  .ordinary {
+    color: $blue-base;
+  }
+  .emergency {
+    color: $red-base;
+  }
+  span {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
+
+//子任务group
+.subtask-group {
+  padding-bottom: 17px;
+}
+
+.subtask-member {
+  text-align: right;
+}
+
+.subtask-detail {
+  width: 80%;
+  display: inline-block;
+  .subtask-detail-line {
+    i.default {
+      color: $gray-light;
+    }
+    span.default {
+      display: inline-block;
+      margin: 0 10px;
+    }
+  }
+}
+
+.subtask-tips {
+  i {
+    font-size: 20px;
+    margin-top: 13px;
+    color: $gray-light;
+  }
+}
+
+//-------------------审批详情--------------------
+.approve-group {
+  padding: 17px 0;
+}
+
+.approve-detail {
+  width: 88%;
+  display: inline-block;
+}
+
+.approve-detail-line {
+  line-height: 1.2;
+  .title {
+    font-size: 18px;
+  }
+  .default {
+    color: $gray-light;
+  }
+  .emergency {
+    color: $red-base;
+  }
+}
+
+.approve-detail-footer-btn {
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  border-top: 1px solid #e3e7ea;
+  width: 100%;
+  a {
+    width: 21%;
+    display: inline-block;
+    padding: 8px 0;
+    border-right: 1px solid #e3e7ea;
+    cursor: pointer;
+    &:last-child {
+      width: 10%;
+      border: none
+    }
+  }
+}
+
+//------------------搜索-----------------
+//顶部搜索输入框
+.input-search-group {
+  display: flex;
+  vertical-align: middle;
+  margin-bottom: 30px;
+  .input-group-addon {
+    border-right: 0px;
+  }
+  input {
+    padding-left: 0;
+  }
+}
+
+.search-box-group {
+
+}
+
+.search-box-group-date {
+  background-color: $gray-lighter;
+  font-size: 12px;
+  color: $gray-light;
+  padding: 0 20px;
+  span {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+.search-box-group-wrapper {
+
+}
+
+.search-box-group-detail {
+  padding: 10px 15px;
+  position: relative;
+  border-bottom: 1px dashed $gray-light;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+  .icon-place {
+    cursor: pointer;
+    font-size: 25px;
+    position: absolute;
+    right: 0;
+    top: 20px;
+  }
+  %circle {
+    border-radius: 25px;
+    line-height: 22px;
+    position: absolute;
+    padding: 0 4px;
+    color: $light-base;
+  }
+  i.wait {
+    @extend %circle;
+    background-color: $green-base;
+  }
+
+  i.emergency {
+    @extend %circle;
+    background-color: $red-base;
+  }
+
+  i.meeting {
+    @extend %circle;
+    background-color: $blue-base;
+  }
+
+}
+
+.time-detail-line {
+  margin-left: 35px;
+  .place {
+    color: $gray-light;
+    font-size: 12px;
+  }
+  .time {
+    display: inline-block;
+    width: 15%;
+  }
+}
+
+//-----------------新建审批-----------------
+.approve-line {
+  padding-top: 17px;
+  padding-bottom: 0px;
+  margin-bottom: -10px;
+  &:last-child{margin-bottom: 17px;}
+}
+
+.new-approve-importance-title{
+  display: inline-block;
+  width: 8%;
+  vertical-align: top;
+ margin-top: 17px;
+}
+
+.new-approve-icon-switch{
+  margin-top: 14px;margin-bottom: 0;
+}
+
+//添加附件
+.new-approve-attachment-group{margin: 5px 0;}
+
+//审批类型
+.approve-type-checkbox-box{
+display: inline-block;width: 33%;
+  &:last-child{width: 31%;}
+  input{width: 20px!important;}
+}
+
+
+
+
+
+
+//--------------新建会议-------------
+.new-meeting-place-nav{margin-top: 17px;}
+.meeting-room-group{
+padding: 15px 25px;
+}
+.meeting-room-line{
+margin-bottom: 8px;
+&:last-child{margin-bottom: 0;}
+}
+.meeting-room-box{
+width: 22%;
+margin: 0 5px;
+display: inline-block;
+text-align: center;
+border-radius: 3px;
+cursor: pointer;
+&:first-child{margin-left: 0;}
+&:last-child{margin-right: 0;}
+}
+.meeting-room-box.default{  border: 1px solid $gray-light;}
+.meeting-room-box.active{color: $light-base;background-color: $blue-base; border: 1px solid $blue-base;}
+.meeting-room-box.inactive{color: $gray-light;background-color: $gray-lighter; border: 1px solid $gray-lighter;}
+

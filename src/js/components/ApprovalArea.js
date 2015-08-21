@@ -43,7 +43,7 @@ export default class CalendarArea extends React.Component{
                                 <div className="tip is-important">今天19:00截止</div>
                             </div>
                             <div className="approval-item-avator avator">
-                                <img src="/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" />
+                                <img src="/redux-launchr/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" />
                             </div>
                             <div className="approval-item-info">
                                 <h4>Join</h4>
@@ -55,7 +55,7 @@ export default class CalendarArea extends React.Component{
                                 <div className="tip">今天19:00截止</div>
                             </div>
                             <div className="approval-item-avator avator">
-                                <img src="/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" />
+                                <img src="/redux-launchr/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" />
                             </div>
                             <div className="approval-item-info">
                                 <h4>Join</h4>
@@ -72,7 +72,7 @@ export default class CalendarArea extends React.Component{
                                 </div>
                             </div>
                             <div className="approval-item-avator avator">
-                                <img src="/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" />
+                                <img src="/redux-launchr/public/img/zhangqiuyan.jpg" alt="" width="40" height="40" />
                             </div>
                             <div className="approval-item-info">
                                 <h4>Join</h4>

@@ -10,6 +10,11 @@ import RouterContainer from '../services/routerContainer.js';
 import ReduxContainer from '../services/reduxContainer.js';
 import testJSON from '../test/json_test.js';
 import request from 'reqwest';
+import moment from 'moment';
+import $ from 'jquery';
+
+import longPollService from '../services/longPollService.js';
+
 const MAIN_URL = '';
 import {CHAT_URL,
     LOAD_THREADLIST,
@@ -25,28 +30,38 @@ export function loadThreadList(){
 
       return request({
               url: '/chat/unreadsession',
-
-              method: 'get',
+              method: 'post',
+              type: 'json',
               contentType: 'application/json',
-              crossOrigin: true,
-              data:{
-                  "appName": "launchr",
-                  "appToken": "verify-code",
-                  "userName": "bellliu",
+              data:JSON.stringify({
                   "start": 0,
                   "end":10
-              }
+              })
           })
                   .then(res => {
 
-                  let threadList = testJSON.threadList;
+                  //let threadList = testJSON.threadList;
+                  let threadList=[];
+
+                  res.sessions.map(function(item,index){
+                      threadList.push({
+                          avator:"/redux-launchr/public/img/zhangqiuyan.jpg",
+                          threadID:item.sessionName,
+                          title:item.lastMsg==null || item.lastMsg.info==null?item.sessionName:JSON.parse(item.lastMsg.info).nickName,
+                          info:item.lastMsg==null?"":item.lastMsg.content,
+                          timer:moment(item.createDate).format('HH:mm'),
+                          count: item.count
+                      });
+                  });
+
                   return dispatch({
                       type: LOAD_THREADLIST,
-                      threadList: threadList || res.threadList
+                      threadList: threadList,
+                      currentMsgId:res.msgId
                   })
               })
-
               .catch(err => {
+                  console.error(err);
                   console.error('load worklist failed');
 
               });
@@ -56,61 +71,117 @@ export function loadThreadList(){
 
 //load chatMessages
 
-export function loadChatMessages(threadID, name){
+export function loadChatMessages(threadID, name,count){
 
   return dispatch => {
-
-      return fetch(`${MAIN_URL}/api/chatMessages`)
-              .then(res => {
-
-                  let messages = testJSON.messages;
-
-                  dispatch({
-                      threadID,
-                      type: ADD_CHATMESSAGES,
-                      messages: messages || res.messages,
-                      chatRoomName: name
-                  })
+          return request({
+              url: '/chat/historymessage',
+              method: 'post',
+              type: 'json',
+              contentType: 'application/json',
+              data:JSON.stringify({
+                  "to": threadID,
+                  "limit":8,
+                  "endTimestamp": +new Date()
               })
+          }).then(res => {
 
+              //let messages = testJSON.messages;
+              let messages =[];
 
-              .catch(err => {
-                  console.log(err);
-                  console.error('load chat Messages failed');
-
+              res.msg.sort(function(a,b){
+                    return a.createDate-b.createDate;
               });
+
+              let currentMessageIds=[];
+
+              messages = res.msg.map(function(item,index){
+                  if(index<=count-1){
+                      currentMessageIds.push(item.clientMsgId);
+                  }
+                  return {
+                      avator:'/redux-launchr/public/img/zhangqiuyan.jpg',
+                      threadID:threadID,
+                      me:item.from!=threadID,
+                      name:JSON.parse(item.info).nickName,
+                      info:item.content,
+                      id:item.msgId,
+                      timer:moment(item.createDate).format('HH:mm'),
+                  }
+              });
+
+              request({
+                  url: '/chat/readsession',
+                  method: 'post',
+                  type: 'json',
+                  contentType: 'application/json',
+                  data:JSON.stringify({
+                      "sessionName":threadID,
+                      "msgIds":currentMessageIds
+                  })
+              });
+
+              dispatch({
+                  threadID,
+                  type: ADD_CHATMESSAGES,
+                  messages: messages,
+                  chatRoomName: name
+              })
+          })
+          .catch(err => {
+              console.log(err);
+              console.error('load chat Messages failed');
+
+          });
 
       }
 }
 
 
+export function loadLongPoll(){
+
+    return (dispatch,getState)=>{
+        longPollService(dispatch,getState);
+    }
+}
 //addMessage
 
 export function sendMessage(text){
 
   return (dispatch, getState) => {
+     let chatState=getState().chat;
+     let currentDate=new Date();
+     return request({
+         url: '/chat/sendmsg',
+         method: 'post',
+         type: 'json',
+         contentType: 'application/json',
+         data:JSON.stringify({
+             "to": [ chatState.currentThreadID],
+             "content": text,
+             "type": "Text",
+             "info": "{\"nickName\":\"王道斌\"}",
+             "clientMsgId":+currentDate
+         })
+     }).then(res => {
+         let message = {
+             info:text,
+             timer: currentDate.toLocaleTimeString(),
+             me: true
+         }
+         return dispatch({
+             type: SEND_CHATMESSAGE,
+             message,
 
-      return fetch(`${MAIN_URL}/api/articles`)
+         })
+     })
 
-            .then(res => {
+         .catch(err => {
+             console.log(err);
+             console.error('add Message failed');
 
-                  let message = {
-                      info:text,
-                      timer: new Date().toLocaleTimeString(),
-                      me: true
-                  }
-              return dispatch({
-                type: SEND_CHATMESSAGE,
-                  message,
+         });
 
-              })
-            })
-
-            .catch(err => {
-                  console.log(err);
-              console.error('add Message failed');
-
-            });
      }
 }
 
@@ -148,7 +219,18 @@ function getNowThread(threadID, chatRoomName){
 
 
 
-
+////轮询
+//function loopRequest(){
+//    request({
+//
+//    }).then((req) => {
+//        if(!req.success) throw error;
+//        dispatch({})
+//        loopRequest();
+//    }).catch((err) => {
+//        console.log(err);
+//    });
+//}
 
 
 

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="public/css/main.css"/>
+    <title></title>
+</head>
+<body>
+
+<!---------------------新建审批----------------------->
+
+<div class="new-meeting-box" style="margin: 50px;">
+    <div class="meeting-box-header">
+        <span>新建审批</span>
+        <a href="javascript:void(0)"><i class="icon-glyph-167"></i></a>
+    </div>
+
+    <div class="meeting-box-body">
+        <div><input class="form-c " type="text" placeholder="填写审批标题"/></div>
+
+        <div class="attend-person-group">
+            <div class="approve-line">
+                <div class="attend-title pull-left"><span>审批类型</span></div>
+                <div class="attend-meeting-detail">
+                    <div class="approve-type-checkbox-box"><input type="checkbox"/><span>费用</span></div>
+                    <div class="approve-type-checkbox-box"><input type="checkbox" /><span>请假</span></div>
+                    <div class="approve-type-checkbox-box"><input type="checkbox" /><span>自定义</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="attend-person-group">
+            <div class="attend-person-line">
+                <span class="attend-title">审批人</span>
+
+                <div class="attend-meeting-avator">
+                    <div class="chat-room-member-small"><img src="./public/img/jinmuyan.jpg" alt="" width="40" height="40"/></div>
+                    <div class="chat-room-member-small"><img src="./public/img/zhangqiuyan.jpg" alt="" width="40" height="40"/></div>
+                    <div class="chat-room-members-add icon-glyph-1"></div>
+                </div>
+            </div>
+            <div class="attend-person-line">
+                <span class="attend-title">抄送</span>
+
+                <div class="attend-meeting-avator" >
+                    <div class="chat-room-member-small"><img src="./public/img/jinmuyan.jpg" alt="" width="40" height="40"/></div>
+                    <div class="chat-room-member-small"><img src="./public/img/zhangqiuyan.jpg" alt="" width="40" height="40"/></div>
+                    <div class="chat-room-members-add icon-glyph-1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="attend-person-group">
+            <div class="approve-line">
+                <div class="attend-title pull-left"><span>审批期限</span></div>
+                <div class="attend-meeting-detail">
+                    <div class="meeting-detail-line">
+                        <div class="input-group-wrapper">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class=" toolbar icon-glyph-89 "></i>
+                                </div>
+                                <input class="form-c place-input" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="approve-line">
+                <div class="attend-title pull-left"><span>金额</span></div>
+                <div class="attend-meeting-detail">
+                    <div class="meeting-detail-line">
+                        <div class="input-group-wrapper">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i>￥</i>
+                                </div>
+                                <input class="form-c place-input" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div >
+            <div class="new-approve-importance-title" ><span>重要</span></div>
+            <div class="new-event-time-group">
+                <div class="new-event-time-line new-approve-icon-switch">
+                    <i class="demo-icon icon-toggle-on new-event-time-line-header emergency"></i>
+                </div>
+            </div>
+        </div>
+        <textarea class="form-c" name="" id="" cols="30" rows="2" placeholder="备注"></textarea>
+
+        <div class="new-approve-attachment-group">
+            <i class=" toolbar icon-glyph-118"></i>
+            <span>添加附件</span>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="meeting-box-footer">
+        <span class="btn-comfirm">确认</span>
+        <span class="btn-cancle">取消</span>
+    </div>
+</div>
+
+<!---------------------新建会议----------------------->
+<!--<div class="new-meeting-box" style="margin: 50px;">-->
+    <!--<div class="meeting-box-header">-->
+        <!--<span>新建会议</span>-->
+        <!--<a href="javascript:void(0)"><i class="icon-glyph-167"></i></a>-->
+    <!--</div>-->
+
+    <!--<div class="meeting-box-body ">-->
+        <!--<div class=" attend-person-group">-->
+            <!--<div class="attend-title pull-left"><span>已选择</span>-->
+            <!--</div>-->
+            <!--<div class="attend-meeting-detail">-->
+                <!--<div class="meeting-detail-line">-->
+                    <!--<i class=" toolbar icon-glyph-89"></i>-->
+                    <!--<span>8月6日（周三） 9:00 ~ 12:00</span>-->
+                    <!--<span class="time">&nbsp;3小时</span>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <!--<div class="meeting-place-nav new-meeting-place-nav">-->
+            <!--<span class="nav-box-active pull-left">-->
+                <!--会议室-->
+            <!--</span>-->
+            <!--<span class="nav-box-inactive">-->
+                <!--地址-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<hr style="margin: 0; height: 1px;">-->
+
+        <!--<div class="meeting-room-group">-->
+            <!--<div class="meeting-room-line">-->
+                <!--<div class="meeting-room-box default"><span>2楼会议室A</span></div>-->
+                <!--<div class="meeting-room-box default"><span>2楼会议室B</span></div>-->
+                <!--<div class="meeting-room-box active"><span>3楼大会议室</span></div>-->
+                <!--<div class="meeting-room-box inactive"><span>4楼会议室</span></div>-->
+            <!--</div>-->
+            <!--<div class="meeting-room-line">-->
+                <!--<div class="meeting-room-box inactive"><span>5楼会议室A</span></div>-->
+                <!--<div class="meeting-room-box inactive"><span>5楼会议室B</span></div>-->
+                <!--<div class="meeting-room-box default"><span>5楼会议室C</span></div>-->
+                <!--<div class="meeting-room-box default"><span>5楼会议室D</span></div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+
+    <!--<div class="meeting-box-footer">-->
+        <!--<span class="btn-comfirm">确认</span>-->
+        <!--<span class="btn-cancle">取消</span>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+</body>
+</html>

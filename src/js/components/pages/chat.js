@@ -13,7 +13,7 @@ import {getMessagesByThreadID} from '../../services/messageService.js';
 
 export default class Chat {
   componentWillMount(){
-    actionContainer.get().loadThreadList();
+    //actionContainer.get().loadThreadList();
   }
 
   componentDidMount(){
@@ -21,8 +21,8 @@ export default class Chat {
   }
 
   render(){
-    //const items = [{avator:"/public/img/zhangqiuyan.jpg", id:0, title:"公告", info:"我爱你再见", timer: "17:02"},
-    //  {avator:"/public/img/zhangqiuyan.jpg", id:1, title:"公告", info:"我爱你再见", timer: "17:03"}];
+    //const items = [{avator:"/redux-launchr/public/img/zhangqiuyan.jpg", id:0, title:"公告", info:"我爱你再见", timer: "17:02"},
+    //  {avator:"/redux-launchr/public/img/zhangqiuyan.jpg", id:1, title:"公告", info:"我爱你再见", timer: "17:03"}];
     //
 
 
@@ -48,9 +48,10 @@ export default class Chat {
 
     action.changeThread(threadID, title);
 
-    if(item.count && count > 0){
-      action.loadChatMessages(threadID, title);
-    }
+    action.loadChatMessages(threadID, title,count);
+    //if(item.count && count > 0){
+    //  action.loadChatMessages(threadID, title);
+    //}
 
     console.log('thread-item\'s threadID:', item.threadID);
   }

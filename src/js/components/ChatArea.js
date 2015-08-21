@@ -71,7 +71,7 @@ export default class ChatArea extends React.Component{
               });
           });
       }
-      //let message = {avator:"/public/img/zhangqiuyan.jpg", id:2, name:"听说", info:'', timer: "17:02", me: true};
+      //let message = {avator:"/redux-launchr/public/img/zhangqiuyan.jpg", id:2, name:"听说", info:'', timer: "17:02", me: true};
       //message.info = this.state.content;
 
 

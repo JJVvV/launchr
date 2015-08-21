@@ -22,3 +22,19 @@ export const CHAT_URL =  'http://totoro:10000/chat';
 export const CHAT_URL_UNREADSESSION = `${CHAT_URL}/unreadsession`;
 
 export const ENTER = 13;
+
+// event
+export const REFRESH_EVENT = 'REFRESH_EVENT';
+
+// PubSub
+export const CHANGE_SLIDER = 'change-slider';
+export const SLIDER_ACTIVE = 'slider-active';
+
+//Slider 部分
+export const S = {
+    MEETING: 'MEETING',
+    MEETING_FILTER: 'MEETING_FILTER',
+    EVENT: 'EVENT',
+    MEETING_DETAIL: 'MEETING_DETAIL',
+    EVENT_DETAIL: 'EVENT_DETAIL'
+};

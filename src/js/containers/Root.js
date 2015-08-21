@@ -26,7 +26,7 @@ import configStore from '../store/configureStore.js';
 
 const store = configStore();
 
-//ReduxContainer.set(redux);
+ReduxContainer.set(store);
 
 
 export default class Root {

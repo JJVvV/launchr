@@ -1,0 +1,42 @@
+//下拉详情弹出框
+.pull-right{float: right;}
+
+.detail-box{
+//  color: $green-base;
+  font-size: 12px;
+  width: 220px;
+  height: 220px;
+  border-radius: 3px;
+  box-shadow:0 0 10px $gray-dark;
+}
+
+.detail-header{padding: 3px 10px;border-bottom: 1px solid #ddd;}
+
+.detail-body{padding: 5px 10px;
+  height: 173px;
+  overflow: auto;
+
+}
+
+.important{border-left:3px solid $red-base; }
+.emergency-line{border-left:3px solid $orange-base; }
+
+.event-group{padding: 0 5px;
+  margin-bottom: 4px;
+  .reason{
+    display: inline-block;
+    width: 60%;
+    @extend %ellipsis;
+    line-height: 1;
+  }
+}
+
+.detail-postEvent{
+  border: 1px dashed $green-base;
+  color: $green-base;
+}
+
+.detail-meeting{
+  background-color: $blue-base;
+  color: $light-base;
+}
